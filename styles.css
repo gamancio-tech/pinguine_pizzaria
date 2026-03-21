@@ -76,7 +76,6 @@ nav {
 } 
 nav > a{
     color: var(--cor6);
-    /*font-family: var(--fonte-padrao); */
     font-size: 0.8em;
     text-decoration: none;
     padding: 15px 90px;
