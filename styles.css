@@ -7,7 +7,7 @@
     --cor3: rgb(1, 105, 1);
     --cor4: rgb(0, 55, 0);
     --cor5: rgb(0, 44, 0);
-    --cor6: rgb(252, 221, 174);
+    --cor6: rgb(243, 206, 152);
     --cor7: rgb(250, 32, 32);
     --cor8: rgb(206, 39, 10);  
     --cor9: rgb(179, 23, 12);
@@ -25,67 +25,100 @@ body {
 header {
     background-color: var(--cor3);
     color: white;
-    padding: 0px 10px;
+    padding: 5px 10px;
     text-align: center;
 }
 .container {
     display: flex;
     align-items: center;
 }
-
 .container search {
-    margin: 0 auto; /* empurra a pesquisa para o centro */    
+    margin: 0 auto 0 80px;  
 }
 .container search input {
     font-size: 1.1em;
-    padding: 5px;
+    text-align: start;
+    padding: 5px 150px 5px 10px;
     border: none;
     border-radius: 5px;
+
 }
 .container search button{
     font-size: 1.1em;
     margin-left: 5px;
-    padding: 5px 10px;
+    padding: 6px 8px;
     border-radius: 5px;
     background-color: var(--cor8);
-    color: var(--cor6);
+    color: white;
     border: none;
     cursor: pointer;
 }
+.container button > img {
+    width: 13px;
+    height: auto;
+}
 .logo {
     margin-right: 50px; /* distância entre a logo e o login */
-    width: 80px;
+    width: 60px;
     height: auto;
+    border-radius: 50%;
 }
 button a {
   text-decoration: none;
   color: inherit; /* herda a cor do botão */
 }
-.container .btn-home, .container .btn-login {
+.container .btn-login {
+    background-color: var(--cor8);
+    color: var(--cor6);
     font-size: 1em;
-    padding: 12px 6px;
+    padding: 11px 7px;
     border: none;
-    border-radius: 8px;
+    border-radius: 9px;
+}
+.container .btn-menu {
+    background-color: transparent;
+    border: none;
+    margin-right: 20px; /* distância entre o menu e o home */
+}
+.btn-menu img {
+    width: 30px;
+    height: auto;
+}   
+.container .btn-home {
+    background-color: transparent;
+    border: none;
+}
+.btn-home img {
+    width: 30px;
+    height: auto;
 }
 nav {
     background: linear-gradient(to bottom, var(--cor9), var(--cor7));
     background-color: var(--cor9);
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    padding-left: 180px;
+    padding: 10px 0px;
+    display:flex;
+    justify-content: center;
 } 
 nav > a{
     color: var(--cor6);
-    font-size: 0.8em;
+    font-size: 1.1em;
     text-decoration: none;
-    padding: 15px 90px;
-    margin-right: 10px;
-    border-right: black solid 1px;
+    padding: 15px 100px;
+    border-left: black solid 1px;
     transition-duration: 0.5s;
 }
-nav > a:hover{
-    
-    border-radius: 3px;   
+nav a > img{
+    width: 18px;
+    height: auto;
+    margin-right: 5px;
+    margin-bottom: -3px;
+}
+nav > a#last {
+    border-right: black solid 1px;
+}
+nav > a:hover{ 
+    background-color: var(--cor10);
 }
 img.grande {
     width: 100%;
