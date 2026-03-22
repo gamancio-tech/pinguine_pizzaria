@@ -27,10 +27,17 @@ header {
     color: white;
     padding: 5px 10px;
     text-align: center;
+}  
+header, nav, footer{
+    min-width: 300px;
 }
 .container {
     display: flex;
     align-items: center;
+}
+img.icon {
+    width: 30px;
+    height: auto;
 }
 .container search {
     margin: 0 auto 0 80px;  
@@ -64,8 +71,8 @@ header {
     border-radius: 50%;
 }
 button a {
-  text-decoration: none;
-  color: inherit; /* herda a cor do botão */
+    text-decoration: none;
+    color: inherit; /* herda a cor do botão */
 }
 .container .btn-login {
     background-color: var(--cor8);
@@ -75,23 +82,11 @@ button a {
     border: none;
     border-radius: 9px;
 }
-.container .btn-menu {
+.container .btn-menu, .container .btn-home, .container .btn-carrinho{
     background-color: transparent;
     border: none;
-    margin-right: 20px; /* distância entre o menu e o home */
-}
-.btn-menu img {
-    width: 30px;
-    height: auto;
-}   
-.container .btn-home {
-    background-color: transparent;
-    border: none;
-}
-.btn-home img {
-    width: 30px;
-    height: auto;
-}
+    margin-right: 20px;
+} 
 nav {
     background: linear-gradient(to bottom, var(--cor9), var(--cor7));
     background-color: var(--cor9);
@@ -129,19 +124,27 @@ main {
     background-color: var(--cor1);
     box-shadow: 15px 10px 20px rgba(0, 0, 0, 0.637);
     margin: auto;
-    padding: 0px;
-    max-width: 1100px;
+    padding-bottom: 50px;
+    max-width: 1000px;
+    min-width: 300px;
     border-radius: 0px 0px 20px 20px;
 }
 main img{
     width: 20%;
+    min-width: 200px;
     height: auto;
     margin: 30px 0px 70px 20px;
 }
 section h1{
     font-size: 3em;
     text-align: center;
-    margin: 20px 0px 80px 0px;
+    margin: 80px 0px 80px 0px;
+}
+main img.icon {
+    width: 30px;
+    min-width: unset;
+    height: auto;
+    margin: auto;
 }
 section h2{
     font-size: 2em;
@@ -151,19 +154,43 @@ section p{
     font-size: 1.2em;
     margin: 10px 0px -100px 260px;
 }
+section#promocoes h1{
+    font-size: 3em;
+    text-align: center;
+    margin: 80px 0px 130px 0px;
+}
+section#promocoes h2{
+    font-size: 2.2em;
+    margin: 30px 0px 20px 40px;
+    max-width: 520px;
+}
+section#promocoes p{
+    font-size: 1.2em;
+    margin: 30px 0px 30px 40px;
+    max-width: 420px;
+}
+section#promocoes > article > img {
+    width: 40%;
+    height: auto;
+    margin: -200px 0px 100px 525px;
+}
 footer {
-    background-color: var(--cor5);
+    background-color: var(--cor4);
     padding: 40px 20px 40px 20px;
     margin-top: 250px;
+}
+footer h3 > img {
+    margin-bottom: -8px;
+    margin-right: 8px;
 }
 footer p {
     font-size: 1em;
     color: var(--cor6);
 }
 footer h3{
-    margin: 30px 0px 10px 0px;
+    margin: 20px 0px 15px 0px;
     font-size: 1.3em;
-    color: var(--cor7);
+    color: var(--cor9);
 }
 footer a {
     color: var(--cor6);
@@ -187,11 +214,11 @@ footer a:hover {
 }
 .item4{
     grid-column: 2; 
-    grid-row: 1;
+    grid-row: 4;
 }
 .item5{
     grid-column: 2; 
-    grid-row: 2;
+    grid-row: 5;
 }
 .item6{
     grid-column: 1; 
@@ -203,11 +230,11 @@ footer a:hover {
 }
 .item8{
     grid-column: 2; 
-    grid-row: 4;
+    grid-row: 1;
 }
 .item9{
     grid-column: 2; 
-    grid-row: 5;
+    grid-row: 2;
 }
 .item10{
     margin-top: -90px;
