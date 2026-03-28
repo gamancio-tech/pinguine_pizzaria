@@ -245,5 +245,52 @@ footer a:hover {
 }
 
 main.sobremesa_menu{
+    all: revert;
     width: 100%;
+    height: 100%;
+    padding-bottom: auto;
+    background-color: white;
+}
+.sobremesa_menu img{
+    width: 30%;
+    height: auto;
+    margin-bottom: 80px;
+}
+section.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 0.9fr); /* 3 colunas */
+    grid-template-rows: auto;  
+    gap: 10px;
+}
+.grid article {
+    display: flex;
+    border: 1px solid var(--cor9);
+    padding: -10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+.grid article img {
+    width: 100px; /* controla o tamanho da imagem */
+    object-fit: cover; /* mantém proporção da imagem */
+}
+.grid article .info {
+    display: flex;
+    flex-direction: column; /* empilha h2, p e span verticalmente */
+    gap: 10px;
+    padding: 20px;
+}
+.grid h1 {
+    font-size: 3em;
+    text-align: center;
+    grid-column: span 3; /* ocupa as 3 colunas */
+    margin: 70px 0 25px 0;
+}
+.grid article .info h2 {
+    margin: 0;
+    font-size: 1.4em;
+}
+.grid article .info p {
+    margin: 0;
+    max-width: 230px;
+    font-size: 1.2em;
 }
