@@ -243,7 +243,6 @@ footer a:hover {
     width: 150px;
     height: auto;
 }
-
 main.sobremesa_menu{
     all: revert;
     width: 100%;
@@ -254,36 +253,36 @@ main.sobremesa_menu{
 .sobremesa_menu img{
     width: 30%;
     height: auto;
-    margin-bottom: 80px;
+    margin-bottom: 5rem;
 }
 section.grid {
     display: grid;
-    grid-template-columns: repeat(3, 0.9fr); /* 3 colunas */
+    grid-template-columns: repeat(3, 0.9fr);
     grid-template-rows: auto;  
-    gap: 10px;
+    gap: 0.625rem;
 }
 .grid article {
     display: flex;
-    border: 1px solid var(--cor9);
-    padding: -10px;
-    margin: 10px;
-    border-radius: 20px;
+    border: 0.0625rem solid var(--cor9);
+    padding: -0.625rem;
+    margin: 0.625rem;
+    border-radius: 1.25rem;
 }
 .grid article img {
-    width: 100px; /* controla o tamanho da imagem */
-    object-fit: cover; /* mantém proporção da imagem */
+    width: 6.25rem;
+    object-fit: cover;
 }
 .grid article .info {
     display: flex;
-    flex-direction: column; /* empilha h2, p e span verticalmente */
-    gap: 10px;
-    padding: 20px;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1.25rem;
 }
 .grid h1 {
     font-size: 3em;
     text-align: center;
-    grid-column: span 3; /* ocupa as 3 colunas */
-    margin: 70px 0 25px 0;
+    grid-column: span 3;
+    margin: 4.375rem 0 1.5625rem 0;
 }
 .grid article .info h2 {
     margin: 0;
@@ -291,6 +290,6 @@ section.grid {
 }
 .grid article .info p {
     margin: 0;
-    max-width: 230px;
+    max-width: 14.375rem;
     font-size: 1.2em;
 }
