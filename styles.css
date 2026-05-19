@@ -435,5 +435,79 @@ section.header{
     background-color: var(--cor2);
 }
 
+/* Login page styles */
+.login-page {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background-color: var(--cor1);
+}
+.login-card {
+    width: 100%;
+    max-width: 480px;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+.login-logo {
+    width: 5rem;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+.login-card h1 {
+    color: var(--cor4);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+.login-card p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.75);
+}
+.login-form {
+    display: grid;
+    gap: 1rem;
+    text-align: left;
+}
+.login-form label {
+    font-size: 1rem;
+    color: var(--cor4);
+}
+.login-form input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.85rem;
+    font-size: 1rem;
+    outline: none;
+}
+.login-form input:focus {
+    border-color: var(--cor8);
+    box-shadow: 0 0 0 4px rgba(206, 39, 10, 0.1);
+}
+.login-form .btn-grande {
+    width: 100%;
+    margin-left: 0;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+.link-row a {
+    color: var(--cor9);
+    text-decoration: none;
+}
+.link-row a:hover {
+    color: var(--cor8);
+}
+
 
 
