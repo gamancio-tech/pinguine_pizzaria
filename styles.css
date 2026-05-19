@@ -252,12 +252,12 @@ main.sobremesa_menu{
     width: 100%;
     height: 100%;
     padding-bottom: auto;
-    background-color: white;
 }
 .sobremesa_menu img{
     width: 30%;
     height: auto;
     margin-bottom: 5rem;
+    border-radius: 0.5rem;
 }
 section.grid {
     display: grid;
@@ -271,6 +271,8 @@ section.grid {
     padding: -0.625rem;
     margin: 0.625rem;
     border-radius: 1.25rem;
+    background-image: url('images/fundo-forno.jpeg');
+    background-size: cover;
 }
 .grid article img {
     width: 6.25rem;
@@ -284,18 +286,27 @@ section.grid {
 }
 .grid h1 {
     font-size: 3em;
+    color: var(--cor1);
     text-align: center;
     grid-column: span 3;
     margin: 4.375rem 0 1.5625rem 0;
 }
 .grid article .info h2 {
+    color: var(--cor1);
     margin: 0;
     font-size: 1.4em;
 }
 .grid article .info p {
+    color: white;
     margin: 0;
     max-width: 14.375rem;
     font-size: 1.2em;
+}
+.sobremesa_menu .price{
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: rgb(255, 247, 132);
 }
 
 /* Produto page layout */
