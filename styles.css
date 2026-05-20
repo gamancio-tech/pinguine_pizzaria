@@ -253,6 +253,17 @@ main.sobremesa_menu{
     height: 100%;
     padding-bottom: auto;
 }
+.cardapio-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.cardapio-title {
+    font-size: 1.4em;
+    text-align: center;
+    margin: -2.2rem 0 0 3rem;
+    color: black;
+}
 .sobremesa_menu img{
     width: 30%;
     height: auto;
@@ -261,29 +272,30 @@ main.sobremesa_menu{
 }
 section.grid {
     display: grid;
-    grid-template-columns: repeat(3, 0.9fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;  
-    gap: 0.625rem;
+    gap: 0.5rem;
 }
 .grid article {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-row: 1fr 2fr;
+    gap: 0.1rem;
     border: 0.0625rem solid var(--cor9);
-    padding: -0.625rem;
     margin: 0.625rem;
     border-radius: 1.25rem;
-    background-image: url('images/fundo-forno.jpeg');
+    background-image: url('images/fundo_forno.png');
     background-size: cover;
+    background-position: top right;
+       
 }
 .grid article img {
-    width: 6.25rem;
+    width: calc(100% - 1.25rem);
+    height: auto;
     object-fit: cover;
+    grid-row: 2;
 }
-.grid article .info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    padding: 1.25rem;
-}
+
 .grid h1 {
     font-size: 3em;
     color: var(--cor1);
@@ -291,22 +303,18 @@ section.grid {
     grid-column: span 3;
     margin: 4.375rem 0 1.5625rem 0;
 }
-.grid article .info h2 {
+.grid article h2 {
     color: var(--cor1);
-    margin: 0;
+    grid-column: span 2;
+    margin: 2rem auto;
     font-size: 1.4em;
-}
-.grid article .info p {
-    color: white;
-    margin: 0;
-    max-width: 14.375rem;
-    font-size: 1.2em;
 }
 .sobremesa_menu .price{
-    display: inline-block;
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 700;
     color: rgb(255, 247, 132);
+    text-align: center;
+    margin: auto 0 2rem 0;
 }
 
 /* Produto page layout */
