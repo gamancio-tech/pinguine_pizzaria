@@ -259,9 +259,9 @@ main.sobremesa_menu{
     object-fit: cover;
 }
 .cardapio-title {
-    font-size: 1.4em;
+    font-size: 1.6em;
     text-align: center;
-    margin: -2.2rem 0 0 3rem;
+    margin: -2.2rem 0 0 0;
     color: black;
 }
 .sobremesa_menu img{
@@ -297,11 +297,11 @@ section.grid {
 }
 
 .grid h1 {
-    font-size: 3em;
+    font-size: 4em;
     color: var(--cor1);
     text-align: center;
     grid-column: span 3;
-    margin: 4.375rem 0 1.5625rem 0;
+    margin: 5rem 0 2rem 0;
 }
 .grid article h2 {
     color: var(--cor1);
@@ -455,6 +455,7 @@ section.header{
 }
 
 /* Login page styles */
+/*
 .login-page {
     min-height: calc(100vh - 160px);
     display: flex;
@@ -527,6 +528,6 @@ section.header{
 .link-row a:hover {
     color: var(--cor8);
 }
-
+*/
 
 
