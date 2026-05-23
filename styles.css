@@ -288,6 +288,9 @@ section.grid {
     background-size: cover;
     background-position: top right;
 }
+.pizza_sorvete article{
+    background-image: url('images/fundo_sorvete.png'); 
+}
 .grid article img {
     width: calc(100% - 1.25rem);
     height: auto;
@@ -305,7 +308,7 @@ section.grid {
 .grid article h2 {
     color: var(--cor1);
     grid-column: span 2;
-    margin: 2rem auto;
+    margin: 3rem auto 0 auto;
     font-size: 1.4em;
 }
 .sobremesa_menu .price{
@@ -321,7 +324,7 @@ section.grid {
     margin: 2rem 0.625rem;
     padding: 3rem 2rem;
     border-radius: 1.5rem;
-    background: linear-gradient(135deg, var(--cor10), var(--cor8)); /* Gradiente com os seus tons de vermelho */
+    background: linear-gradient(135deg, var(--cor10), var(--cor7)); /* Gradiente com os seus tons de vermelho */
     border: 2px dashed var(--cor1); /* Borda tracejada para indicar uma ação especial/interativa */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     display: flex;
