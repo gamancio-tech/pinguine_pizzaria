@@ -324,7 +324,7 @@ section.grid {
     margin: 2rem 0.625rem;
     padding: 3rem 2rem;
     border-radius: 1.5rem;
-    background: linear-gradient(135deg, var(--cor10), var(--cor7)); /* Gradiente com os seus tons de vermelho */
+    background: linear-gradient(135deg, var(--cor10), var(--cor7)); 
     border: 2px dashed var(--cor1); /* Borda tracejada para indicar uma ação especial/interativa */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -334,7 +334,7 @@ section.grid {
 }
 
 .custom-content h2 {
-    color: var(--cor1) !important; /* Força o uso do seu creme blanchedalmond */
+    color: var(--cor1) !important; 
     font-size: 2.2rem !important;
     margin: 0 0 1rem 0 !important; /* Zera as margens laterais herdadas do section h2 */
     text-align: center !important;
@@ -343,7 +343,7 @@ section.grid {
 .custom-content p {
     color: white;
     font-size: 1.2rem;
-    margin: 0 auto 2rem auto !important; /* Corrige margens negativas herdadas do seu código geral */
+    margin: 0 auto 2rem auto !important; /* Corrige margens negativas herdadas do código geral */
     max-width: 600px;
     text-align: center !important;
 }
@@ -441,7 +441,7 @@ section.grid {
     text-align: left !important;
 }
 
-/* Estilização dos Cards Interativos (Substitutos do input padrão) */
+/* Estilização dos Cards Interativos */
 .opcoes-flex {
     display: flex;
     flex-direction: column;
