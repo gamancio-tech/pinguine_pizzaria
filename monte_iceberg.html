@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pinguine Pizzaria - Monte seu Iceberg</title>
+</head>
+<body>
+    <section class="header">
+        <button class="btn-voltar"><a href="menu_sobremesa.html"><img class='icon' src="icons/seta-circulo-esquerda.png" alt="Voltar"></a></button>
+        <img class="logo logo-produto" src="images/logo.jpg" alt="Logo da Pinguine Pizzaria">
+    </section>
+
+    <main class="configurador-container">
+        <section class="configurador-preview">
+            <div class="preview-box">
+                <img src="images/cardapio_img.jpeg" alt="Sua Pizza de Sorvete" id="pizza-preview">
+                <h1>Monte seu Iceberg</h1>
+                <span class="price-destaque">R$ 75,00</span>
+                <p class="preview-nota">Assamos a massa artesanal quentinha e adicionamos suas escolhas congeladas por cima!</p>
+            </div>
+        </section>
+
+        <section class="configurador-opcoes">
+            <form action="#" method="post">
+                
+                <div class="passo-grupo">
+                    <span class="passo-indicador">Passo 1</span>
+                    <h2>Escolha a Base da Massa</h2>
+                    <div class="opcoes-flex">
+                        <label class="opcao-card">
+                            <input type="radio" name="massa" value="tradicional" checked>
+                            <span class="opcao-detalhe">Massa Tradicional Pan</span>
+                        </label>
+                        <label class="opcao-card">
+                            <input type="radio" name="massa" value="cacau">
+                            <span class="opcao-detalhe">Massa de Cacau Black</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="passo-grupo">
+                    <span class="passo-indicador">Passo 2</span>
+                    <h2>Escolha o Sabor do Sorvete (Até 2 sabores)</h2>
+                    <div class="opcoes-flex grid-2-col">
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="sorvete" value="creme">
+                            <span class="opcao-detalhe">Creme de Baunilha</span>
+                        </label>
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="sorvete" value="chocolate">
+                            <span class="opcao-detalhe">Chocolate Belga</span>
+                        </label>
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="sorvete" value="morango">
+                            <span class="opcao-detalhe">Morango Silvestre</span>
+                        </label>
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="sorvete" value="flocos">
+                            <span class="opcao-detalhe">Flocos do Ártico</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="passo-grupo">
+                    <span class="passo-indicador">Passo 3</span>
+                    <h2>Adicione os Toppings (Opcional)</h2>
+                    <div class="opcoes-flex grid-2-col">
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="toppings" value="oreo">
+                            <span class="opcao-detalhe">Biscoito Oreo (+ R$ 3,00)</span>
+                        </label>
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="toppings" value="mms">
+                            <span class="opcao-detalhe">M&M's Coloridos (+ R$ 4,00)</span>
+                        </label>
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="toppings" value="calda-chocolate">
+                            <span class="opcao-detalhe">Calda de Chocolate Gélida</span>
+                        </label>
+                        <label class="opcao-card checkbox-card">
+                            <input type="checkbox" name="toppings" value="marshmallow">
+                            <span class="opcao-detalhe">Marshmallow Tostado</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="acao-final">
+                    <button type="submit" class="btn-adicionar btn-grande">Adicionar Minha Criação ao Carrinho</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+</body>
+</html>

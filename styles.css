@@ -244,7 +244,7 @@ footer a:hover {
     height: auto;
 }
 
-
+/*---------------------------*/
 /*menu sobremesa*/
 
 main.sobremesa_menu{
@@ -279,7 +279,7 @@ section.grid {
 .grid article {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    grid-row: 1fr 2fr;
+    grid-template-rows: auto 1fr;
     gap: 0.1rem;
     border: 0.0625rem solid var(--cor9);
     margin: 0.625rem;
@@ -287,7 +287,6 @@ section.grid {
     background-image: url('images/fundo_forno.png');
     background-size: cover;
     background-position: top right;
-       
 }
 .grid article img {
     width: calc(100% - 1.25rem);
@@ -316,7 +315,193 @@ section.grid {
     text-align: center;
     margin: auto 0 2rem 0;
 }
+/* Estilização do Banner Interativo "Monte sua Pizza" */
+.card-customizacao {
+    grid-column: span 3; /* Faz o card ocupar as 3 colunas do seu grid */
+    margin: 2rem 0.625rem;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--cor10), var(--cor8)); /* Gradiente com os seus tons de vermelho */
+    border: 2px dashed var(--cor1); /* Borda tracejada para indicar uma ação especial/interativa */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
+.custom-content h2 {
+    color: var(--cor1) !important; /* Força o uso do seu creme blanchedalmond */
+    font-size: 2.2rem !important;
+    margin: 0 0 1rem 0 !important; /* Zera as margens laterais herdadas do section h2 */
+    text-align: center !important;
+}
+
+.custom-content p {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 auto 2rem auto !important; /* Corrige margens negativas herdadas do seu código geral */
+    max-width: 600px;
+    text-align: center !important;
+}
+
+.btn-custom {
+    background-color: var(--cor1) !important; /* Inverte a cor do botão para dar destaque */
+    color: var(--cor10) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: white !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Ajuste fino de Responsividade para telas menores */
+@media (max-width: 768px) {
+    .card-customizacao {
+        grid-column: span 1; /* Se o grid virar 1 coluna no mobile, o card se adapta */
+        padding: 2rem 1rem;
+    }
+    .custom-content h2 {
+        font-size: 1.6rem !important;
+    }
+}
+/* Layout da Nova Página de Customização */
+.configurador-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+.preview-box {
+    position: sticky; /* Mantém a imagem visível enquanto o usuário rola as opções do form */
+    top: 2rem;
+    text-align: center;
+}
+
+.preview-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.price-destaque {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--cor9);
+    margin: 1rem 0;
+}
+
+.preview-nota {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+/* Formulário e Passos */
+.passo-grupo {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.passo-indicador {
+    background-color: var(--cor8);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.passo-grupo h2 {
+    font-size: 1.5rem;
+    color: var(--cor4);
+    margin: 0.8rem 0 1.2rem 0 !important;
+    text-align: left !important;
+}
+
+/* Estilização dos Cards Interativos (Substitutos do input padrão) */
+.opcoes-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.opcao-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.opcao-card input {
+    margin-right: 10px;
+    accent-color: var(--cor9); /* Altera a cor interna do radio/checkbox para combinar com sua marca */
+}
+
+.opcao-detalhe {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Efeito de hover e seleção visual */
+.opcao-card:hover {
+    border-color: var(--cor9);
+    background-color: rgba(179, 23, 12, 0.03);
+}
+
+/* Quando o input estiver checado, muda a borda do card inteiro */
+.opcao-card:has(input:checked) {
+    border-color: var(--cor9);
+    background-color: rgba(179, 23, 12, 0.08);
+    box-shadow: 0 4px 10px rgba(179, 23, 12, 0.15);
+}
+
+.acao-final {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 900px) {
+    .configurador-container {
+        grid-template-columns: 1fr;
+    }
+    .grid-2-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*---------------------------*/
 /* Produto page layout */
 
 body {
