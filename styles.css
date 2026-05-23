@@ -70,10 +70,11 @@ img.icon {
     height: auto;
     border-radius: 50%;
 }
-button a {
+button a, section a {
     text-decoration: none;
     color: inherit; /* herda a cor do botão */
 }
+
 .container .btn-login {
     background-color: var(--cor8);
     color: var(--cor6);
@@ -275,6 +276,10 @@ section.grid {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;  
     gap: 0.5rem;
+}
+.grid a {
+    text-decoration: none;
+    color: inherit;
 }
 .grid article {
     display: grid;
