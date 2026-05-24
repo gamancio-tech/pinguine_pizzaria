@@ -18,7 +18,7 @@
                 <button type="submit"><img src="icons/search.png" alt="Buscar"></button>
             </search>
             <img src="images/logo.jpg" class="logo" alt="Logo da Pinguine Pizzaria">
-            <button class="btn-login"><a href="login.html">Inscrever-se</a></button>
+            <div id="header-user" class="header-user"></div>
         </div>
     </header>
     <nav>
@@ -31,21 +31,21 @@
         <section>
             <img src="images/propaganda_marca.jpg" class="grande" alt="Pinguine Pizzaria">
             <h1><img src="icons/estrela.png" class="icon" alt=""> Mais pedidas</h1>
-            <a href="produto.html"><article>
+            <a href="produto.html?sabor=calabresa"><article>
                 <h2>Pizza de Calabresa</h2>
                 <p>Deliciosa pizza de calabresa com queijo e molho especial.</p>
-                <img src="images/pizza_calabresa.jpg" alt="Pizza de Calabresa" </
+                <img src="images/pizza_calabresa.jpg" alt="Pizza de Calabresa">
             </article></a>
-            <article>
+            <a href="produto.html?sabor=margherita"><article>
                 <h2>Pizza de Margherita</h2>
                 <p>Clássica pizza de margherita com tomate, mussarela e manjericão.</p>
                 <img src="images/pizza_margherita.jpg" alt="Pizza de Margherita">
-            </article>
-            <article>
+            </article></a>
+            <a href="produto.html?sabor=frango_catupiry"><article>
                 <h2>Pizza de Frango com Catupiry</h2>
                 <p>Saborosa pizza de frango com catupiry e temperos especiais.</p>
                 <img src="images/pizza_frangoCatupiry.jpg" alt="Pizza de Frango com Catupiry">
-            </article>    
+            </article></a>    
         </section>  
         <section id="promocoes">
             <h1><img src="icons/etiqueta-de-desconto.png" class="icon" alt=""> Promoções</h1>
@@ -85,5 +85,6 @@
             <img src="images/app.jpg" class="item10" alt="app da Pinguine Pizzaria">
         </div>
     </footer>
+    <script src="user-header.js"></script>
 </body>
 </html>

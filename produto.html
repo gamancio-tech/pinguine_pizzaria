@@ -9,26 +9,29 @@
 </head>
 <body>
     <section class="header">
-        <button class="btn-voltar"><a href="menu_pizza.html"><img class = 'icon' src="icons/seta-circulo-esquerda.png" alt=""></a></button>
+        <button class="btn-voltar" onclick="if(document.referrer) { window.history.back(); } else { window.location.href = 'main.html'; }"><a href="javascript:void(0)"><img class="icon" src="icons/seta-circulo-esquerda.png" alt="Voltar"></a></button>
         <img class="logo logo-produto" src="images/logo.jpg" alt="Logo da Pinguine Pizzaria">
     </section>
     <section class="produto">
-        <img src="images/pizza_calabresa.jpg" alt="Pizza de Calabresa">
-        <h1>Pizza de Calabresa</h1>
-        <span class="price">R$ 45,00</span>
+        <img id="prod-img" src="" alt="Imagem do Produto">
+        <h1 id="prod-titulo">Carregando...</h1>
+        <span id="prod-preco" class="price">R$ 0,00</span>
+        
         <h2>Descrição:</h2>
-        <p>Molho de tomate, mussarela, calabresa fatiada, cebola, orégano e azeitonas sobre massa artesanal assada no forno.
-        </p>
-        <section class = 'observacao'>
+        <p id="prod-descricao">Carregando descrição...</p>
+        
+        <section class='observacao'>
             <h2>Observação:</h2>
-            <insert type="text" placeholder="Observação...">Ex: sem cebola, ...</insert>
+            <input id="prod-observacao" type="text" placeholder="Ex: sem cebola, bem assada...">
         </section>
     </section>
+
     <section class="adicionar">
-        <button type="submit" class="btn-adicionar btn-grande">Adicionar ao Carrinho</button>
-        <button class="btn-adicionar btn-qntd">0</button>
-        <button class="btn-adicionar">-</button>
-        <button class="btn-adicionar">+</button>
+        <button id="btn-adicionar-carrinho" type="submit" class="btn-adicionar btn-grande">Adicionar ao Carrinho</button>
+        <button id="qntd-valor" class="btn-adicionar btn-qntd">1</button>
+        <button id="btn-menos" class="btn-adicionar">-</button>
+        <button id="btn-mais" class="btn-adicionar">+</button>
     </section>
+    <script src="script_produto.js"></script>
 </body>
 </html>

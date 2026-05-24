@@ -19,7 +19,7 @@
                 <button type="submit"><img src="icons/search.png" alt="Buscar"></button>
             </search>
             <img src="images/logo.jpg" class="logo" alt="Logo da Pinguine Pizzaria">
-            <button class="btn-login"><a href="login.html">Inscrever-se</a></button>
+            <div id="header-user" class="header-user"></div>
         </div>
     </header>
     <nav>
@@ -31,78 +31,78 @@
     <img class = 'cardapio-img' src="images/cardapio_img.jpeg" alt="">
     <h1 class = 'cardapio-title'>Cardápio de Sobremesas</h1>
     <main class="sobremesa_menu">
-        <section class="grid">
+        <section id="sobremesas-doces" class="grid">
             <h1>Pizzas doces</h1>
-            <article>
+            <a href="produto.html?sabor=brigadeiro"><article>
                 <img src="images/sobremesas/sobremesa1.jfif" alt="Sobremesa 1">
                 <h2>Brigadeiro</h2>
                 <span class="price">R$ 62,00</span>
-            </article>
-            <article>
+            </article></a>
+            <a href="produto.html?sabor=morango_chocolate"><article>
                 <img src="images/sobremesas/sobremesa2.jfif" alt="Sobremesa 2">
                     <h2>Morango com chocolate</h2>                    
                     <span class="price">R$ 65,00</span>
-            </article>
-            <article>
+            </article></a>
+            <a href="produto.html?sabor=romeu_julieta"><article>
                 <img src="images/sobremesas/sobremesa3.jfif" alt="Sobremesa 3">
                     <h2>Romeu e Julieta</h2>                   
                     <span class="price">R$ 60,00</span>
-            </article>
-            <article>
+            </article></a>
+            <a href="produto.html?sabor=banana_canela"><article>
                 <img src="images/sobremesas/sobremesa4.jfif" alt="Sobremesa 4">
                     <h2>Banana com canela</h2>                   
                     <span class="price">R$ 64,00</span>
-            </article>
-            <article>
+            </article></a>
+            <a href="produto.html?sabor=nutella_morango"><article>
                 <img src="images/sobremesas/sobremesa5.jfif" alt="Sobremesa 5">
                     <h2>Nutella com morango</h2>                 
                     <span class="price">R$ 66,00</span>
-            </article>
-            <article>
+            </article></a>
+            <a href="produto.html?sabor=prestigio"><article>
                 <img src="images/sobremesas/sobremesa6.jfif" alt="Sobremesa 6">
                     <h2>Prestígio</h2>
                     <span class="price">R$ 63,00</span>
-            </article>
+            </article></a>
         </section>
-        <section class="grid pizza_sorvete">
+        <section id="paraiso-gelado" class="grid pizza_sorvete">
             <h1>Paraíso gelado</h1>
             
-            <article>
+            <a href="produto.html?sabor=oreo"><article>
                 <img src="images/sobremesas/sobremesa7.png" alt="Iceberg de Oreo">
                 <h2>Iceberg de Oreo</h2>
                 <span class="price">R$ 70,00</span>
-            </article>
+            </article></a>
             
-            <article>
+            <a href="produto.html?sabor=ninho"><article>
                 <img src="images/sobremesas/sobremesa8.png" alt="Nevasca de Ninho">
                 <h2>Nevasca de Ninho</h2>                    
                 <span class="price">R$ 70,00</span>
-            </article>
+            </article></a>
             
-            <article>
+            <a href="produto.html?sabor=glaciar_frutas"><article>
                 <img src="images/sobremesas/sobremesa9.png" alt="Glaciar de Frutas Vermelhas">
                 <h2>Glaciar de Frutas</h2>                   
                 <span class="price">R$ 72,00</span>
-            </article>
+            </article></a>
             
-            <article>
+            <a href="produto.html?sabor=pinguim_imperial"><article>
                 <img src="images/sobremesas/sobremesa10.png" alt="Pinguim Imperial (P&B)">
                 <h2>Pinguim Imperial</h2>                   
                 <span class="price">R$ 70,00</span>
-            </article>
+            </article></a>
             
-            <article>
+            <a href="produto.html?sabor=avalanche_ovomaltine"><article>
                 <img src="images/sobremesas/sobremesa11.png" alt="Avalanche de Ovomaltine">
                 <h2>Avalanche de Ovomaltine</h2>                 
                 <span class="price">R$ 72,00</span>
-            </article>
+            </article></a>
             
-            <article>
+            <a href="produto.html?sabor=alasca_tostado"><article>
                 <img src="images/sobremesas/sobremesa12.png" alt="Alasca de Marshmallow">
                 <h2>Alasca Tostado</h2>
                 <span class="price">R$ 74,00</span>
-            </article>  
-
+            </article></a>  
+ 
             <div class="card-customizacao">
                 <div class="custom-content">
                     <h2>Quer criar sua própria geleira de sabores?</h2>
@@ -112,5 +112,6 @@
             </div>
         </section>
     </main>
+    <script src="user-header.js"></script>
 </body>
 </html>

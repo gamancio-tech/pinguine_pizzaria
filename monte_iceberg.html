@@ -13,7 +13,7 @@
         <img class="logo logo-produto" src="images/logo.jpg" alt="Logo da Pinguine Pizzaria">
     </section>
 
-    <main class="configurador-container">
+    <main id="monte-iceberg" class="configurador-container">
         <section class="configurador-preview">
             <div class="preview-box">
                 <img src="images/cardapio_img.jpeg" alt="Sua Pizza de Sorvete" id="pizza-preview">
@@ -22,7 +22,6 @@
                 <p class="preview-nota">Assamos a massa artesanal quentinha e adicionamos suas escolhas congeladas por cima!</p>
             </div>
         </section>
-
         <section class="configurador-opcoes">
             <form action="carrinho.html" method="post">
                 
@@ -94,5 +93,63 @@
             </form>
         </section>
     </main>
+
+    <script>
+        const icebergForm = document.querySelector('form');
+        const defaultImage = 'images/cardapio_img.jpeg';
+
+        function getSelectedValues(name) {
+            return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(input => input.value);
+        }
+
+        function buildIcebergObservation(massa, sorvetes, toppings) {
+            const lines = [
+                `Massa: ${massa.replace('_', ' ')}`,
+                `Sorvetes: ${sorvetes.map(s => s.replace('_', ' ')).join(', ')}`
+            ];
+            if (toppings.length) {
+                lines.push(`Toppings: ${toppings.map(t => t.replace('-', ' ')).join(', ')}`);
+            }
+            return lines.join(' | ');
+        }
+
+        icebergForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const massa = getSelectedValues('massa')[0];
+            const sorvetes = getSelectedValues('sorvete');
+            const toppings = getSelectedValues('toppings');
+
+            if (!massa) {
+                alert('Escolha a base da massa antes de adicionar ao carrinho.');
+                return;
+            }
+            if (sorvetes.length === 0) {
+                alert('Escolha pelo menos um sabor de sorvete.');
+                return;
+            }
+
+            const itemCarrinho = {
+                sabor: 'monte_iceberg',
+                titulo: 'Monte seu Iceberg',
+                preco: 'R$ 75,00',
+                imagem: defaultImage,
+                quantidade: 1,
+                observacao: buildIcebergObservation(massa, sorvetes, toppings)
+            };
+
+            const carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
+            const indexExistente = carrinho.findIndex(item => item.sabor === itemCarrinho.sabor && item.observacao === itemCarrinho.observacao);
+            if (indexExistente > -1) {
+                carrinho[indexExistente].quantidade += 1;
+            } else {
+                carrinho.push(itemCarrinho);
+            }
+
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            localStorage.setItem('lastProductPage', 'monte_iceberg.html#monte-iceberg');
+            window.location.href = 'carrinho.html';
+        });
+    </script>
 </body>
 </html>

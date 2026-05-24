@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.jpg" type="image/jpeg">
+    <title>Pinguine - Meu Perfil</title>
+</head>
+<body class="perfil-body">
+
+    <div class="perfil-page">
+        <!-- Header Bar -->
+        <div class="perfil-header-bar">
+            <a href="javascript:void(0)" onclick="if(document.referrer) { window.history.back(); } else { window.location.href='main.html'; }">&larr;</a>
+            <h1>Meu Perfil</h1>
+        </div>
+
+        <!-- Profile Settings Card -->
+        <div class="perfil-card">
+            <h2>Configurações da Conta</h2>
+
+            <!-- Avatar selection -->
+            <div class="avatar-area">
+                <div class="avatar-preview" id="avatar-preview-box">U</div>
+                <input type="file" id="avatar-input" accept="image/*" style="display:none;">
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; width:100%;">
+                    <button class="avatar-upload-btn" onclick="document.getElementById('avatar-input').click()">📷 Alterar Foto</button>
+                    <button class="avatar-upload-btn" type="button" onclick="removerAvatar()">🗑️ Remover Foto</button>
+                </div>
+            </div>
+
+            <!-- Profile form -->
+            <div class="perfil-form">
+                <div>
+                    <label for="perfil-nome">Nome completo</label>
+                    <input type="text" id="perfil-nome" placeholder="Seu nome">
+                </div>
+                <div>
+                    <label for="perfil-email">E-mail</label>
+                    <input type="email" id="perfil-email" placeholder="seu@email.com">
+                </div>
+                <div>
+                    <label for="perfil-telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="perfil-telefone" placeholder="(11) 99999-9999">
+                </div>
+                <div>
+                    <label for="perfil-cpf">CPF</label>
+                    <input type="text" id="perfil-cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="full-width">
+                    <label for="perfil-endereco">Endereço de entrega</label>
+                    <input type="text" id="perfil-endereco" placeholder="Rua, Número">
+                </div>
+                <div>
+                    <label for="perfil-bairro">Bairro</label>
+                    <input type="text" id="perfil-bairro" placeholder="Bairro">
+                </div>
+                <div>
+                    <label for="perfil-cidade">Cidade / Estado</label>
+                    <input type="text" id="perfil-cidade" placeholder="São Paulo, SP">
+                </div>
+                <div class="full-width">
+                    <label for="perfil-complemento">Complemento</label>
+                    <input type="text" id="perfil-complemento" placeholder="Apartamento, bloco, referência...">
+                </div>
+            </div>
+
+            <div class="perfil-actions">
+                <button class="btn-salvar-perfil" onclick="salvarPerfil()">💾 Salvar Alterações</button>
+                <button class="btn-logout" onclick="fazerLogout()">Sair da Conta</button>
+            </div>
+        </div>
+
+        <!-- Active Orders Card -->
+        <div class="perfil-card">
+            <h2>Pedidos em Andamento</h2>
+            <div class="pedidos-lista" id="pedidos-lista">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Durations (in ms)
+        const FASE_PREPARO_MS = 3 * 60 * 1000;  // 3 minutes
+        const FASE_ENTREGA_MS = 3 * 60 * 1000;  // 3 more minutes
+        const TOTAL_MS = FASE_PREPARO_MS + FASE_ENTREGA_MS;
+
+        // =====================
+        // Guard: redirect if not logged in
+        // =====================
+        if (localStorage.getItem('userLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+
+        // =====================
+        // Load Profile Data
+        // =====================
+        const profile = JSON.parse(localStorage.getItem('userProfile') || '{}');
+
+        function loadProfile() {
+            document.getElementById('perfil-nome').value = profile.nome || '';
+            document.getElementById('perfil-email').value = profile.email || '';
+            document.getElementById('perfil-telefone').value = profile.telefone || '';
+            document.getElementById('perfil-cpf').value = profile.cpf || '';
+            document.getElementById('perfil-endereco').value = profile.endereco || '';
+            document.getElementById('perfil-bairro').value = profile.bairro || '';
+            document.getElementById('perfil-cidade').value = profile.cidade || '';
+            document.getElementById('perfil-complemento').value = profile.complemento || '';
+            updateAvatarPreview(profile);
+        }
+
+        function updateAvatarPreview(prof) {
+            const box = document.getElementById('avatar-preview-box');
+            if (prof.avatar) {
+                box.innerHTML = `<img src="${prof.avatar}" alt="Avatar">`;
+            } else {
+                box.textContent = (prof.nome || prof.email || 'U').charAt(0).toUpperCase();
+            }
+        }
+
+        // Handle avatar file upload
+        document.getElementById('avatar-input').addEventListener('change', function () {
+            const file = this.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profile.avatar = e.target.result;
+                updateAvatarPreview(profile);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        function removerAvatar() {
+            profile.avatar = '';
+            localStorage.setItem('userProfile', JSON.stringify(profile));
+            updateAvatarPreview(profile);
+        }
+
+        function salvarPerfil() {
+            profile.nome = document.getElementById('perfil-nome').value.trim();
+            profile.email = document.getElementById('perfil-email').value.trim();
+            profile.telefone = document.getElementById('perfil-telefone').value.trim();
+            profile.cpf = document.getElementById('perfil-cpf').value.trim();
+            profile.endereco = document.getElementById('perfil-endereco').value.trim();
+            profile.bairro = document.getElementById('perfil-bairro').value.trim();
+            profile.cidade = document.getElementById('perfil-cidade').value.trim();
+            profile.complemento = document.getElementById('perfil-complemento').value.trim();
+
+            localStorage.setItem('userProfile', JSON.stringify(profile));
+
+            const btn = document.querySelector('.btn-salvar-perfil');
+            btn.textContent = '✓ Salvo!';
+            btn.style.backgroundColor = 'var(--cor2)';
+            setTimeout(() => {
+                btn.textContent = '💾 Salvar Alterações';
+                btn.style.backgroundColor = '';
+            }, 2000);
+        }
+
+        function fazerLogout() {
+            localStorage.removeItem('userLoggedIn');
+            window.location.href = 'main.html';
+        }
+
+        // =====================
+        // Active Orders Tracker
+        // =====================
+        function renderPedidos() {
+            const lista = document.getElementById('pedidos-lista');
+            let orders = JSON.parse(localStorage.getItem('activeOrders') || '[]');
+            const now = Date.now();
+
+            // Remove orders past the delivery phase
+            orders = orders.filter(o => (now - o.timestamp) < TOTAL_MS);
+            localStorage.setItem('activeOrders', JSON.stringify(orders));
+
+            if (orders.length === 0) {
+                lista.innerHTML = '<p class="pedidos-vazios">🍕 Nenhum pedido em andamento no momento.</p>';
+                return;
+            }
+
+            lista.innerHTML = orders.map((order, idx) => {
+                const elapsed = now - order.timestamp;
+                const isFaseEntrega = elapsed >= FASE_PREPARO_MS;
+                const statusLabel = isFaseEntrega ? 'Saiu para Entrega 🏍️' : 'Em Preparo 🍳';
+                const statusClass = isFaseEntrega ? 'status-entrega' : 'status-preparo';
+
+                // Progress within current phase
+                const faseElapsed = isFaseEntrega ? (elapsed - FASE_PREPARO_MS) : elapsed;
+                const faseTotal = FASE_PREPARO_MS;
+                const progress = Math.min(100, (faseElapsed / faseTotal) * 100);
+
+                // Countdown to next stage or finish
+                const nextStageMs = isFaseEntrega
+                    ? TOTAL_MS - elapsed
+                    : FASE_PREPARO_MS - elapsed;
+                const nextSecs = Math.ceil(nextStageMs / 1000);
+                const mins = Math.floor(nextSecs / 60);
+                const secs = nextSecs % 60;
+                const countdownLabel = isFaseEntrega
+                    ? `Entrega em: ${mins}m ${secs}s`
+                    : `Entrega em preparo: ${mins}m ${secs}s`;
+
+                // Build item summary
+                const itemsSummary = order.itens.map(i => `${i.quantidade}x ${i.titulo}`).join(', ');
+                const totalPedido = order.total || '—';
+
+                return `
+                    <div class="pedido-card" id="pedido-${idx}">
+                        <div class="pedido-card-header">
+                            <h3>🧾 Pedido #${idx + 1} &nbsp; <small style="font-weight:400; font-size:0.85rem; color:#888;">${totalPedido}</small></h3>
+                            <span class="pedido-status-badge ${statusClass}">${statusLabel}</span>
+                        </div>
+                        <div class="pedido-itens-resumo">${itemsSummary}</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width:${progress.toFixed(1)}%"></div>
+                        </div>
+                        <div class="pedido-countdown">${countdownLabel}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Re-render every second
+        loadProfile();
+        renderPedidos();
+        setInterval(renderPedidos, 1000);
+    </script>
+</body>
+</html>

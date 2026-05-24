@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.jpg" type="image/jpeg">
+    <title>Pinguine - Carrinho</title>
+</head>
+<body class="carrinho-body">
+
+    <div class="carrinho-page">
+
+        <!-- Header -->
+        <div style="display:flex; align-items:center; gap:1rem; padding: 1.5rem 0 0.5rem 0;">
+            <a id="back-link" href="main.html" style="font-size:2rem; font-weight:bold; color:var(--cor4); text-decoration:none;">&larr;</a>
+            <h1 style="font-size:1.8rem; color:var(--cor4); margin:0;">🛒 Meu Carrinho</h1>
+        </div>
+
+        <!-- Items List Card -->
+        <div class="carrinho-card">
+            <h2>Itens do Pedido</h2>
+            <div id="cart-items-container">
+                <!-- Populated by JS -->
+            </div>
+            <div id="cart-summary-section" class="cart-summary" style="display:none;">
+                <div class="cart-summary-line">
+                    <span>Subtotal</span>
+                    <span id="subtotal-value">R$ 0,00</span>
+                </div>
+                <div class="cart-summary-line">
+                    <span>Taxa de entrega</span>
+                    <span>Grátis 🎉</span>
+                </div>
+                <div class="cart-summary-total">
+                    <span>Total</span>
+                    <span id="total-value">R$ 0,00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Address Card -->
+        <div class="carrinho-card" id="endereco-card" style="display:none;">
+            <h2>📍 Endereço de Entrega</h2>
+            <div class="cart-endereco-form">
+                <div class="full-width">
+                    <label for="end-rua">Rua e Número</label>
+                    <input type="text" id="end-rua" placeholder="Rua das Pizzas, 123">
+                </div>
+                <div>
+                    <label for="end-bairro">Bairro</label>
+                    <input type="text" id="end-bairro" placeholder="Centro">
+                </div>
+                <div>
+                    <label for="end-cidade">Cidade / Estado</label>
+                    <input type="text" id="end-cidade" placeholder="São Paulo, SP">
+                </div>
+                <div class="full-width">
+                    <label for="end-complemento">Complemento</label>
+                    <input type="text" id="end-complemento" placeholder="Apartamento, bloco, referência...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Button -->
+        <div id="checkout-section" style="display:none;">
+            <button class="btn-finalizar" onclick="finalizarPedido()">
+                🍕 Finalizar Pedido
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // =====================
+        // Helper: parse price string "R$ 62,00" -> number 62.00
+        // =====================
+        function parsePreco(preco) {
+            if (!preco) return 0;
+            return parseFloat(preco.replace('R$', '').replace('.', '').replace(',', '.').trim()) || 0;
+        }
+
+        function formatPreco(value) {
+            return 'R$ ' + value.toFixed(2).replace('.', ',');
+        }
+
+        // =====================
+        // Load and render cart
+        // =====================
+        const backLink = document.getElementById('back-link');
+        const lastProductPage = localStorage.getItem('lastProductPage');
+        if (backLink && lastProductPage) {
+            backLink.href = lastProductPage;
+        }
+
+        let carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const summarySection = document.getElementById('cart-summary-section');
+            const enderecoCard = document.getElementById('endereco-card');
+            const checkoutSection = document.getElementById('checkout-section');
+
+            if (carrinho.length === 0) {
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <p>🛒 Seu carrinho está vazio!</p>
+                        <p><a href="main.html">Voltar ao cardápio</a> e escolha algo delicioso.</p>
+                    </div>`;
+                summarySection.style.display = 'none';
+                enderecoCard.style.display = 'none';
+                checkoutSection.style.display = 'none';
+                return;
+            }
+
+            let subtotal = 0;
+            container.innerHTML = carrinho.map((item, idx) => {
+                const unitPrice = parsePreco(item.preco);
+                const lineTotal = unitPrice * item.quantidade;
+                subtotal += lineTotal;
+                const observacaoHtml = item.observacao
+                    ? `<p>📝 ${item.observacao}</p>`
+                    : '';
+                return `
+                    <div class="cart-item">
+                        <img class="cart-item-img" src="${item.imagem}" alt="${item.titulo}" onerror="this.src='images/logo.jpg'">
+                        <div class="cart-item-info">
+                            <h3>${item.titulo}</h3>
+                            ${observacaoHtml}
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="cart-qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+                            <span class="cart-qty-display">${item.quantidade}</span>
+                            <button class="cart-qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+                        </div>
+                        <span class="cart-item-price">${formatPreco(lineTotal)}</span>
+                        <button class="cart-remove-btn" onclick="removeItem(${idx})" title="Remover">✕</button>
+                    </div>`;
+            }).join('');
+
+            document.getElementById('subtotal-value').textContent = formatPreco(subtotal);
+            document.getElementById('total-value').textContent = formatPreco(subtotal);
+            summarySection.style.display = 'flex';
+            enderecoCard.style.display = 'block';
+            checkoutSection.style.display = 'block';
+
+            // Pre-fill address from profile
+            const profile = JSON.parse(localStorage.getItem('userProfile') || '{}');
+            if (profile.endereco) document.getElementById('end-rua').value = profile.endereco;
+            if (profile.bairro) document.getElementById('end-bairro').value = profile.bairro;
+            if (profile.cidade) document.getElementById('end-cidade').value = profile.cidade;
+            if (profile.complemento) document.getElementById('end-complemento').value = profile.complemento;
+        }
+
+        function changeQty(idx, delta) {
+            carrinho[idx].quantidade += delta;
+            if (carrinho[idx].quantidade <= 0) {
+                carrinho.splice(idx, 1);
+            }
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            renderCart();
+        }
+
+        function removeItem(idx) {
+            carrinho.splice(idx, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            renderCart();
+        }
+
+        // =====================
+        // Checkout
+        // =====================
+        function finalizarPedido() {
+            if (carrinho.length === 0) return;
+
+            if (localStorage.getItem('userLoggedIn') !== 'true') {
+                alert('Você precisa estar logado para finalizar o pedido!');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const rua = document.getElementById('end-rua').value.trim();
+            if (!rua) {
+                alert('Por favor, informe o endereço de entrega.');
+                document.getElementById('end-rua').focus();
+                return;
+            }
+
+            // Calculate total
+            let total = 0;
+            carrinho.forEach(item => {
+                total += parsePreco(item.preco) * item.quantidade;
+            });
+
+            // Build new order object
+            const novoPedido = {
+                timestamp: Date.now(),
+                itens: carrinho.map(i => ({ titulo: i.titulo, quantidade: i.quantidade, preco: i.preco })),
+                total: formatPreco(total),
+                endereco: `${rua}, ${document.getElementById('end-bairro').value} — ${document.getElementById('end-cidade').value}`
+            };
+
+            // Save order to activeOrders
+            const orders = JSON.parse(localStorage.getItem('activeOrders') || '[]');
+            orders.push(novoPedido);
+            localStorage.setItem('activeOrders', JSON.stringify(orders));
+
+            // Clear cart
+            localStorage.setItem('carrinho', JSON.stringify([]));
+            carrinho = [];
+
+            // Redirect to profile
+            alert('✅ Pedido realizado com sucesso! Acompanhe o status na sua página de perfil.');
+            window.location.href = 'perfil.html';
+        }
+
+        // Initial render
+        renderCart();
+    </script>
+</body>
+</html>
