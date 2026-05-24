@@ -186,6 +186,120 @@ const cardapio = {
         preco: "R$ 74,00",
         descricao: "Massa quentinha servida com sorvete premium de creme, coberta com marshmallows perfeitamente tostados no maçarico e fios de caramelo salgado.",
         imagem: "images/sobremesas/sobremesa12.png"
+    },
+
+    // === DRINKS ===
+    mar_antartico: {
+        titulo: "Mar Antártico",
+        preco: "R$ 13,90",
+        descricao: "Um drink refrescante e gélido com curaçau blue, refrigerante cítrico, gelo triturado e uma fatia de limão fresco. Perfeito para refrescar o seu dia!",
+        imagem: "images/bebidas/bebida1.png"
+    },
+    refresco_pinguim: {
+        titulo: "Refresco do Pinguim Imperador",
+        preco: "R$ 18,90",
+        descricao: "Chá mate gelado batido com frutas cítricas e hortelã fresca, servido em uma caneca especial com muito gelo.",
+        imagem: "images/bebidas/bebida2.png"
+    },
+    aurora_boreal: {
+        titulo: "Aurora Boreal",
+        preco: "R$ 13,90",
+        descricao: "Um maravilhoso drink em camadas coloridas imitando a aurora boreal, com xaropes artesanais de frutas, suco cítrico e água com gás.",
+        imagem: "images/bebidas/bebida3.png"
+    },
+    soda_tropical: {
+        titulo: "Soda Tropical",
+        preco: "R$ 13,90",
+        descricao: "Soda refrescante de maracujá com sementes frescas, hortelã e bastante gelo triturado.",
+        imagem: "images/bebidas/bebida4.png"
+    },
+    iceberg_morango: {
+        titulo: "Iceberg de Morango",
+        preco: "R$ 18,90",
+        descricao: "Drink cremoso de morangos selecionados batidos com creme especial do Pinguim e gelo.",
+        imagem: "images/bebidas/bebida5.png"
+    },
+    polo_norte: {
+        titulo: "Polo Norte",
+        preco: "R$ 19,90",
+        descricao: "Milkshake ultra cremoso sabor baunilha com pedaços crocantes e finalizado com chantilly especial.",
+        imagem: "images/bebidas/bebida6.png"
+    },
+
+    // === REFRIGERANTES ===
+    coca_cola: {
+        titulo: "Coca-Cola",
+        preco: "R$ 11,50",
+        descricao: "Refrigerante Coca-Cola Lata 350ml trincando de gelada.",
+        imagem: "images/bebidas/bebida7.png"
+    },
+    guarana_antarctica: {
+        titulo: "Guaraná Antarctica",
+        preco: "R$ 10,90",
+        descricao: "Refrigerante Guaraná Antarctica Lata 350ml gelado.",
+        imagem: "images/bebidas/bebida8.png"
+    },
+    pepsi: {
+        titulo: "Pepsi",
+        preco: "R$ 10,90",
+        descricao: "Refrigerante Pepsi Lata 350ml gelada.",
+        imagem: "images/bebidas/bebida9.png"
+    },
+    sprite: {
+        titulo: "Sprite",
+        preco: "R$ 10,90",
+        descricao: "Refrigerante Sprite Lata 350ml gelado e refrescante.",
+        imagem: "images/bebidas/bebida10.jpg"
+    },
+
+    // === SUCOS ===
+    suco_manga: {
+        titulo: "Suco de Manga Fresh",
+        preco: "R$ 12,90",
+        descricao: "Suco natural e refrescante de manga madura selecionada, batido na hora com gelo.",
+        imagem: "images/bebidas/bebida11.jpg"
+    },
+    suco_melancia: {
+        titulo: "Suco de Melancia Fresh",
+        preco: "R$ 12,90",
+        descricao: "Suco natural de melancia fresca e doce, muito refrescante e hidratante.",
+        imagem: "images/bebidas/bebida12.png"
+    },
+    suco_morango: {
+        titulo: "Suco de Morango Fresh",
+        preco: "R$ 12,90",
+        descricao: "Suco natural de morangos frescos batidos na hora.",
+        imagem: "images/bebidas/bebida13.jpg"
+    },
+    suco_abacaxi: {
+        titulo: "Suco de Abacaxi Fresh",
+        preco: "R$ 12,90",
+        descricao: "Suco natural de abacaxi fresco batido com hortelã opcional e gelo.",
+        imagem: "images/bebidas/bebida14.jpg"
+    },
+    suco_maracuja: {
+        titulo: "Suco de Maracujá Fresh",
+        preco: "R$ 12,90",
+        descricao: "Suco natural de maracujá da fruta, perfeito equilíbrio entre o cítrico e o doce.",
+        imagem: "images/bebidas/bebida15.jpg"
+    },
+    suco_uva: {
+        titulo: "Suco de Uva Fresh",
+        preco: "R$ 12,90",
+        descricao: "Suco natural de uva roxa concentrado e saboroso.",
+        imagem: "images/bebidas/bebida16.jpg"
+    },
+    suco_limao: {
+        titulo: "Suco de Limão Fresh",
+        preco: "R$ 12,90",
+        descricao: "Limonada suíça fresh feita com limões espremidos na hora com casca, bem gelada.",
+        imagem: "images/bebidas/bebida17.jpg"
+    },
+    suco_tutti_frutti: {
+        titulo: "Suco de Tutti-Frutti Fresh",
+        preco: "R$ 12,90",
+        descricao: "Delicioso e colorido suco sabor tutti-frutti com um mix especial de xaropes e geléias coloridas.",
+        imagem: "images/bebidas/bebida18.jpg"
     }
 };
 
@@ -318,8 +432,25 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
             ninho: 'menu_sobremesa.html#paraiso-gelado',
             glaciar_frutas: 'menu_sobremesa.html#paraiso-gelado',
             pinguim_imperial: 'menu_sobremesa.html#paraiso-gelado',
-            avalanche_ovomaltine: 'menu_sobremesa.html#paraiso-gelado',
-            alasca_tostado: 'menu_sobremesa.html#paraiso-gelado'
+            alasca_tostado: 'menu_sobremesa.html#paraiso-gelado',
+            mar_antartico: 'menu_bebida.html#drinks',
+            refresco_pinguim: 'menu_bebida.html#drinks',
+            aurora_boreal: 'menu_bebida.html#drinks',
+            soda_tropical: 'menu_bebida.html#drinks',
+            iceberg_morango: 'menu_bebida.html#drinks',
+            polo_norte: 'menu_bebida.html#drinks',
+            coca_cola: 'menu_bebida.html#refrigerantes',
+            guarana_antarctica: 'menu_bebida.html#refrigerantes',
+            pepsi: 'menu_bebida.html#refrigerantes',
+            sprite: 'menu_bebida.html#refrigerantes',
+            suco_manga: 'menu_bebida.html#sucos',
+            suco_melancia: 'menu_bebida.html#sucos',
+            suco_morango: 'menu_bebida.html#sucos',
+            suco_abacaxi: 'menu_bebida.html#sucos',
+            suco_maracuja: 'menu_bebida.html#sucos',
+            suco_uva: 'menu_bebida.html#sucos',
+            suco_limao: 'menu_bebida.html#sucos',
+            suco_tutti_frutti: 'menu_bebida.html#sucos'
         };
 
         let lastProductPage = productBackPaths[saborSelecionado] || 'main.html';
