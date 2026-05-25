@@ -42,3 +42,10 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Faça melhorias nos estilos em `styles.css`.
 - Atualize o conteúdo e imagens das páginas HTML.
 - Verifique se os links entre páginas estão corretos.
+
+## A fazer
+- Adicionar o menu
+- Mudar o Carrinho
+- Mudar a página de perfil
+- Adicionar cardápio
+- Mudar fontes
