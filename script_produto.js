@@ -454,7 +454,69 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
         };
 
         let lastProductPage = productBackPaths[saborSelecionado] || 'main.html';
-        if (!productBackPaths[saborSelecionado] && document.referrer) {
+        
+        // Se o usuário veio da página unificada do cardápio completo,
+        // retornamos ele para lá na seção correta!
+        if (document.referrer && document.referrer.includes('cardapio.html')) {
+            const cardapioSections = {
+                // Pizzas Tradicionais
+                calabresa: 'cardapio.html#pizzas-tradicionais',
+                margherita: 'cardapio.html#pizzas-tradicionais',
+                frango_catupiry: 'cardapio.html#pizzas-tradicionais',
+                queijo: 'cardapio.html#pizzas-tradicionais',
+                portuguesa: 'cardapio.html#pizzas-tradicionais',
+                quatro_queijos: 'cardapio.html#pizzas-tradicionais',
+                palmito: 'cardapio.html#pizzas-tradicionais',
+                presunto_queijo: 'cardapio.html#pizzas-tradicionais',
+                bacon: 'cardapio.html#pizzas-tradicionais',
+                pepperoni: 'cardapio.html#pizzas-tradicionais',
+                moda_casa: 'cardapio.html#pizzas-tradicionais',
+                strogonoff: 'cardapio.html#pizzas-tradicionais',
+                // Pizzas Vegetarianas
+                margherita_veggie: 'cardapio.html#pizzas-vegetarianas',
+                milho_catupiry: 'cardapio.html#pizzas-vegetarianas',
+                escarola: 'cardapio.html#pizzas-vegetarianas',
+                berinjela: 'cardapio.html#pizzas-vegetarianas',
+                funghi: 'cardapio.html#pizzas-vegetarianas',
+                vegetariana_completa: 'cardapio.html#pizzas-vegetarianas',
+                // Bebidas / Drinks
+                mar_antartico: 'cardapio.html#drinks',
+                refresco_pinguim: 'cardapio.html#drinks',
+                aurora_boreal: 'cardapio.html#drinks',
+                soda_tropical: 'cardapio.html#drinks',
+                iceberg_morango: 'cardapio.html#drinks',
+                polo_norte: 'cardapio.html#drinks',
+                // Refrigerantes
+                coca_cola: 'cardapio.html#refrigerantes',
+                guarana_antarctica: 'cardapio.html#refrigerantes',
+                pepsi: 'cardapio.html#refrigerantes',
+                sprite: 'cardapio.html#refrigerantes',
+                // Sucos
+                suco_manga: 'cardapio.html#sucos',
+                suco_melancia: 'cardapio.html#sucos',
+                suco_morango: 'cardapio.html#sucos',
+                suco_abacaxi: 'cardapio.html#sucos',
+                suco_maracuja: 'cardapio.html#sucos',
+                suco_uva: 'cardapio.html#sucos',
+                suco_limao: 'cardapio.html#sucos',
+                suco_tutti_frutti: 'cardapio.html#sucos',
+                // Pizzas Doces
+                brigadeiro: 'cardapio.html#sobremesas-doces',
+                morango_chocolate: 'cardapio.html#sobremesas-doces',
+                romeu_julieta: 'cardapio.html#sobremesas-doces',
+                banana_canela: 'cardapio.html#sobremesas-doces',
+                nutella_morango: 'cardapio.html#sobremesas-doces',
+                prestigio: 'cardapio.html#sobremesas-doces',
+                // Paraíso Gelado
+                oreo: 'cardapio.html#paraiso-gelado',
+                ninho: 'cardapio.html#paraiso-gelado',
+                glaciar_frutas: 'cardapio.html#paraiso-gelado',
+                pinguim_imperial: 'cardapio.html#paraiso-gelado',
+                avalanche_ovomaltine: 'cardapio.html#paraiso-gelado',
+                alasca_tostado: 'cardapio.html#paraiso-gelado'
+            };
+            lastProductPage = cardapioSections[saborSelecionado] || 'cardapio.html';
+        } else if (!productBackPaths[saborSelecionado] && document.referrer) {
             try {
                 lastProductPage = new URL(document.referrer).pathname.split('/').pop() || 'main.html';
             } catch (error) {
