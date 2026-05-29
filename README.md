@@ -47,7 +47,6 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Adicionar o menu
 - Mudar o Carrinho
 - Mudar a página de perfil
-- Adicionar cardápio
 - Mudar fontes
 - Perfil admin
 - Mudar imagens da pizzas para png 
