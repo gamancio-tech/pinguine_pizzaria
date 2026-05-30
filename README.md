@@ -51,4 +51,5 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Perfil admin
 - Mudar imagens da pizzas para png 
 - Melhorar e padronizar os ícones 
-- Fazer promoções funcionarem 
+- Fazer promoções funcionarem - Iniciado, falta aprimorar
+- Fazer o pesquisar funcionar
