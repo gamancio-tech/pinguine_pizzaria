@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.jpg" type="image/jpeg">
+    <title>Pinguine Pizzaria - Promocao</title>
+</head>
+<body class="promo-body">
+
+    <!-- Header -->
+    <section class="header">
+        <button class="btn-voltar" onclick="if(document.referrer) { window.history.back(); } else { window.location.href = 'main.html'; }"><a href="javascript:void(0)"><img class="icon" src="icons/seta-circulo-esquerda.png" alt="Voltar"></a></button>
+        <img class="logo logo-produto" src="images/logo.jpg" alt="Logo da Pinguine Pizzaria">
+    </section>
+
+    <!-- Hero da Promocao -->
+    <section class="promo-hero">
+        <div class="promo-hero-img-wrap">
+            <img id="promo-img" src="" alt="Imagem da Promocao">
+            <div class="promo-hero-overlay"></div>
+        </div>
+        <div class="promo-hero-content">
+            <span id="promo-badge" class="promo-badge"></span>
+            <h1 id="promo-titulo">Carregando...</h1>
+            <p id="promo-descricao">Carregando descricao...</p>
+            <span id="promo-preco" class="promo-preco-tag">R$ 0,00</span>
+        </div>
+    </section>
+
+    <!-- Slots do Combo -->
+    <section class="promo-slots-container">
+        <h2 class="promo-section-title">Monte seu Combo</h2>
+        <div id="promo-slots">
+            <!-- Renderizado via JS -->
+        </div>
+    </section>
+
+    <!-- Itens Fixos -->
+    <section id="promo-fixos-container" class="promo-fixos-container" style="display:none;">
+        <h2 class="promo-section-title">Incluso no Combo</h2>
+        <div id="promo-fixos">
+            <!-- Renderizado via JS -->
+        </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="promo-resumo-container">
+        <div class="promo-resumo-card">
+            <h2>Resumo do Combo</h2>
+            <div id="promo-resumo-lista">
+                <p class="promo-resumo-vazio">Selecione os itens acima para montar seu combo.</p>
+            </div>
+            <div class="promo-resumo-total">
+                <span>Total do Combo</span>
+                <span id="promo-resumo-preco">R$ 0,00</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botao Adicionar -->
+    <section class="promo-adicionar">
+        <button id="btn-promo-carrinho" type="button" class="btn-adicionar btn-grande" disabled>Selecione todos os itens</button>
+        <button id="promo-qntd-valor" class="btn-adicionar btn-qntd">1</button>
+        <button id="promo-btn-menos" class="btn-adicionar">-</button>
+        <button id="promo-btn-mais" class="btn-adicionar">+</button>
+    </section>
+
+    <!-- Modal Mini Cardapio -->
+    <div id="modal-mini-cardapio" class="modal-overlay" style="display:none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-titulo">Escolha seus itens</h2>
+                <span id="modal-contador" class="modal-contador">0/0 selecionados</span>
+                <button id="modal-fechar" class="modal-btn-fechar" type="button" aria-label="Fechar">X</button>
+            </div>
+            <div id="modal-grid" class="modal-grid">
+                <!-- Renderizado via JS -->
+            </div>
+            <div class="modal-footer">
+                <button id="modal-confirmar" class="btn-adicionar btn-grande modal-btn-confirmar" type="button" disabled>Confirmar Selecao</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script_promo.js"></script>
+</body>
+</html>
