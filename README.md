@@ -58,7 +58,8 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Perfil admin
 - Mudar imagens da pizzas para png 
 - Melhorar e padronizar os ícones 
-- Fazer promoções funcionarem 
+- Fazer promoções funcionarem - Iniciado, falta aprimorar
 - Revisar e modificar os itens do monte seu iceberg
 - Na página deproduto resolver a questão dos espaçamentos dos textos de acordo com o tamanho da imagem e adicionar implemntações (ex: bordas, catupiry, chocolate)
 - Mudar o estilo do monte seu iceberg
+- Fazer o pesquisar funcionar

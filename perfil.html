@@ -16,67 +16,87 @@
             <h1>Meu Perfil</h1>
         </div>
 
-        <!-- Profile Settings Card -->
-        <div class="perfil-card">
-            <h2>Configurações da Conta</h2>
+        <div class="perfil-content-layout">
+            <!-- Sidebar (Colunas da Esquerda) -->
+            <div class="perfil-sidebar">
+                <div class="perfil-card sidebar-card">
+                    <!-- Avatar selection -->
+                    <div class="avatar-area">
+                        <div class="avatar-preview" id="avatar-preview-box">U</div>
+                        <h3 id="sidebar-nome" class="sidebar-user-name">Carregando...</h3>
+                        <input type="file" id="avatar-input" accept="image/*" style="display:none;">
+                        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; width:100%;">
+                            <button class="avatar-upload-btn" onclick="document.getElementById('avatar-input').click()">Alterar Foto</button>
+                            <button class="avatar-upload-btn" type="button" onclick="removerAvatar()">Remover Foto</button>
+                        </div>
+                    </div>
 
-            <!-- Avatar selection -->
-            <div class="avatar-area">
-                <div class="avatar-preview" id="avatar-preview-box">U</div>
-                <input type="file" id="avatar-input" accept="image/*" style="display:none;">
-                <div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; width:100%;">
-                    <button class="avatar-upload-btn" onclick="document.getElementById('avatar-input').click()">📷 Alterar Foto</button>
-                    <button class="avatar-upload-btn" type="button" onclick="removerAvatar()">🗑️ Remover Foto</button>
+                    <hr class="sidebar-divider">
+
+                    <button class="btn-logout" onclick="fazerLogout()">Sair da Conta</button>
                 </div>
             </div>
 
-            <!-- Profile form -->
-            <div class="perfil-form">
-                <div>
-                    <label for="perfil-nome">Nome completo</label>
-                    <input type="text" id="perfil-nome" placeholder="Seu nome">
+            <!-- Main Content (Colunas da Direita) -->
+            <div class="perfil-main">
+                <!-- Menu de Abas (Tabs) -->
+                <div class="perfil-tabs">
+                    <button class="perfil-tab-btn active" onclick="switchTab('dados', event)">Dados Pessoais</button>
+                    <button class="perfil-tab-btn" onclick="switchTab('pedidos', event)">Pedidos em Andamento</button>
                 </div>
-                <div>
-                    <label for="perfil-email">E-mail</label>
-                    <input type="email" id="perfil-email" placeholder="seu@email.com">
-                </div>
-                <div>
-                    <label for="perfil-telefone">Telefone / WhatsApp</label>
-                    <input type="tel" id="perfil-telefone" placeholder="(11) 99999-9999">
-                </div>
-                <div>
-                    <label for="perfil-cpf">CPF</label>
-                    <input type="text" id="perfil-cpf" placeholder="000.000.000-00">
-                </div>
-                <div class="full-width">
-                    <label for="perfil-endereco">Endereço de entrega</label>
-                    <input type="text" id="perfil-endereco" placeholder="Rua, Número">
-                </div>
-                <div>
-                    <label for="perfil-bairro">Bairro</label>
-                    <input type="text" id="perfil-bairro" placeholder="Bairro">
-                </div>
-                <div>
-                    <label for="perfil-cidade">Cidade / Estado</label>
-                    <input type="text" id="perfil-cidade" placeholder="São Paulo, SP">
-                </div>
-                <div class="full-width">
-                    <label for="perfil-complemento">Complemento</label>
-                    <input type="text" id="perfil-complemento" placeholder="Apartamento, bloco, referência...">
-                </div>
-            </div>
 
-            <div class="perfil-actions">
-                <button class="btn-salvar-perfil" onclick="salvarPerfil()">💾 Salvar Alterações</button>
-                <button class="btn-logout" onclick="fazerLogout()">Sair da Conta</button>
-            </div>
-        </div>
+                <!-- Profile Settings Card -->
+                <div class="perfil-card tab-content active" id="tab-dados">
+                    <h2>Configurações da Conta</h2>
 
-        <!-- Active Orders Card -->
-        <div class="perfil-card">
-            <h2>Pedidos em Andamento</h2>
-            <div class="pedidos-lista" id="pedidos-lista">
-                <!-- Populated by JS -->
+                    <!-- Profile form -->
+                    <div class="perfil-form">
+                        <div>
+                            <label for="perfil-nome">Nome completo</label>
+                            <input type="text" id="perfil-nome" placeholder="Seu nome">
+                        </div>
+                        <div>
+                            <label for="perfil-email">E-mail</label>
+                            <input type="email" id="perfil-email" placeholder="seu@email.com">
+                        </div>
+                        <div>
+                            <label for="perfil-telefone">Telefone / WhatsApp</label>
+                            <input type="tel" id="perfil-telefone" placeholder="(11) 99999-9999">
+                        </div>
+                        <div>
+                            <label for="perfil-cpf">CPF</label>
+                            <input type="text" id="perfil-cpf" placeholder="000.000.000-00">
+                        </div>
+                        <div class="full-width">
+                            <label for="perfil-endereco">Endereço de entrega</label>
+                            <input type="text" id="perfil-endereco" placeholder="Rua, Número">
+                        </div>
+                        <div>
+                            <label for="perfil-bairro">Bairro</label>
+                            <input type="text" id="perfil-bairro" placeholder="Bairro">
+                        </div>
+                        <div>
+                            <label for="perfil-cidade">Cidade / Estado</label>
+                            <input type="text" id="perfil-cidade" placeholder="São Paulo, SP">
+                        </div>
+                        <div class="full-width">
+                            <label for="perfil-complemento">Complemento</label>
+                            <input type="text" id="perfil-complemento" placeholder="Apartamento, bloco, referência...">
+                        </div>
+                    </div>
+
+                    <div class="perfil-actions-right">
+                        <button class="btn-salvar-perfil" onclick="salvarPerfil()">Salvar Alterações</button>
+                    </div>
+                </div>
+
+                <!-- Active Orders Card -->
+                <div class="perfil-card tab-content" id="tab-pedidos">
+                    <h2>Pedidos em Andamento</h2>
+                    <div class="pedidos-lista" id="pedidos-lista">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -108,6 +128,12 @@
             document.getElementById('perfil-bairro').value = profile.bairro || '';
             document.getElementById('perfil-cidade').value = profile.cidade || '';
             document.getElementById('perfil-complemento').value = profile.complemento || '';
+            
+            const sidebarNome = document.getElementById('sidebar-nome');
+            if (sidebarNome) {
+                sidebarNome.textContent = profile.nome || 'Seu Nome';
+            }
+
             updateAvatarPreview(profile);
         }
 
@@ -150,11 +176,16 @@
 
             localStorage.setItem('userProfile', JSON.stringify(profile));
 
+            const sidebarNome = document.getElementById('sidebar-nome');
+            if (sidebarNome) {
+                sidebarNome.textContent = profile.nome || 'Seu Nome';
+            }
+
             const btn = document.querySelector('.btn-salvar-perfil');
-            btn.textContent = '✓ Salvo!';
+            btn.textContent = 'Salvo!';
             btn.style.backgroundColor = 'var(--cor2)';
             setTimeout(() => {
-                btn.textContent = '💾 Salvar Alterações';
+                btn.textContent = 'Salvar Alterações';
                 btn.style.backgroundColor = '';
             }, 2000);
         }
@@ -162,6 +193,18 @@
         function fazerLogout() {
             localStorage.removeItem('userLoggedIn');
             window.location.href = 'main.html';
+        }
+
+        function switchTab(tabId, event) {
+            document.querySelectorAll('.perfil-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            event.currentTarget.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
         }
 
         // =====================
