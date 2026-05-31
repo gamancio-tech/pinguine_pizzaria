@@ -24,7 +24,7 @@
     background-image: url('../../images/fundo_forno.png');
     background-size: cover;
     background-position: top right;
-    min-height: 342px;
+    min-height: 400px;
 }
 
 .pizza_sorvete article {
@@ -39,6 +39,8 @@
     object-fit: contain;
     display: block;
     grid-row: 2;
+    align-self: end;
+    margin-bottom: 8px;
 }
 
 .grid h1 {
