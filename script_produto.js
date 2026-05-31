@@ -249,7 +249,7 @@ const cardapio = {
         titulo: "Sprite",
         preco: "R$ 10,90",
         descricao: "Refrigerante Sprite Lata 350ml gelado e refrescante.",
-        imagem: "images/bebidas/bebida10.jpg"
+        imagem: "images/bebidas/bebida10.png"
     },
 
     // === SUCOS ===
@@ -257,7 +257,7 @@ const cardapio = {
         titulo: "Suco de Manga Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural e refrescante de manga madura selecionada, batido na hora com gelo.",
-        imagem: "images/bebidas/bebida11.jpg"
+        imagem: "images/bebidas/bebida11.png"
     },
     suco_melancia: {
         titulo: "Suco de Melancia Fresh",
@@ -269,37 +269,37 @@ const cardapio = {
         titulo: "Suco de Morango Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de morangos frescos batidos na hora.",
-        imagem: "images/bebidas/bebida13.jpg"
+        imagem: "images/bebidas/bebida13.png"
     },
     suco_abacaxi: {
         titulo: "Suco de Abacaxi Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de abacaxi fresco batido com hortelã opcional e gelo.",
-        imagem: "images/bebidas/bebida14.jpg"
+        imagem: "images/bebidas/bebida14.png"
     },
     suco_maracuja: {
         titulo: "Suco de Maracujá Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de maracujá da fruta, perfeito equilíbrio entre o cítrico e o doce.",
-        imagem: "images/bebidas/bebida15.jpg"
+        imagem: "images/bebidas/bebida15.png"
     },
     suco_uva: {
         titulo: "Suco de Uva Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de uva roxa concentrado e saboroso.",
-        imagem: "images/bebidas/bebida16.jpg"
+        imagem: "images/bebidas/bebida16.png"
     },
     suco_limao: {
         titulo: "Suco de Limão Fresh",
         preco: "R$ 12,90",
         descricao: "Limonada suíça fresh feita com limões espremidos na hora com casca, bem gelada.",
-        imagem: "images/bebidas/bebida17.jpg"
+        imagem: "images/bebidas/bebida17.png"
     },
     suco_tutti_frutti: {
         titulo: "Suco de Tutti-Frutti Fresh",
         preco: "R$ 12,90",
         descricao: "Delicioso e colorido suco sabor tutti-frutti com um mix especial de xaropes e geléias coloridas.",
-        imagem: "images/bebidas/bebida18.jpg"
+        imagem: "images/bebidas/bebida18.png"
     }
 };
 
