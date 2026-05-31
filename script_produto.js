@@ -314,8 +314,78 @@ if (saborSelecionado && cardapio[saborSelecionado]) {
     document.getElementById('prod-titulo').innerText = produto.titulo;
     document.getElementById('prod-preco').innerText = produto.preco;
     document.getElementById('prod-descricao').innerText = produto.descricao;
-    document.getElementById('prod-img').src = produto.imagem;
-    document.getElementById('prod-img').alt = produto.titulo;
+    const imgElem = document.getElementById('prod-img');
+    imgElem.src = produto.imagem;
+    imgElem.alt = produto.titulo;
+    // Apply category‑specific styling: bebidas (drinks) use contain, pizzas/sobremesas use cover
+    if (produto.imagem.includes('/bebidas/') || produto.imagem.includes('/drinks/')) {
+        imgElem.classList.add('drink-image');
+        imgElem.classList.remove('food-image');
+    } else {
+        imgElem.classList.add('food-image');
+        imgElem.classList.remove('drink-image');
+    }
+
+    // Show pizza selection sections (tamanho & borda) only for pizza products
+    const pizzaKeys = [
+        'calabresa', 'margherita', 'frango_catupiry', 'queijo', 'portuguesa',
+        'quatro_queijos', 'palmito', 'presunto_queijo', 'bacon', 'pepperoni',
+        'moda_casa', 'strogonoff',
+        'margherita_veggie', 'milho_catupiry', 'escarola', 'berinjela',
+        'funghi', 'vegetariana_completa',
+        'brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela',
+        'nutella_morango', 'prestigio'
+    ];
+    const selecoesPizza = document.getElementById('selecoes-pizza');
+    if (selecoesPizza && pizzaKeys.includes(saborSelecionado)) {
+        selecoesPizza.style.display = 'block';
+
+        // Sweet pizza border options restriction
+        const sweetPizzaKeys = ['brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela', 'nutella_morango', 'prestigio'];
+        if (sweetPizzaKeys.includes(saborSelecionado)) {
+            const catupiryCard = document.querySelector('input[name="borda"][value="catupiry"]');
+            const cheddarCard = document.querySelector('input[name="borda"][value="cheddar"]');
+            if (catupiryCard) catupiryCard.closest('.opcao-card').style.display = 'none';
+            if (cheddarCard) cheddarCard.closest('.opcao-card').style.display = 'none';
+        }
+
+        // Dynamically update the size option badges with the full pizza prices
+        const precoBaseVal = parsePreco(produto.preco);
+        const pqInput = document.querySelector('input[name="tamanho"][value="pequena"]');
+        const mdInput = document.querySelector('input[name="tamanho"][value="media"]');
+        const gdInput = document.querySelector('input[name="tamanho"][value="grande"]');
+
+        if (pqInput) {
+            const b = pqInput.parentElement.querySelector('.opcao-preco-badge');
+            if (b) {
+                b.innerText = formatPreco(precoBaseVal - 10);
+                b.className = 'opcao-preco-badge normal';
+            }
+        }
+        if (mdInput) {
+            const b = mdInput.parentElement.querySelector('.opcao-preco-badge');
+            if (b) {
+                b.innerText = formatPreco(precoBaseVal);
+                b.className = 'opcao-preco-badge normal';
+            }
+        }
+        if (gdInput) {
+            const b = gdInput.parentElement.querySelector('.opcao-preco-badge');
+            if (b) {
+                b.innerText = formatPreco(precoBaseVal + 15);
+                b.className = 'opcao-preco-badge normal';
+            }
+        }
+
+        // Add event listeners for dynamic pricing on selection change
+        const radios = document.querySelectorAll('#selecoes-pizza input[type="radio"]');
+        radios.forEach(radio => {
+            radio.addEventListener('change', atualizarPrecoExibido);
+        });
+    }
+
+    // Initial price calculation and rendering
+    atualizarPrecoExibido();
 } else {
     // Caso alguém acesse produto.html sem passar um sabor válido
     document.getElementById('prod-titulo').innerText = "Produto não encontrado";
@@ -367,13 +437,50 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
         }
 
         const produto = cardapio[saborSelecionado];
-        const observacao = observacaoInput ? observacaoInput.value.trim() : "";
+        let observacao = observacaoInput ? observacaoInput.value.trim() : "";
+
+        // Include pizza size & border selections in observation if visible
+        const selecoesPizza = document.getElementById('selecoes-pizza');
+        if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+            const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+            const bordaEl = document.querySelector('input[name="borda"]:checked');
+            const tamanhoLabel = { pequena: 'Pequena', media: 'Média', grande: 'Grande' };
+            const bordaLabel = { sem_borda: 'Sem Borda Recheada', catupiry: 'Catupiry', cheddar: 'Cheddar', chocolate: 'Chocolate' };
+
+            const parts = [];
+            if (tamanhoEl) parts.push('Tamanho: ' + (tamanhoLabel[tamanhoEl.value] || tamanhoEl.value));
+            if (bordaEl) parts.push('Borda: ' + (bordaLabel[bordaEl.value] || bordaEl.value));
+            const selecaoTexto = parts.join(' | ');
+
+            if (observacao) {
+                observacao = selecaoTexto + ' | ' + observacao;
+            } else {
+                observacao = selecaoTexto;
+            }
+        }
+
+        let precoCalculado = produto.preco;
+        if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+            let precoBase = parsePreco(produto.preco);
+            const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+            const bordaEl = document.querySelector('input[name="borda"]:checked');
+            let ajuste = 0;
+            if (tamanhoEl) {
+                if (tamanhoEl.value === 'pequena') ajuste -= 10;
+                else if (tamanhoEl.value === 'grande') ajuste += 15;
+            }
+            if (bordaEl) {
+                if (bordaEl.value === 'catupiry' || bordaEl.value === 'cheddar') ajuste += 8;
+                else if (bordaEl.value === 'chocolate') ajuste += 10;
+            }
+            precoCalculado = formatPreco(precoBase + ajuste);
+        }
 
         // Objeto do produto a ser adicionado
         const itemCarrinho = {
             sabor: saborSelecionado,
             titulo: produto.titulo,
-            preco: produto.preco,
+            preco: precoCalculado,
             imagem: produto.imagem,
             quantidade: quantidade,
             observacao: observacao
@@ -533,4 +640,46 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
             window.location.href = 'carrinho.html';
         }, 1000);
     });
+}
+
+// ============================================
+// DYNAMIC PRICING HELPERS FOR PRODUCT PAGE
+// ============================================
+function parsePreco(preco) {
+    if (!preco) return 0;
+    return parseFloat(preco.replace('R$', '').replace('.', '').replace(',', '.').trim()) || 0;
+}
+
+function formatPreco(value) {
+    return 'R$ ' + value.toFixed(2).replace('.', ',');
+}
+
+function atualizarPrecoExibido() {
+    if (!saborSelecionado || !cardapio[saborSelecionado]) return;
+    const produto = cardapio[saborSelecionado];
+
+    let precoBase = parsePreco(produto.preco);
+    
+    // Only apply adjustments if the item is a pizza (i.e. size/border selectors are visible)
+    const selecoesPizza = document.getElementById('selecoes-pizza');
+    if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+        const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+        const bordaEl = document.querySelector('input[name="borda"]:checked');
+        
+        let ajuste = 0;
+        if (tamanhoEl) {
+            if (tamanhoEl.value === 'pequena') ajuste -= 10;
+            else if (tamanhoEl.value === 'grande') ajuste += 15;
+        }
+        if (bordaEl) {
+            if (bordaEl.value === 'catupiry' || bordaEl.value === 'cheddar') ajuste += 8;
+            else if (bordaEl.value === 'chocolate') ajuste += 10;
+        }
+        precoBase += ajuste;
+    }
+
+    const prodPrecoEl = document.getElementById('prod-preco');
+    if (prodPrecoEl) {
+        prodPrecoEl.innerText = formatPreco(precoBase);
+    }
 }
