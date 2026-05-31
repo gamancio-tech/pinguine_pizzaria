@@ -45,9 +45,7 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 
 ## Problemas
-- cardapio.html -> seção de promoções -> div class = "promocoes-banner-introducao" / texto ilegível, adicionar um fundo no section promções e jogar o texto dentro ou então mudar estilo, além disso está desalinhado.
-- monte seu iceberg / fala que pode escolher até 2 sabores de sorvete mas não impede de escolher mais
-
+- imagem da sprite não aparecendo nas promoções
 
 ## A fazer
 - Adicionar o menu
@@ -63,8 +61,6 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Mudar imagens da pizzas para png 
 
 - Melhorar e padronizar os ícones 
-
-- Fazer promoções funcionarem - Iniciado, falta aprimorar - mostrar itens escolhidos no carrinho
 
 - Revisar e modificar os itens do monte seu iceberg
 

@@ -15,7 +15,7 @@
     <section class="produto">
         <div class="produto-esquerda">
             <img id="prod-img" src="" alt="Imagem do Produto">
-            <span id="prod-preco" class="price">R$ 0,00</span>
+            <span id="prod-preco" class="price">Total: R$ 0,00</span>
         </div>
         <div class="produto-direita">
             <h1 id="prod-titulo">Carregando...</h1>
@@ -36,14 +36,17 @@
                         <label class="opcao-card">
                             <input type="radio" name="tamanho" value="pequena">
                             <span class="opcao-detalhe">Pequena</span>
+                            <span class="opcao-preco-badge desconto">- R$ 10,00</span>
                         </label>
                         <label class="opcao-card">
                             <input type="radio" name="tamanho" value="media" checked>
                             <span class="opcao-detalhe">Média</span>
+                            <span class="opcao-preco-badge normal">padrão</span>
                         </label>
                         <label class="opcao-card">
                             <input type="radio" name="tamanho" value="grande">
                             <span class="opcao-detalhe">Grande</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 15,00</span>
                         </label>
                     </div>
                 </div>
@@ -54,19 +57,23 @@
                     <div class="opcoes-flex">
                         <label class="opcao-card">
                             <input type="radio" name="borda" value="sem_borda" checked>
-                            <span class="opcao-detalhe">Sem Borda Recheada</span>
+                            <span class="opcao-detalhe">Sem Borda</span>
+                            <span class="opcao-preco-badge normal">grátis</span>
                         </label>
                         <label class="opcao-card">
                             <input type="radio" name="borda" value="catupiry">
                             <span class="opcao-detalhe">Borda de Catupiry</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 8,00</span>
                         </label>
                         <label class="opcao-card">
                             <input type="radio" name="borda" value="cheddar">
                             <span class="opcao-detalhe">Borda de Cheddar</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 8,00</span>
                         </label>
                         <label class="opcao-card">
                             <input type="radio" name="borda" value="chocolate">
                             <span class="opcao-detalhe">Borda de Chocolate</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 10,00</span>
                         </label>
                     </div>
                 </div>

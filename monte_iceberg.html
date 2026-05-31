@@ -31,10 +31,12 @@
                         <label class="opcao-card">
                              <input type="radio" name="massa" value="tradicional" checked>
                             <span class="opcao-detalhe">Massa Tradicional Pan</span>
+                            <span class="opcao-preco-badge normal">padrão</span>
                         </label>
                         <label class="opcao-card">
                             <input type="radio" name="massa" value="cacau">
                             <span class="opcao-detalhe">Massa de Cacau Black</span>
+                            <span class="opcao-preco-badge normal">padrão</span>
                         </label>
                     </div>
                 </div>
@@ -47,18 +49,22 @@
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="sorvete" value="creme">
                             <span class="opcao-detalhe">Creme de Baunilha</span>
+                            <span class="opcao-preco-badge normal">incluso</span>
                         </label>
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="sorvete" value="chocolate">
                             <span class="opcao-detalhe">Chocolate Belga</span>
+                            <span class="opcao-preco-badge normal">incluso</span>
                         </label>
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="sorvete" value="morango">
                             <span class="opcao-detalhe">Morango Silvestre</span>
+                            <span class="opcao-preco-badge normal">incluso</span>
                         </label>
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="sorvete" value="flocos">
                             <span class="opcao-detalhe">Flocos do Ártico</span>
+                            <span class="opcao-preco-badge normal">incluso</span>
                         </label>
                     </div>
                 </div>
@@ -69,19 +75,23 @@
                     <div class="opcoes-flex grid-2-col">
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="toppings" value="oreo">
-                            <span class="opcao-detalhe">Biscoito Oreo (+ R$ 3,00)</span>
+                            <span class="opcao-detalhe">Biscoito Oreo</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 3,00</span>
                         </label>
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="toppings" value="mms">
-                            <span class="opcao-detalhe">M&M's Coloridos (+ R$ 4,00)</span>
+                            <span class="opcao-detalhe">M&M's Coloridos</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 4,00</span>
                         </label>
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="toppings" value="calda-chocolate">
                             <span class="opcao-detalhe">Calda de Chocolate Gélida</span>
+                            <span class="opcao-preco-badge normal">grátis</span>
                         </label>
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="toppings" value="marshmallow">
                             <span class="opcao-detalhe">Marshmallow Tostado</span>
+                            <span class="opcao-preco-badge normal">grátis</span>
                         </label>
                     </div>
                 </div>
@@ -110,6 +120,27 @@
                     setTimeout(() => { aviso.style.display = 'none'; }, 2500);
                 }
             });
+        });
+
+        // Dynamic price update for toppings
+        const toppingsCheckboxes = document.querySelectorAll('input[name="toppings"]');
+        const priceDestaque = document.querySelector('.price-destaque');
+
+        function getCalculatedPrice() {
+            let total = 75.00;
+            const checkedToppings = Array.from(document.querySelectorAll('input[name="toppings"]:checked')).map(cb => cb.value);
+            if (checkedToppings.includes('oreo')) total += 3.00;
+            if (checkedToppings.includes('mms')) total += 4.00;
+            return total;
+        }
+
+        function updateIcebergPrice() {
+            const total = getCalculatedPrice();
+            priceDestaque.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        toppingsCheckboxes.forEach(cb => {
+            cb.addEventListener('change', updateIcebergPrice);
         });
 
         function getSelectedValues(name) {
@@ -143,10 +174,12 @@
                 return;
             }
 
+            const calculatedPrice = getCalculatedPrice();
+
             const itemCarrinho = {
                 sabor: 'monte_iceberg',
                 titulo: 'Monte seu Iceberg',
-                preco: 'R$ 75,00',
+                preco: `R$ ${calculatedPrice.toFixed(2).replace('.', ',')}`,
                 imagem: defaultImage,
                 quantidade: 1,
                 observacao: buildIcebergObservation(massa, sorvetes, toppings)
