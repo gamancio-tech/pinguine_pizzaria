@@ -23,14 +23,14 @@
             </div>
         </section>
         <section class="configurador-opcoes">
-            <form action="carrinho.html" method="post">
+            <form id="iceberg-form">
                 
                 <div class="passo-grupo">
                     <span class="passo-indicador">Passo 1</span>
                     <h2>Escolha a Base da Massa</h2>
                     <div class="opcoes-flex">
                         <label class="opcao-card">
-                            <input type="radio" name="massa" value="tradicional" checked>
+                             <input type="radio" name="massa" value="tradicional" checked>
                             <span class="opcao-detalhe">Massa Tradicional Pan</span>
                         </label>
                         <label class="opcao-card">
@@ -43,6 +43,7 @@
                 <div class="passo-grupo">
                     <span class="passo-indicador">Passo 2</span>
                     <h2>Escolha o Sabor do Sorvete (Até 2 sabores)</h2>
+                    <p id="aviso-sorvete" style="display:none; color:var(--color-cta-dark); font-size:0.9rem; margin-bottom:0.5rem; font-weight:600;">⚠️ Máximo de 2 sabores permitidos.</p>
                     <div class="opcoes-flex grid-2-col">
                         <label class="opcao-card checkbox-card">
                             <input type="checkbox" name="sorvete" value="creme">
@@ -95,8 +96,22 @@
     </main>
 
     <script>
-        const icebergForm = document.querySelector('form');
+        const icebergForm = document.getElementById('iceberg-form');
         const defaultImage = 'images/cardapio_img.jpeg';
+
+        // Enforce max 2 ice cream flavors
+        const sorveteCheckboxes = document.querySelectorAll('input[name="sorvete"]');
+        sorveteCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const checked = document.querySelectorAll('input[name="sorvete"]:checked');
+                if (checked.length > 2) {
+                    cb.checked = false;
+                    const aviso = document.getElementById('aviso-sorvete');
+                    aviso.style.display = 'block';
+                    setTimeout(() => { aviso.style.display = 'none'; }, 2500);
+                }
+            });
+        });
 
         function getSelectedValues(name) {
             return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(input => input.value);

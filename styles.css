@@ -121,7 +121,7 @@ nav a > img{
 nav > a#last {
     border-right: black solid 1px;
 }
-nav > a:hover{ 
+nav > a:hover, nav > a.nav-active { 
     background-color: var(--cor10);
 }
 img.grande {
@@ -692,7 +692,7 @@ main.bebida_menu {
 body {
     min-height: 100vh;
 }
-section.header{
+.header{
     display: flex;
     flex-direction: row;
 }

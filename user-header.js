@@ -11,7 +11,7 @@ function createLoginButton() {
     button.className = 'btn-login';
     const link = document.createElement('a');
     link.href = 'login.html';
-    link.textContent = 'Inscrever-se';
+    link.textContent = 'Login';
     button.appendChild(link);
     return button;
 }

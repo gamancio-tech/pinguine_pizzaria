@@ -10,27 +10,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <button class="btn-menu"><a href="#"><img src="icons/menu-hamburguer.png" class="icon"
-                        alt="Menu"></a></button>
-            <button class="btn-home"><a href="main.html"><img src="icons/lar.png" class="icon" alt="Home"></a></button>
-            <button class="btn-carrinho"><a href="carrinho.html"><img src="icons/carrinho-de-compras (1).png"
-                        class="icon" alt="Carrinho"></a></button>
-            <search>
-                <input type="text" placeholder="Pesquisar...">
-                <button type="submit"><img src="icons/search.png" alt="Buscar"></button>
-            </search>
-            <img src="images/logo.jpg" class="logo" alt="Logo da Pinguine Pizzaria">
-            <div id="header-user" class="header-user"></div>
-        </div>
-    </header>
-    <nav>
-        <a href="menu_pizza.html"><img src="icons/fatia-de-pizza.png" alt="Pizzas"> Pizzas</a>
-        <a href="menu_bebida.html"><img src="icons/coquetel-alternativo.png" alt="Bebidas"> Bebidas</a>
-        <a href="menu_sobremesa.html"><img src="icons/colheres-de-tigela.png" alt="Sobremesas"> Sobremesas</a>
-        <a href="cardapio.html" id="last"><img src="icons/menu-food.png" alt="Cardápio"> Cardápio</a>
-    </nav>
+    <div id="site-header"></div>
+    <div id="site-nav"></div>
 
     <!-- Banner Hero Principal -->
     <div class="hero-banner">
@@ -39,7 +20,7 @@
             <img src="images/logo.jpg" class="hero-logo-img" alt="Logo Pinguine">
             <div class="hero-brand">Pinguine</div>
             <h1 class="hero-title">CARDÁPIO COMPLETO</h1>
-            <div class="hero-sparkle">✦✦✦✦</div>
+            <div class="hero-sparkle">✦</div>
         </div>
     </div>
 
@@ -62,10 +43,18 @@
     </div>
 
     <!-- SEÇÃO: PROMOÇÕES REESTILIZADAS -->
-    <section id="promocoes" class="secao-promocoes-premium">
+    <section id="promocoes" class="secao-promocoes-premium sobremesa_menu">
         <div class="promocoes-banner-introducao">
-            <h3>🔥 Ofertas Especiais do Pinguim</h3>
-            <p>Os combos mais deliciosos da geleira com preços super congelados!</p>
+            <div class="category-banner yellow-label">
+                <span class="category-icon">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                    </svg>
+                </span>
+                <h2>PROMOÇÕES DO PINGUINE</h2>
+            </div>
         </div>
         <div class="promocoes-premium-grid">
             <article class="promocao-premium-card">
@@ -608,22 +597,7 @@
 
     </main>
 
-    <footer>
-        <div class="footer-grid">
-            <h3 class="item1"><img src="icons/compartilhar.png" class="icon" alt="Compartilhar"> Redes sociais</h3>
-            <a href="#" class="item2"><img src="images/instagram.png" alt="Instagram"> Instagram</a>
-            <a href="#" class="item3"><img src="images/whatsapp.png" alt="Whatsapp"> Whatsapp</a>
-            <h3 class="item4"><img src="icons/circulo-telefone-flip.png" class="icon" alt="Telefone"> Compre pelo nosso
-                telefone</h3>
-            <p class="item5">(11) 1234-5678</p>
-            <h3 class="item6"><img src="icons/marcador.png" class="icon" alt="Endereço"> Endereço</h3>
-            <p class="item7">Rua das Pizzas, 123 - São Paulo, SP</p>
-            <h3 class="item8"><img src="icons/relogio-calendario.png" class="icon" alt="Horário"> Atendimento</h3>
-            <p class="item9">Segunda a Domingo: 18h às 23h</p>
-            <img src="images/app.jpg" class="item10" alt="App da Pinguine Pizzaria">
-        </div>
-    </footer>
-
+    <div id="site-footer"></div>
     <!-- Adiciona funcionalidade de suavização do Scroll da Sub-Navegação -->
     <script>
         document.querySelectorAll('.cardapio-sub-nav a').forEach(anchor => {
@@ -643,7 +617,9 @@
             });
         });
     </script>
-    <script src="user-header.js"></script>
+    <script src="components/loader.js"></script>
 </body>
+
+</html>
 
 </html>
