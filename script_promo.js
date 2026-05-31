@@ -1,25 +1,25 @@
-// ============================================
+﻿// ============================================
 // DADOS DO CARDAPIO (reutilizado de script_produto.js)
 // ============================================
 const cardapio = {
-    calabresa: { titulo: "Pizza de Calabresa", preco: "R$ 62,00", imagem: "images/cardapio_pizza/pizza1.jpg" },
-    margherita: { titulo: "Pizza Margherita", preco: "R$ 65,00", imagem: "images/cardapio_pizza/pizza2.jpg" },
-    frango_catupiry: { titulo: "Pizza de Frango c/ Catupiry", preco: "R$ 60,00", imagem: "images/cardapio_pizza/pizza3.jpg" },
-    queijo: { titulo: "Pizza de Queijo", preco: "R$ 64,00", imagem: "images/cardapio_pizza/pizza4.jpg" },
-    portuguesa: { titulo: "Pizza Portuguesa", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza5.jpg" },
-    quatro_queijos: { titulo: "Pizza 4 Queijos", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza6.jpg" },
-    palmito: { titulo: "Pizza de Palmito", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza7.jpg" },
-    presunto_queijo: { titulo: "Pizza de Presunto e Queijo", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza8.jpg" },
-    bacon: { titulo: "Pizza de Bacon", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza9.jpg" },
-    pepperoni: { titulo: "Pizza de Pepperoni", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza10.jpg" },
-    moda_casa: { titulo: "Pizza a Moda da Casa", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza11.jpg" },
-    strogonoff: { titulo: "Pizza de Strogonoff", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza12.jpg" },
-    margherita_veggie: { titulo: "Pizza Margherita Vegetariana", preco: "R$ 70,00", imagem: "images/cardapio_pizza/pizza2.jpg" },
-    milho_catupiry: { titulo: "Pizza de Milho com Catupiry", preco: "R$ 70,00", imagem: "images/cardapio_pizza/pizza14.jpg" },
-    escarola: { titulo: "Pizza de Escarola", preco: "R$ 72,00", imagem: "images/cardapio_pizza/pizza15.jpg" },
-    berinjela: { titulo: "Pizza de Berinjela", preco: "R$ 70,00", imagem: "images/cardapio_pizza/pizza16.jpg" },
-    funghi: { titulo: "Pizza de Funghi", preco: "R$ 72,00", imagem: "images/cardapio_pizza/pizza17.jpg" },
-    vegetariana_completa: { titulo: "Pizza Vegetariana Completa", preco: "R$ 74,00", imagem: "images/cardapio_pizza/pizza18.jpg" },
+    calabresa: { titulo: "Pizza de Calabresa", preco: "R$ 62,00", imagem: "images/cardapio_pizza/pizza1.png" },
+    margherita: { titulo: "Pizza Margherita", preco: "R$ 65,00", imagem: "images/cardapio_pizza/pizza2.png" },
+    frango_catupiry: { titulo: "Pizza de Frango c/ Catupiry", preco: "R$ 60,00", imagem: "images/cardapio_pizza/pizza3.png" },
+    queijo: { titulo: "Pizza de Queijo", preco: "R$ 64,00", imagem: "images/cardapio_pizza/pizza4.png" },
+    portuguesa: { titulo: "Pizza Portuguesa", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza5.png" },
+    quatro_queijos: { titulo: "Pizza 4 Queijos", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza6.png" },
+    palmito: { titulo: "Pizza de Palmito", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza7.png" },
+    presunto_queijo: { titulo: "Pizza de Presunto e Queijo", preco: "R$ 66,00", imagem: "images/cardapio_pizza/pizza8.png" },
+    bacon: { titulo: "Pizza de Bacon", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza9.png" },
+    pepperoni: { titulo: "Pizza de Pepperoni", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza10.png" },
+    moda_casa: { titulo: "Pizza a Moda da Casa", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza11.png" },
+    strogonoff: { titulo: "Pizza de Strogonoff", preco: "R$ 63,00", imagem: "images/cardapio_pizza/pizza12.png" },
+    margherita_veggie: { titulo: "Pizza Margherita Vegetariana", preco: "R$ 70,00", imagem: "images/cardapio_pizza/pizza2.png" },
+    milho_catupiry: { titulo: "Pizza de Milho com Catupiry", preco: "R$ 70,00", imagem: "images/cardapio_pizza/pizza14.png" },
+    escarola: { titulo: "Pizza de Escarola", preco: "R$ 72,00", imagem: "images/cardapio_pizza/pizza15.png" },
+    berinjela: { titulo: "Pizza de Berinjela", preco: "R$ 70,00", imagem: "images/cardapio_pizza/pizza16.png" },
+    funghi: { titulo: "Pizza de Funghi", preco: "R$ 72,00", imagem: "images/cardapio_pizza/pizza17.png" },
+    vegetariana_completa: { titulo: "Pizza Vegetariana Completa", preco: "R$ 74,00", imagem: "images/cardapio_pizza/pizza18.png" },
     coca_cola: { titulo: "Coca-Cola", preco: "R$ 11,50", imagem: "images/bebidas/bebida7.png" },
     guarana_antarctica: { titulo: "Guarana Antarctica", preco: "R$ 10,90", imagem: "images/bebidas/bebida8.png" },
     pepsi: { titulo: "Pepsi", preco: "R$ 10,90", imagem: "images/bebidas/bebida9.png" },
@@ -106,7 +106,7 @@ const promocoes = {
             }
         ],
         itens_fixos: [
-            { titulo: "Borda Recheada de Chocolate", descricao: "Brinde especial!", imagem: "images/sobremesas/sobremesa1.jfif" }
+            { titulo: "Borda Recheada de Chocolate", descricao: "Brinde especial!", imagem: "images/sobremesas/sobremesa1.png" }
         ]
     },
     quarta_gelada: {
@@ -622,3 +622,4 @@ function setupCarrinho() {
         }, 1000);
     });
 }
+
