@@ -52,9 +52,9 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 ## A fazer
 - Adicionar o menu
 
-- Mudar o Carrinho
+- Mudar o Carrinho - iniciado
 
-- Mudar a página de perfil - iniciado
+- Mudar a página de perfil - melhorar
 
 - Mudar fontes
 
@@ -68,12 +68,12 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - Revisar e modificar os itens do monte seu iceberg
 
-- Na página deproduto resolver a questão dos espaçamentos dos textos de acordo com o tamanho da imagem e adicionar implementações (ex: bordas, catupiry, chocolate)
-
 - Mudar o estilo do monte seu iceberg
 
 - Fazer o pesquisar funcionar
 
-- Adiconar descrição do pedido nos pedidos em andamento - fazendo
-
 - Fazer melhorias na questão de fazer pedido sem logar, manter endereço e ao logar voltar direto à página de carrinho caso estivesse nela 
+
+- Roleta da pizza / cartão fidelidade
+
+- Melhorar design main

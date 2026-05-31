@@ -314,8 +314,32 @@ if (saborSelecionado && cardapio[saborSelecionado]) {
     document.getElementById('prod-titulo').innerText = produto.titulo;
     document.getElementById('prod-preco').innerText = produto.preco;
     document.getElementById('prod-descricao').innerText = produto.descricao;
-    document.getElementById('prod-img').src = produto.imagem;
-    document.getElementById('prod-img').alt = produto.titulo;
+    const imgElem = document.getElementById('prod-img');
+    imgElem.src = produto.imagem;
+    imgElem.alt = produto.titulo;
+    // Apply category‑specific styling: bebidas (drinks) use contain, pizzas/sobremesas use cover
+    if (produto.imagem.includes('/bebidas/') || produto.imagem.includes('/drinks/')) {
+        imgElem.classList.add('drink-image');
+        imgElem.classList.remove('food-image');
+    } else {
+        imgElem.classList.add('food-image');
+        imgElem.classList.remove('drink-image');
+    }
+
+    // Show pizza selection sections (tamanho & borda) only for pizza products
+    const pizzaKeys = [
+        'calabresa', 'margherita', 'frango_catupiry', 'queijo', 'portuguesa',
+        'quatro_queijos', 'palmito', 'presunto_queijo', 'bacon', 'pepperoni',
+        'moda_casa', 'strogonoff',
+        'margherita_veggie', 'milho_catupiry', 'escarola', 'berinjela',
+        'funghi', 'vegetariana_completa',
+        'brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela',
+        'nutella_morango', 'prestigio'
+    ];
+    const selecoesPizza = document.getElementById('selecoes-pizza');
+    if (selecoesPizza && pizzaKeys.includes(saborSelecionado)) {
+        selecoesPizza.style.display = 'block';
+    }
 } else {
     // Caso alguém acesse produto.html sem passar um sabor válido
     document.getElementById('prod-titulo').innerText = "Produto não encontrado";
@@ -367,7 +391,27 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
         }
 
         const produto = cardapio[saborSelecionado];
-        const observacao = observacaoInput ? observacaoInput.value.trim() : "";
+        let observacao = observacaoInput ? observacaoInput.value.trim() : "";
+
+        // Include pizza size & border selections in observation if visible
+        const selecoesPizza = document.getElementById('selecoes-pizza');
+        if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+            const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+            const bordaEl = document.querySelector('input[name="borda"]:checked');
+            const tamanhoLabel = { pequena: 'Pequena', media: 'Média', grande: 'Grande' };
+            const bordaLabel = { sem_borda: 'Sem Borda Recheada', catupiry: 'Catupiry', cheddar: 'Cheddar', chocolate: 'Chocolate' };
+
+            const parts = [];
+            if (tamanhoEl) parts.push('Tamanho: ' + (tamanhoLabel[tamanhoEl.value] || tamanhoEl.value));
+            if (bordaEl) parts.push('Borda: ' + (bordaLabel[bordaEl.value] || bordaEl.value));
+            const selecaoTexto = parts.join(' | ');
+
+            if (observacao) {
+                observacao = selecaoTexto + ' | ' + observacao;
+            } else {
+                observacao = selecaoTexto;
+            }
+        }
 
         // Objeto do produto a ser adicionado
         const itemCarrinho = {

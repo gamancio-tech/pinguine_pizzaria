@@ -425,11 +425,13 @@
     border-radius: 1rem;
     padding: 1.2rem 1.5rem;
     background: #fafafa;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
 }
 
 .pedido-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
 }
 
 .pedido-card-header {

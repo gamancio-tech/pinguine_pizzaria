@@ -8,57 +8,147 @@
 
 .produto {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    grid-template-rows: 1.1fr 1fr 0.2fr 0.6fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto 1rem auto;
-    padding: 2rem;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    max-width: 1100px;
+    height: 550px;
+    margin: 2rem auto 1.5rem auto;
+    padding: 2.5rem;
     background-color: rgb(255, 255, 255);
     border-radius: 1.25rem;
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+    align-items: stretch;
 }
 
-.produto img {
+.produto-esquerda {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #fafafa;
+    padding: 1.5rem;
+    border: 1px solid #f0f0f0;
+}
+
+.food-image {
+    object-fit: cover;
+    max-height: 350px;
     width: 100%;
     height: auto;
+}
+
+.drink-image {
+    object-fit: contain;
+    max-height: 350px;
+    width: 100%;
+    height: auto;
+}
+
+.produto-esquerda img {
     max-width: 100%;
-    border-radius: 1rem;
-    margin: auto 0;
-    grid-row: span 3;
-    object-fit: cover;
+    max-height: 350px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+    border-radius: 0.5rem;
 }
 
-.produto h1 {
-    font-size: 2.5rem;
-    color: var(--cor4);
+.produto-esquerda img:hover {
+    transform: scale(1.02);
+}
+
+.produto-esquerda .price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--cor9);
     text-align: center;
-    margin-top: 1rem;
 }
 
-.produto h2 {
-    font-size: 1.8rem;
-    margin: -6rem 0 0 0;
-    text-align: justify;
-}
-
-.produto p {
-    font-size: 1.3rem;
-    line-height: 1.7;
-    color: #222;
-    grid-column: 2;
-    margin: -14.5rem 0;
+.produto-direita {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
     text-align: left;
 }
 
-.produto .price {
-    display: inline-block;
-    margin-left: 3rem;
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: var(--cor9);
-    grid-row: 4;
+/* Custom Scrollbar for premium look */
+.produto-direita::-webkit-scrollbar {
+    width: 6px;
+}
+
+.produto-direita::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.produto-direita::-webkit-scrollbar-thumb {
+    background: var(--cor6, #ccc);
+    border-radius: 10px;
+}
+
+.produto-direita::-webkit-scrollbar-thumb:hover {
+    background: var(--cor9);
+}
+
+.produto-direita h1 {
+    font-size: 2.3rem;
+    color: var(--cor4);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.produto-direita h2 {
+    font-size: 1.4rem;
+    color: #444;
+    margin: 0 0 0.8rem 0;
+    text-align: left;
+}
+
+.produto-direita p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+}
+
+.observacao {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+.observacao h2 {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.observacao input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.observacao input:focus {
+    outline: none;
+    border-color: var(--cor9);
+    box-shadow: 0 0 0 3px rgba(179, 23, 12, 0.1);
 }
 
 .adicionar {
@@ -66,10 +156,127 @@
     flex-direction: row;
     justify-content: center;
     gap: 0.7rem;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
     padding: 1rem 2rem;
     background-color: rgb(255, 255, 255);
     border-radius: 1.25rem;
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .produto {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        margin: 1rem 1rem 1.5rem 1rem;
+    }
+
+    .produto-esquerda {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .produto-esquerda img {
+        max-height: 220px;
+    }
+
+    .produto-direita {
+        overflow-y: visible;
+        height: auto;
+        padding-right: 0;
+    }
+
+    .observacao {
+        margin-top: 1.5rem;
+    }
+
+    .adicionar {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
+
+    .selecoes-produto .opcoes-flex {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === Seleções de Pizza (Tamanho & Borda) === */
+
+.selecoes-produto {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.selecoes-produto .passo-grupo {
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1.5rem;
+    text-align: left;
+}
+
+.selecoes-produto .passo-grupo:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.selecoes-produto .passo-indicador {
+    background-color: var(--cor8);
+    color: white;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.selecoes-produto .passo-grupo h2 {
+    font-size: 1.2rem !important;
+    color: var(--cor4) !important;
+    margin: 0.6rem 0 1rem 0 !important;
+    text-align: left !important;
+}
+
+.selecoes-produto .opcoes-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.6rem;
+}
+
+.selecoes-produto .opcao-card {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fafafa;
+}
+
+.selecoes-produto .opcao-card:hover {
+    border-color: var(--cor9);
+    background-color: rgba(179, 23, 12, 0.03);
+}
+
+.selecoes-produto .opcao-card:has(input:checked) {
+    border-color: var(--cor9);
+    background-color: rgba(179, 23, 12, 0.08);
+    box-shadow: 0 3px 8px rgba(179, 23, 12, 0.15);
+}
+
+.selecoes-produto .opcao-card input {
+    margin-right: 8px;
+    accent-color: var(--cor9);
+}
+
+.selecoes-produto .opcao-detalhe {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 600;
 }

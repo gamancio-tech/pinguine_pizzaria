@@ -121,11 +121,23 @@
                 const observacaoHtml = item.observacao
                     ? `<p>📝 ${item.observacao}</p>`
                     : '';
+                
+                let subItensHtml = '';
+                if (item.tipo === 'combo' && item.itens_selecionados) {
+                    const allComboItens = item.itens_selecionados.map(si => si.titulo).concat(item.itens_fixos ? item.itens_fixos.map(fi => fi.titulo) : []);
+                    subItensHtml = `
+                        <div class="cart-item-sub-itens" style="font-size: 0.85rem; color: #777; margin-top: 0.4rem; line-height: 1.3;">
+                            <strong>Itens do Combo:</strong> ${allComboItens.join(', ')}
+                        </div>
+                    `;
+                }
+
                 return `
                     <div class="cart-item">
                         <img class="cart-item-img" src="${item.imagem}" alt="${item.titulo}" onerror="this.src='images/logo.jpg'">
                         <div class="cart-item-info">
                             <h3>${item.titulo}</h3>
+                            ${subItensHtml}
                             ${observacaoHtml}
                         </div>
                         <div class="cart-item-controls">
@@ -195,7 +207,15 @@
             // Build new order object
             const novoPedido = {
                 timestamp: Date.now(),
-                itens: carrinho.map(i => ({ titulo: i.titulo, quantidade: i.quantidade, preco: i.preco })),
+                itens: carrinho.map(i => ({
+                    titulo: i.titulo,
+                    quantidade: i.quantidade,
+                    preco: i.preco,
+                    imagem: i.imagem,
+                    tipo: i.tipo,
+                    itens_selecionados: i.itens_selecionados,
+                    itens_fixos: i.itens_fixos
+                })),
                 total: formatPreco(total),
                 endereco: `${rua}, ${document.getElementById('end-bairro').value} — ${document.getElementById('end-cidade').value}`
             };

@@ -65,6 +65,18 @@
     text-align: left !important;
 }
 
+.opcoes-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.opcoes-flex.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
 .acao-final {
     margin-top: 2rem;
     text-align: center;
@@ -84,5 +96,8 @@
     }
     .custom-content h2 {
         font-size: 1.6rem !important;
+    }
+    .opcoes-flex.grid-2-col {
+        grid-template-columns: 1fr;
     }
 }

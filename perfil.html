@@ -251,12 +251,19 @@
                     ? `Entrega em: ${mins}m ${secs}s`
                     : `Entrega em preparo: ${mins}m ${secs}s`;
 
-                // Build item summary
-                const itemsSummary = order.itens.map(i => `${i.quantidade}x ${i.titulo}`).join(', ');
+                // Build item summary with promotion sub-items if present
+                const itemsSummary = order.itens.map(i => {
+                    let desc = `${i.quantidade}x ${i.titulo}`;
+                    if (i.tipo === 'combo' && i.itens_selecionados) {
+                        const comboItens = i.itens_selecionados.map(si => si.titulo).concat(i.itens_fixos ? i.itens_fixos.map(fi => fi.titulo) : []).join(', ');
+                        desc += ` (${comboItens})`;
+                    }
+                    return desc;
+                }).join(', ');
                 const totalPedido = order.total || '—';
 
                 return `
-                    <div class="pedido-card" id="pedido-${idx}">
+                    <div class="pedido-card" id="pedido-${idx}" onclick="abrirModalPedido(${idx})" title="Clique para ver os itens deste pedido">
                         <div class="pedido-card-header">
                             <h3>🧾 Pedido #${idx + 1} &nbsp; <small style="font-weight:400; font-size:0.85rem; color:#888;">${totalPedido}</small></h3>
                             <span class="pedido-status-badge ${statusClass}">${statusLabel}</span>
@@ -271,11 +278,94 @@
             }).join('');
         }
 
+        // =====================
+        // Modal de Visualização do Pedido
+        // =====================
+        function abrirModalPedido(idx) {
+            const orders = JSON.parse(localStorage.getItem('activeOrders') || '[]');
+            const order = orders[idx];
+            if (!order) return;
+
+            const modal = document.getElementById('modal-ver-pedido');
+            const grid = document.getElementById('modal-ver-pedido-grid');
+            const titulo = document.getElementById('modal-ver-pedido-titulo');
+            const totalSpan = document.getElementById('modal-ver-pedido-total');
+
+            titulo.textContent = `Detalhes do Pedido #${idx + 1}`;
+            totalSpan.textContent = order.total || 'R$ 0,00';
+
+            grid.innerHTML = order.itens.map(item => {
+                const imagem = item.imagem || 'images/logo.jpg';
+                let subItensList = '';
+                if (item.tipo === 'combo' && item.itens_selecionados) {
+                    const allComboItens = item.itens_selecionados.map(si => si.titulo).concat(item.itens_fixos ? item.itens_fixos.map(fi => fi.titulo) : []);
+                    subItensList = `
+                        <div style="font-size: 0.8rem; text-align: left; margin-top: 0.6rem; padding: 0.45rem; background: #fdfaf4; border: 1px dashed #e6c8a0; border-radius: 0.5rem; width: 100%; box-sizing: border-box;">
+                            <strong style="color: var(--cor4); display: block; margin-bottom: 0.2rem;">Combo contém:</strong>
+                            <ul style="margin: 0; padding-left: 1.1rem; color: #555; line-height: 1.3;">
+                                ${allComboItens.map(name => `<li>${name}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+                return `
+                    <div class="modal-item modal-item-readonly" style="flex-direction: column; align-items: center; justify-content: flex-start; min-height: 180px;">
+                        <img src="${imagem}" alt="${item.titulo}" onerror="this.src='images/logo.jpg'">
+                        <div class="modal-item-info" style="width: 100%;">
+                            <h4 style="font-weight: 700; margin-bottom: 0.4rem; color: var(--cor4);">${item.titulo}</h4>
+                            <span class="modal-contador" style="background-color: var(--cor9); color: white; display: inline-block; padding: 0.15rem 0.6rem; font-size: 0.8rem;">Qtd: ${item.quantidade}</span>
+                            <div class="modal-item-preco" style="margin-top: 0.5rem; font-size: 0.9rem;">${item.preco || ''}</div>
+                            ${subItensList}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('modal-ativo');
+            }, 10);
+        }
+
+        function fecharModalPedido() {
+            const modal = document.getElementById('modal-ver-pedido');
+            modal.classList.remove('modal-ativo');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 350);
+        }
+
+        // Fecha o modal ao clicar fora da área dele
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modal-ver-pedido');
+            if (e.target === modal) {
+                fecharModalPedido();
+            }
+        });
+
         // Re-render every second
         loadProfile();
         renderPedidos();
         setInterval(renderPedidos, 1000);
     </script>
-</body>
 
+    <!-- Modal de Visualização do Pedido (Mini Cardápio do Pedido) -->
+    <div id="modal-ver-pedido" class="modal-overlay modal-centered" style="display:none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-ver-pedido-titulo">Itens do Pedido</h2>
+                <button id="modal-ver-pedido-fechar" class="modal-btn-fechar" type="button" aria-label="Fechar" onclick="fecharModalPedido()">X</button>
+            </div>
+            <div id="modal-ver-pedido-grid" class="modal-grid">
+                <!-- Renderizado via JS -->
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cor4);">
+                    Total: <span id="modal-ver-pedido-total" style="color: var(--cor8);">R$ 0,00</span>
+                </div>
+                <button class="avatar-upload-btn" style="min-width: 100px; margin: 0; background-color: var(--cor9); color: white;" type="button" onclick="fecharModalPedido()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
