@@ -50,6 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const navEl = document.getElementById("site-nav");
     if (navEl) {
         navEl.innerHTML = navHTML;
+        
+        // Determina qual aba está ativa baseado na URL atual
+        const currentPath = window.location.pathname;
+        const navLinks = navEl.querySelectorAll("nav a");
+        navLinks.forEach(link => {
+            }
+        });
     }
 
     const footerEl = document.getElementById("site-footer");

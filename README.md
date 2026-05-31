@@ -74,6 +74,6 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - Fazer o pesquisar funcionar
 
-- Adiconar descrição do pedido nos pedidos em andamento
+- Adiconar descrição do pedido nos pedidos em andamento - fazendo
 
 - Fazer melhorias na questão de fazer pedido sem logar, manter endereço e ao logar voltar direto à página de carrinho caso estivesse nela 
