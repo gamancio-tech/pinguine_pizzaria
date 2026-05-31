@@ -50,25 +50,17 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 ## A fazer
 - Adicionar o menu
 
-- Mudar o Carrinho - iniciado
-
 - Mudar a página de perfil - melhorar
 
 - Mudar fontes
 
 - Perfil admin
 
-- Mudar imagens da pizzas para png 
+- Mudar imagens da pizzas para png - quase
 
 - Melhorar e padronizar os ícones 
 
-- Revisar e modificar os itens do monte seu iceberg
-
-- Mudar o estilo do monte seu iceberg
-
 - Fazer o pesquisar funcionar
-
-- Fazer melhorias na questão de fazer pedido sem logar, manter endereço e ao logar voltar direto à página de carrinho caso estivesse nela 
 
 - Roleta da pizza / cartão fidelidade
 
