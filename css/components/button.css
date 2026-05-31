@@ -1,0 +1,275 @@
+/* === components/button.css === */
+
+button a, section a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container .btn-login {
+    background-color: var(--cor8);
+    color: var(--cor6);
+    font-size: 1em;
+    padding: 11px 7px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.container .btn-menu, .container .btn-home, .container .btn-carrinho {
+    background-color: transparent;
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+} 
+
+.btn-voltar {
+    margin: 1.5rem auto 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+
+.btn-voltar a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-voltar img {
+    width: 3rem;
+    height: auto;
+}
+
+.btn-adicionar {
+    min-width: 4rem;
+    padding: 1rem 1.3rem;
+    border: none;
+    border-radius: 0.85rem;
+    background-color: var(--cor3);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-grande {
+    min-width: 200px;
+    width: 70%;
+    margin-left: -1rem;
+}
+
+.btn-qntd {
+    min-width: 5.8rem;
+    margin-left: 0.6rem;
+    margin-right: 0.9rem;
+}
+
+.btn-adicionar:hover {
+    transform: translateY(-2px);
+    background-color: var(--cor2);
+}
+
+/* Pill Buttons (Login/Registro) */
+.btn-pill {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-pill.bg-black {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-pill.bg-black:hover {
+    background-color: #222222;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn-pill:active {
+    transform: translateY(0);
+}
+
+/* Botões do Perfil */
+.btn-salvar-perfil {
+    flex: 1;
+    padding: 0.85rem;
+    background-color: var(--cor3);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-salvar-perfil:hover {
+    background-color: var(--cor2);
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    padding: 0.85rem 1.5rem;
+    background-color: var(--cor8);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: var(--cor9);
+    transform: translateY(-2px);
+}
+
+/* Botões do Carrinho */
+.cart-qty-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--cor3);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.cart-qty-btn:hover {
+    background-color: var(--cor2);
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, var(--cor3), var(--cor2));
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(19,117,4,0.3);
+}
+
+.btn-finalizar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(19,117,4,0.4);
+}
+
+.btn-finalizar:active {
+    transform: translateY(0);
+}
+
+/* Botões do Customizador / Promoções */
+.btn-custom {
+    background-color: var(--cor1) !important;
+    color: var(--cor10) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: white !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.promo-slot-btn {
+    width: 100%;
+    padding: 0.9rem;
+    border: 2px dashed var(--cor8);
+    border-radius: 0.85rem;
+    background: transparent;
+    color: var(--cor8);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.promo-slot-btn:hover {
+    background: rgba(179, 23, 12, 0.06);
+    border-style: solid;
+}
+
+.promo-slot-btn-alterar {
+    border-color: var(--cor2);
+    color: var(--cor2);
+}
+
+.promo-slot-btn-alterar:hover {
+    background: rgba(13, 117, 4, 0.06);
+}
+
+/* Botões do Modal */
+.modal-btn-fechar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f0f0;
+    color: #555;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.modal-btn-fechar:hover {
+    background: var(--cor8);
+    color: white;
+}
+
+.modal-btn-confirmar {
+    width: 100%;
+    margin: 0;
+}
+
+.modal-btn-confirmar:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+.modal-btn-confirmar:disabled:hover {
+    transform: none;
+}
+
+.modal-btn-ativo {
+    background-color: var(--cor2);
+    animation: pulse-btn 1.5s infinite;
+}
+
+@keyframes pulse-btn {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(13, 117, 4, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(13, 117, 4, 0); }
+}

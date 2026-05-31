@@ -1,0 +1,311 @@
+/* === pages/cardapio.css === */
+
+main.sobremesa_menu {
+    all: revert;
+    width: 100%;
+    height: 100%;
+    padding-bottom: auto;
+}
+
+.sobremesa_menu img:not(.promocao-premium-card img):not(.grid img):not(footer img) {
+    width: 30%;
+    height: auto;
+    margin-bottom: 5rem;
+    border-radius: 0.5rem;
+}
+
+section.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;  
+    gap: 0.5rem;
+}
+
+.grid a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sobremesa_menu .price {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: rgb(255, 247, 132);
+    text-align: center;
+    margin: auto 0 2rem 0;
+}
+
+main.bebida_menu {
+    background: transparent;
+    box-shadow: none;
+    margin: 0 auto;
+    padding: 0 1rem 4rem;
+    max-width: 1200px;
+}
+
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 1.8rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    min-height: 280px;
+}
+
+.hero-banner .cardapio-img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    display: block;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.1);
+}
+
+.hero-glow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(160, 25, 15, 0.3) 0%, rgba(0, 0, 0, 0.75) 100%);
+    pointer-events: none;
+}
+
+.hero-text-premium {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-logo-img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 3px solid var(--cor6);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    margin-bottom: 0.8rem;
+    object-fit: cover;
+}
+
+.hero-brand {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 2.2rem;
+    color: var(--cor6);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    line-height: 1;
+}
+
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem; /* Unificado o valor duplicado */
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
+    margin: 0.2rem 0;
+    line-height: 1.1;
+}
+
+.hero-sparkle {
+    font-size: 1.8rem;
+    color: var(--cor6);
+    text-shadow: 0 0 10px rgba(243, 206, 152, 0.8);
+    margin-top: 0.2rem;
+    animation: sparkle-pulse 2s infinite alternate;
+}
+
+@keyframes sparkle-pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Placa amarela rústica das categorias */
+.sobremesa_menu .category-banner.yellow-label {
+    grid-column: 1 / -1; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 3rem auto 1.5rem auto;
+    padding: 0.8rem 2.8rem;
+    background-color: var(--cor-amarela-rustica);
+    border: 3px solid var(--cor-texto-escuro);
+    border-radius: 4px;
+    box-shadow: 6px 6px 0px var(--cor-texto-escuro);
+    max-width: 450px;
+    width: fit-content;
+    transform: rotate(-1.5deg);
+    transition: transform 0.2s ease;
+}
+
+.sobremesa_menu .category-banner.yellow-label:hover {
+    transform: rotate(0.5deg) scale(1.03);
+}
+
+.sobremesa_menu .category-banner.yellow-label .category-icon {
+    color: var(--cor-texto-escuro);
+    display: flex;
+    align-items: center;
+}
+
+.sobremesa_menu .category-banner.yellow-label h2 {
+    margin: 0;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: var(--cor-texto-escuro);
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.sobremesa_menu .grid article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Barra de Navegação Rápida (Sub-Nav) */
+.cardapio-sub-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(0, 55, 0, 0.95); 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    padding: 12px 10px;
+    margin: 1.5rem auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    border: 1px solid rgba(243, 206, 152, 0.2); 
+}
+
+.cardapio-sub-nav a {
+    text-decoration: none;
+    color: var(--cor6);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.cardapio-sub-nav a:hover {
+    background-color: var(--cor8);
+    color: white;
+    transform: translateY(-2px);
+    border-color: var(--cor6);
+    box-shadow: 0 4px 10px rgba(206, 39, 10, 0.4);
+}
+
+/* Seções de Promoções Premium */
+.secao-promocoes-premium {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.promocoes-banner-introducao {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.promocoes-banner-introducao h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    color: var(--cor8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.promocoes-banner-introducao p {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.promocoes-premium-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.cardapio-welcome-note {
+    text-align: center;
+    max-width: 800px;
+    margin: 2.5rem auto 1rem auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 5px solid var(--cor8);
+    border-radius: 4px 16px 16px 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.cardapio-welcome-note h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    color: var(--cor4);
+    margin-bottom: 0.4rem;
+}
+
+.cardapio-welcome-note p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Responsividade de Bebidas, Sobremesas e Promoções */
+@media (max-width: 900px) {
+    .promocoes-premium-grid {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .bebida_menu section.grid.grid-3,
+    .bebida_menu section.grid.grid-4 {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .bebida_menu .category-banner.yellow-label {
+        padding: 0.6rem 1.8rem;
+    }
+    
+    .bebida_menu .category-banner.yellow-label h2 {
+        font-size: 1.7rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardapio-sub-nav {
+        gap: 8px;
+        padding: 8px;
+    }
+    .cardapio-sub-nav a {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+}

@@ -1,0 +1,497 @@
+/* === components/card.css === */
+
+.cardapio-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.cardapio-title {
+    font-size: 1.6em;
+    text-align: center;
+    margin: -2.2rem 0 0 0;
+    color: black;
+}
+
+.grid article {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0.1rem;
+    border: 0.0625rem solid var(--cor9);
+    margin: 0.625rem;
+    border-radius: 1.25rem;
+    background-image: url('../../images/fundo_forno.png');
+    background-size: cover;
+    background-position: top right;
+    min-height: 342px;
+}
+
+.pizza_sorvete article {
+    background-image: url('../../images/fundo_sorvete.png'); 
+}
+
+.grid article img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    min-height: 180px;
+    object-fit: contain;
+    display: block;
+    grid-row: 2;
+}
+
+.grid h1 {
+    font-size: 4em;
+    color: var(--cor1);
+    text-align: center;
+    grid-column: span 3;
+    margin: 5rem 0 2rem 0;
+}
+
+.grid article h2 {
+    color: var(--cor1);
+    grid-column: span 2;
+    margin: 3rem auto 0 auto;
+    font-size: 1.4em;
+}
+
+.grid article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Banner de Customização */
+.card-customizacao {
+    grid-column: span 3; 
+    margin: 2rem 0.625rem;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--cor10), var(--cor7)); 
+    border: 2px dashed var(--cor1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.custom-content h2 {
+    color: var(--cor1) !important; 
+    font-size: 2.2rem !important;
+    margin: 0 0 1rem 0 !important;
+    text-align: center !important;
+}
+
+.custom-content p {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 auto 2rem auto !important;
+    max-width: 600px;
+    text-align: center !important;
+}
+
+/* Cards de Opção no Configurador */
+.opcao-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid var(--cor-borda-opcao);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.opcao-card input {
+    margin-right: 10px;
+    accent-color: var(--cor9);
+}
+
+.opcao-detalhe {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.opcao-card:hover {
+    border-color: var(--cor9);
+    background-color: rgba(179, 23, 12, 0.03);
+}
+
+.opcao-card:has(input:checked) {
+    border-color: var(--cor9);
+    background-color: rgba(179, 23, 12, 0.08);
+    box-shadow: 0 4px 10px rgba(179, 23, 12, 0.15);
+}
+
+/* Card de Promoção Premium */
+.promocao-premium-card {
+    position: relative;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, #1b1b1b 0%, #2c2c2c 100%);
+    border: 2px solid var(--cor6);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: white;
+}
+
+.promocao-premium-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(243, 206, 152, 0.3);
+    border-color: var(--cor-amarela-rustica);
+}
+
+.promocao-premium-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.promocao-premium-badge {
+    align-self: flex-start;
+    background: linear-gradient(45deg, var(--cor7), var(--cor8));
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    margin-bottom: 0.8rem;
+    animation: pulse-glow 2.5s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { transform: scale(1); box-shadow: 0 2px 5px rgba(250, 32, 32, 0.4); }
+    100% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(250, 32, 32, 0.8); }
+}
+
+.promocao-premium-info h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--cor6);
+    margin: 0 0 0.8rem 0;
+    line-height: 1.2;
+}
+
+.promocao-premium-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin: 0 0 1.5rem 0;
+}
+
+.promocao-premium-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.promocao-premium-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+}
+
+.promocao-premium-card:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Slots de Promoção */
+.promo-slot {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promo-slot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.promo-slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.promo-slot-info h3 {
+    font-size: 1.25rem;
+    color: var(--cor4);
+    margin: 0.3rem 0 0 0;
+}
+
+.promo-slot-numero {
+    display: inline-block;
+    background: var(--cor8);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.7rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+}
+
+.promo-slot-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #999;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    background: #f0f0f0;
+}
+
+.promo-slot-status.status-ok {
+    color: white;
+    background: var(--cor2);
+}
+
+.promo-slot-preview {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.promo-slot-preview-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f4ec;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e0d5c5;
+}
+
+.promo-slot-preview-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.promo-slot-preview-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Itens Fixos nas Promoções */
+.promo-item-fixo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--cor2);
+}
+
+.promo-item-fixo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 0.75rem;
+    object-fit: cover;
+}
+
+.promo-item-fixo-info h4 {
+    font-size: 1.1rem;
+    color: var(--cor4);
+    margin: 0 0 0.2rem 0;
+}
+
+.promo-item-fixo-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+.promo-fixo-badge {
+    display: inline-block;
+    background: var(--cor2);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+}
+
+/* Cards de Resumo */
+.promo-resumo-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.promo-resumo-card h2 {
+    font-size: 1.3rem;
+    color: var(--cor4);
+    margin: 0 0 1rem 0;
+    text-align: left;
+}
+
+.promo-resumo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.promo-resumo-pendente {
+    color: #999;
+}
+
+.resumo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: #e0e0e0;
+    color: #999;
+    flex-shrink: 0;
+}
+
+.resumo-ok {
+    background: var(--cor2);
+    color: white;
+}
+
+.resumo-fixo {
+    background: var(--cor8);
+    color: white;
+}
+
+.resumo-desconto {
+    color: var(--cor8);
+    font-weight: 700;
+}
+
+.resumo-gratis {
+    color: var(--cor2);
+    font-weight: 600;
+}
+
+.promo-resumo-vazio {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.95rem;
+    padding: 1rem 0;
+}
+
+.promo-resumo-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--cor4);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--cor4);
+}
+
+/* Card de Pedido no Perfil */
+.pedido-card {
+    border: 1.5px solid #eee;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: #fafafa;
+    transition: box-shadow 0.2s;
+}
+
+.pedido-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pedido-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.pedido-card-header h3 {
+    font-size: 1.1rem;
+    color: var(--cor4);
+    margin: 0;
+}
+
+.pedido-status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+}
+
+.status-preparo {
+    background-color: var(--cor8);
+}
+
+.status-entrega {
+    background-color: var(--cor2);
+}
+
+.pedido-itens-resumo {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+.progress-bar-container {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--cor3), var(--cor7));
+    transition: width 1s linear;
+}
+
+.pedido-countdown {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.4rem;
+    text-align: right;
+}
+
+.pedidos-vazios {
+    text-align: center;
+    padding: 2.5rem;
+    color: #aaa;
+    font-size: 1.1rem;
+}

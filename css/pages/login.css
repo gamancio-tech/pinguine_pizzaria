@@ -1,0 +1,93 @@
+/* === pages/login.css === */
+
+.login-page-body {
+    background-image: url('../../images/fundo_madeira.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Italian Checkered side strips */
+.checker-strip {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background-color: #ffffff;
+    z-index: 5;
+}
+
+.checker-strip.left {
+    left: 0;
+    background-image: 
+        linear-gradient(45deg, #137504 25%, transparent 25%, transparent 75%, #137504 75%),
+        linear-gradient(45deg, #137504 25%, #ffffff 25%, #ffffff 75%, #137504 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.checker-strip.right {
+    right: 0;
+    background-image: 
+        linear-gradient(45deg, #d51010 25%, transparent 25%, transparent 75%, #d51010 75%),
+        linear-gradient(45deg, #d51010 25%, #ffffff 25%, #ffffff 75%, #d51010 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Central Card */
+.login-container-card {
+    background-color: #ffffff;
+    width: 520px;
+    max-width: 85%;
+    border-radius: 2.2rem;
+    padding: 3rem 3.5rem 2rem 3.5rem;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Back button in card */
+.login-btn-back {
+    position: absolute;
+    top: 1.8rem;
+    left: 2rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    user-select: none;
+    text-decoration: none;
+}
+
+.login-btn-back:hover {
+    transform: scale(1.2);
+}
+
+/* Mobile adjustments */
+@media (max-width: 580px) {
+    .checker-strip {
+        width: 30px;
+    }
+    .login-container-card {
+        padding: 3rem 1.8rem 1.5rem 1.8rem;
+        max-width: 80%;
+    }
+}
