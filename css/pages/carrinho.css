@@ -1,0 +1,151 @@
+/* === pages/carrinho.css === */
+
+.carrinho-body {
+    background-color: var(--cor1);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.carrinho-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carrinho-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.carrinho-card h2 {
+    font-size: 1.3rem;
+    color: var(--cor4);
+    margin: 0 0 1.2rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor6);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    font-size: 1rem;
+    margin: 0 0 0.2rem 0;
+    color: var(--cor4);
+}
+
+.cart-item-info p {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cart-qty-display {
+    min-width: 28px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--cor9);
+    min-width: 80px;
+    text-align: right;
+}
+
+.cart-remove-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: color 0.2s;
+}
+
+.cart-remove-btn:hover {
+    color: var(--cor8);
+}
+
+.cart-summary {
+    padding-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cart-summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #555;
+}
+
+.cart-summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cor4);
+    padding-top: 0.8rem;
+    border-top: 2px solid var(--cor6);
+    margin-top: 0.5rem;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 3rem;
+    color: #aaa;
+    font-size: 1.2rem;
+}
+
+.cart-empty a {
+    color: var(--cor3);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.cart-empty a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .cart-item-img {
+        width: 50px;
+        height: 50px;
+    }
+}

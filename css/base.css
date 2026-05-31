@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Outfit:wght@400;600;700;800&display=swap');
+
+:root {
+    --cor1: blanchedalmond;
+    --cor2: rgb(13, 117, 4);
+    --cor3: rgb(1, 105, 1);
+    --cor4: rgb(0, 55, 0);
+    --cor5: rgb(0, 44, 0);
+    --cor6: rgb(243, 206, 152);
+    --cor7: rgb(250, 32, 32);
+    --cor8: rgb(206, 39, 10);  
+    --cor9: rgb(179, 23, 12);
+    --cor10: rgb(160, 25, 15);
+    --cor11: rgb(250, 29, 29);
+    
+    /* Variáveis sugeridas para padronizar cores hardcoded */
+    --cor-amarela-rustica: #f7cb40;
+    --cor-borda-opcao: #ddd;
+    --cor-bg-cinza-claro: #f0f0f0;
+    --cor-texto-escuro: #111;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/fundo_madeira.jpeg'); /* Caminho relativo correto de dentro de css/ */
+}

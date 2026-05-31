@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/jpeg">
     <title>Pinguine Pizzaria - Login</title>
 </head>
@@ -24,8 +24,10 @@
 
         <!-- STATE 1: Login Form -->
         <form id="form-login" class="login-form active" action="#" onsubmit="handleLogin(event);">
-            <input type="email" class="input-pill bg-green" placeholder="Insira seu email" required>
-            <input type="password" class="input-pill bg-red" placeholder="Insira sua senha" required>
+            <label for="login-email" class="sr-only">E-mail</label>
+            <input type="email" id="login-email" class="input-pill bg-green" placeholder="Insira seu email" required>
+            <label for="login-senha" class="sr-only">Senha</label>
+            <input type="password" id="login-senha" class="input-pill bg-red" placeholder="Insira sua senha" required>
             <button type="submit" class="btn-pill bg-black">Entrar</button>
             
             <div class="login-footer-links">
@@ -36,9 +38,12 @@
 
         <!-- STATE 2: Register Form -->
         <form id="form-register" class="login-form" action="#" onsubmit="handleRegister(event);">
-            <input type="email" class="input-pill bg-green" placeholder="Insira seu email" required>
-            <input type="password" class="input-pill bg-red" placeholder="Insira sua senha" required>
-            <input type="password" class="input-pill bg-red" placeholder="Confirmar senha" required>
+            <label for="reg-email" class="sr-only">E-mail</label>
+            <input type="email" id="reg-email" class="input-pill bg-green" placeholder="Insira seu email" required>
+            <label for="reg-senha" class="sr-only">Senha</label>
+            <input type="password" id="reg-senha" class="input-pill bg-red" placeholder="Insira sua senha" required>
+            <label for="reg-confirma" class="sr-only">Confirmar senha</label>
+            <input type="password" id="reg-confirma" class="input-pill bg-red" placeholder="Confirmar senha" required>
             <button type="submit" class="btn-pill bg-black">Criar conta</button>
             
             <div class="login-footer-links justify-end">
@@ -75,7 +80,7 @@
 
         function handleLogin(event) {
             event.preventDefault();
-            const emailInput = document.querySelector('#form-login input[type="email"]');
+            const emailInput = document.getElementById('login-email');
             const email = emailInput.value.trim();
 
             // Check if a profile already exists for this email or create a default one
@@ -99,9 +104,9 @@
 
         function handleRegister(event) {
             event.preventDefault();
-            const emailInput = document.querySelector('#form-register input[type="email"]');
-            const senha1 = document.querySelectorAll('#form-register input[type="password"]')[0];
-            const senha2 = document.querySelectorAll('#form-register input[type="password"]')[1];
+            const emailInput = document.getElementById('reg-email');
+            const senha1 = document.getElementById('reg-senha');
+            const senha2 = document.getElementById('reg-confirma');
 
             if (senha1.value !== senha2.value) {
                 alert('As senhas não coincidem. Por favor, tente novamente.');

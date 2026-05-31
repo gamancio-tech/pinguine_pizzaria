@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/jpeg">
     <title>Pinguine - Meu Perfil</title>
 </head>
+
 <body class="perfil-body">
 
     <div class="perfil-page">
         <!-- Header Bar -->
         <div class="perfil-header-bar">
-            <a href="javascript:void(0)" onclick="if(document.referrer) { window.history.back(); } else { window.location.href='main.html'; }">&larr;</a>
+            <a href="javascript:void(0)"
+                onclick="if(document.referrer) { window.history.back(); } else { window.location.href='main.html'; }">&larr;</a>
             <h1>Meu Perfil</h1>
         </div>
 
@@ -26,8 +29,10 @@
                         <h3 id="sidebar-nome" class="sidebar-user-name">Carregando...</h3>
                         <input type="file" id="avatar-input" accept="image/*" style="display:none;">
                         <div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; width:100%;">
-                            <button class="avatar-upload-btn" onclick="document.getElementById('avatar-input').click()">Alterar Foto</button>
-                            <button class="avatar-upload-btn" type="button" onclick="removerAvatar()">Remover Foto</button>
+                            <button class="avatar-upload-btn"
+                                onclick="document.getElementById('avatar-input').click()">Alterar Foto</button>
+                            <button class="avatar-upload-btn" type="button" onclick="removerAvatar()">Remover
+                                Foto</button>
                         </div>
                     </div>
 
@@ -128,7 +133,7 @@
             document.getElementById('perfil-bairro').value = profile.bairro || '';
             document.getElementById('perfil-cidade').value = profile.cidade || '';
             document.getElementById('perfil-complemento').value = profile.complemento || '';
-            
+
             const sidebarNome = document.getElementById('sidebar-nome');
             if (sidebarNome) {
                 sidebarNome.textContent = profile.nome || 'Seu Nome';
@@ -272,4 +277,5 @@
         setInterval(renderPedidos, 1000);
     </script>
 </body>
+
 </html>

@@ -43,12 +43,37 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Atualize o conteúdo e imagens das páginas HTML.
 - Verifique se os links entre páginas estão corretos.
 
+
+## Problemas
+- cardapio.html -> seção de promoções -> div class = "promocoes-banner-introducao" / texto ilegível, adicionar um fundo no section promções e jogar o texto dentro ou então mudar estilo, além disso está desalinhado.
+- monte seu iceberg / fala que pode escolher até 2 sabores de sorvete mas não impede de escolher mais
+
+
 ## A fazer
 - Adicionar o menu
+
 - Mudar o Carrinho
-- Mudar a página de perfil
+
+- Mudar a página de perfil - iniciado
+
 - Mudar fontes
+
 - Perfil admin
+
 - Mudar imagens da pizzas para png 
+
 - Melhorar e padronizar os ícones 
-- Fazer promoções funcionarem 
+
+- Fazer promoções funcionarem - Iniciado, falta aprimorar - mostrar itens escolhidos no carrinho
+
+- Revisar e modificar os itens do monte seu iceberg
+
+- Na página deproduto resolver a questão dos espaçamentos dos textos de acordo com o tamanho da imagem e adicionar implementações (ex: bordas, catupiry, chocolate)
+
+- Mudar o estilo do monte seu iceberg
+
+- Fazer o pesquisar funcionar
+
+- Adiconar descrição do pedido nos pedidos em andamento
+
+- Fazer melhorias na questão de fazer pedido sem logar, manter endereço e ao logar voltar direto à página de carrinho caso estivesse nela 

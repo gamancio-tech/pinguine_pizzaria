@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/* ========================================================
+   ARQUITETURA CSS MODULAR - PINGUINE PIZZARIA
+   ======================================================== */
+
+/* Fundação */
+@import './base.css';
+
+/* Estrutura */
+@import './layout.css';
+
+/* Componentes Reutilizáveis */
+@import './components/card.css';
+@import './components/button.css';
+@import './components/form.css';
+@import './components/modal.css';
+
+/* Estilos de Páginas */
+@import './pages/home.css';
+@import './pages/cardapio.css';
+@import './pages/customizacao.css';
+@import './pages/login.css';
+@import './pages/perfil.css';
+@import './pages/carrinho.css';
+@import './pages/promo.css';
+@import './pages/produto.css';
