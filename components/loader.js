@@ -55,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentPath = window.location.pathname;
         const navLinks = navEl.querySelectorAll("nav a");
         navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (currentPath.endsWith(href)) {
+                link.classList.add("nav-active");
             }
         });
     }
