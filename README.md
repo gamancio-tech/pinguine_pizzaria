@@ -52,15 +52,15 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - Mudar a página de perfil - melhorar
 
-- Mudar fontes
+- Mudar fontes - fazendo
 
 - Perfil admin
 
 - Mudar imagens da pizzas para png - quase
 
-- Melhorar e padronizar os ícones 
+- Melhorar e padronizar os ícones - fazendo
 
-- Fazer o pesquisar funcionar
+- Fazer o pesquisar funcionar - fazendo
 
 - Roleta da pizza / cartão fidelidade
 
