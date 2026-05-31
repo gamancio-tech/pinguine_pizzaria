@@ -13,17 +13,72 @@
         <img class="logo logo-produto" src="images/logo.jpg" alt="Logo da Pinguine Pizzaria">
     </section>
     <section class="produto">
-        <img id="prod-img" src="" alt="Imagem do Produto">
-        <h1 id="prod-titulo">Carregando...</h1>
-        <span id="prod-preco" class="price">R$ 0,00</span>
-        
-        <h2>Descrição:</h2>
-        <p id="prod-descricao">Carregando descrição...</p>
-        
-        <section class='observacao'>
-            <h2>Observação:</h2>
-            <input id="prod-observacao" type="text" placeholder="Ex: sem cebola, bem assada...">
-        </section>
+        <div class="produto-esquerda">
+            <img id="prod-img" src="" alt="Imagem do Produto">
+            <span id="prod-preco" class="price">Total: R$ 0,00</span>
+        </div>
+        <div class="produto-direita">
+            <h1 id="prod-titulo">Carregando...</h1>
+            
+            <h2>Descrição:</h2>
+            <p id="prod-descricao">Carregando descrição...</p>
+            
+            <section class='observacao'>
+                <h2>Observação:</h2>
+                <input id="prod-observacao" type="text" placeholder="Ex: sem cebola, bem assada...">
+            </section>
+
+            <div id="selecoes-pizza" class="selecoes-produto" style="display: none;">
+                <div class="passo-grupo">
+                    <span class="passo-indicador">Tamanho</span>
+                    <h2>Escolha o Tamanho</h2>
+                    <div class="opcoes-flex">
+                        <label class="opcao-card">
+                            <input type="radio" name="tamanho" value="pequena">
+                            <span class="opcao-detalhe">Pequena</span>
+                            <span class="opcao-preco-badge desconto">- R$ 10,00</span>
+                        </label>
+                        <label class="opcao-card">
+                            <input type="radio" name="tamanho" value="media" checked>
+                            <span class="opcao-detalhe">Média</span>
+                            <span class="opcao-preco-badge normal">padrão</span>
+                        </label>
+                        <label class="opcao-card">
+                            <input type="radio" name="tamanho" value="grande">
+                            <span class="opcao-detalhe">Grande</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 15,00</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="passo-grupo">
+                    <span class="passo-indicador">Borda</span>
+                    <h2>Escolha a Borda</h2>
+                    <div class="opcoes-flex">
+                        <label class="opcao-card">
+                            <input type="radio" name="borda" value="sem_borda" checked>
+                            <span class="opcao-detalhe">Sem Borda</span>
+                            <span class="opcao-preco-badge normal">grátis</span>
+                        </label>
+                        <label class="opcao-card">
+                            <input type="radio" name="borda" value="catupiry">
+                            <span class="opcao-detalhe">Borda de Catupiry</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 8,00</span>
+                        </label>
+                        <label class="opcao-card">
+                            <input type="radio" name="borda" value="cheddar">
+                            <span class="opcao-detalhe">Borda de Cheddar</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 8,00</span>
+                        </label>
+                        <label class="opcao-card">
+                            <input type="radio" name="borda" value="chocolate">
+                            <span class="opcao-detalhe">Borda de Chocolate</span>
+                            <span class="opcao-preco-badge acrescimo">+ R$ 10,00</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="adicionar">

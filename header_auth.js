@@ -26,5 +26,5 @@
         btnLogin.classList.add('btn-avatar');
         btnLogin.classList.remove('btn-login');
     }
-    // Se não logado, o botão permanece como 'Inscrever-se' sem mudanças
+    // Se não logado, o botão permanece como 'Entrar' sem mudanças
 })();
