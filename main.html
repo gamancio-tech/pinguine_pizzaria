@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/jpeg">
     <title>Pinguine Pizzaria</title>
@@ -11,7 +15,7 @@
     <div id="site-header"></div>
     <div id="site-nav"></div>
     <main>
-        <img src="images/propaganda_marca.jpg" class="grande" alt="Pinguine Pizzaria">
+        <img src="images/propaganda_marca.png" class="grande" alt="Pinguine Pizzaria">
         
         <!-- Seção da Roleta Pinguine -->
         <section id="roleta-pinguine" class="roleta-hero">
@@ -77,25 +81,104 @@
         </section>
       
     
-        <!-- Itens anteriores, mais vendidas e promoções-->>
-        <section>
-            <h1><img src="icons/estrela.png" class="icon" alt=""> Mais pedidas</h1>
-            <a href="produto.html?sabor=calabresa"><article>
-                <h2>Pizza de Calabresa</h2>
-                <p>Deliciosa pizza de calabresa com queijo e molho especial.</p>
-                <img src="images/cardapio_pizza/pizza1.png" alt="Pizza de Calabresa">
-            </article></a>
-            <a href="produto.html?sabor=margherita"><article>
-                <h2>Pizza de Margherita</h2>
-                <p>Clássica pizza de margherita com tomate, mussarela e manjericão.</p>
-                <img src="images/cardapio_pizza/pizza2.png" alt="Pizza de Margherita">
-            </article></a>
-            <a href="produto.html?sabor=frango_catupiry"><article>
-                <h2>Pizza de Frango com Catupiry</h2>
-                <p>Saborosa pizza de frango com catupiry e temperos especiais.</p>
-                <img src="images/cardapio_pizza/pizza3.png" alt="Pizza de Frango com Catupiry">
-            </article></a>    
-        </section>  
+        <!-- Seção Campeões de Venda Premium -->
+        <section class="campeoes-venda-section">
+            <div class="campeoes-header">
+                <span class="campeoes-crown"><i class="fa-solid fa-crown"></i></span>
+                <h2 class="campeoes-title">✦ CAMPEÕES <span class="dourado">DE VENDA</span> ✦</h2>
+                <p class="campeoes-subtitle">Os sabores que conquistaram nossos clientes</p>
+            </div>
+
+            <div class="campeoes-cards-container">
+                <!-- Card 1: Pinguim Imperial -->
+                <div class="campeao-card glass-card card-left">
+                    <div class="card-badge special-badge">
+                        <span class="badge-text-overlay">ESPECIAL</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="images/sobremesas/sobremesa10.png" alt="Pinguim Imperial">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pinguim Imperial</h3>
+                        <h4 class="card-sabor-subtitle">A Especialidade da Casa</h4>
+                        <p>Nossa criação mais famosa e a queridinha dos clientes. Sorvete de creme, caldas de chocolate ao leite e chocolate branco sobre nossa massa artesanal quentinha. Uma explosão de sabor!</p>
+                        <div class="card-rating-row">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="rating-tag">MAIS PEDIDA</span>
+                        </div>
+                        <a href="produto.html?sabor=pinguim_imperial" class="btn-pedir-agora">
+                            <i class="fa-solid fa-pizza-slice"></i> PEDIR AGORA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pizza à Moda da Casa -->
+                <div class="campeao-card glass-card card-right">
+                    <div class="card-badge favorite-badge badge-right">
+                        <span class="badge-text-overlay">FAVORITA</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="images/cardapio_pizza/pizza11.png" alt="Pizza à Moda da Casa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pizza à Moda da Casa</h3>
+                        <h4 class="card-sabor-subtitle">Um Clássico que Nunca Sai de Moda</h4>
+                        <p>A combinação perfeita de muçarela, presunto, calabresa, cebola, ovos, pimentão e azeitonas pretas. Ingredientes selecionados e muito sabor em cada fatia.</p>
+                        <div class="card-rating-row">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="rating-tag">CAMPEÃ DE SABOR</span>
+                        </div>
+                        <a href="produto.html?sabor=moda_casa" class="btn-pedir-agora">
+                            <i class="fa-solid fa-pizza-slice"></i> PEDIR AGORA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Aurora Boreal -->
+                <div class="campeao-card glass-card card-left">
+                    <div id="aurora-boreal-campeoes-venda" class="card-image-wrapper">
+                        <img src="images/bebidas/bebida3.png" alt="Aurora Boreal">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aurora Boreal</h3>
+                        <h4 class="card-sabor-subtitle">Refrescância em Cada Cor</h4>
+                        <p>Um maravilhoso drink em camadas coloridas imitando a aurora boreal, com xaropes artesanais de frutas, suco cítrico e água com gás.</p>
+                        <div class="card-rating-row">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="rating-tag">DRINK EXCLUSIVO</span>
+                        </div>
+                        <a href="produto.html?sabor=aurora_boreal" class="btn-pedir-agora">
+                            <i class="fa-solid fa-pizza-slice"></i> PEDIR AGORA
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campeoes-footer">
+                <div class="footer-badge"><span class="footer-badge-icon"><i class="fa-solid fa-leaf"></i></span> INGREDIENTES SELECIONADOS</div>
+                <div class="footer-badge"><span class="footer-badge-icon"><i class="fa-solid fa-fire"></i></span> MASSA ARTESANAL</div>
+                <div class="footer-badge"><span class="footer-badge-icon"><i class="fa-solid fa-heart"></i></span> FEITO COM PAIXÃO</div>
+            </div>
+        </section> 
+        
         <section id="promocoes">
             <h1><img src="icons/etiqueta-de-desconto.png" class="icon" alt=""> Promocoes</h1>
             <a href="promo.html?id=combo_familia"><article>

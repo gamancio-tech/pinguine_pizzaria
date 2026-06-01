@@ -45,7 +45,7 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 
 ## Problemas
-
+- verificar o fluxo da roleta
 ## A fazer
 - Adicionar o menu
 
@@ -62,5 +62,3 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 - Melhorar design main
 
 - feedback 
-
-- favoritar
