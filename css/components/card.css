@@ -29,6 +29,16 @@
 
 .pizza_sorvete article {
     background-image: url('../../images/fundo_sorvete.jpg'); 
+    background-position: center center;
+}
+
+.pizza_sorvete article img {
+    transform: translate(88px, -58px);
+}
+
+.pizza_sorvete a[href*="avalanche_ovomaltine"] img,
+.pizza_sorvete a[href*="alasca_tostado"] img {
+    transform: translate(85px, -38px);
 }
 
 .grid article img {
