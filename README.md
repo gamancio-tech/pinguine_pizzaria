@@ -52,8 +52,6 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 ## A fazer
 - Adicionar o menu
 
-- Mudar o Carrinho
-
 - Mudar a página de perfil - iniciado
 
 - Mudar fontes
@@ -76,4 +74,3 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - Adiconar descrição do pedido nos pedidos em andamento - fazendo
 
-- Fazer melhorias na questão de fazer pedido sem logar, manter endereço e ao logar voltar direto à página de carrinho caso estivesse nela 
