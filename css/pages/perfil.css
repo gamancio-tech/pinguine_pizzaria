@@ -1,7 +1,7 @@
 /* === pages/perfil.css === */
 
 .perfil-body {
-    background-image: url('../../images/fundo_madeira.jpeg');
+    background-image: url('../../images/fundo_madeira.png');
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
