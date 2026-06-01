@@ -303,21 +303,27 @@
     animation: sealGlow 2s infinite ease-in-out;
 }
 
-.selo.ativo .selo-pinguim {
-    font-size: 2rem;
-    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+.selo-logo-img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.selo-logo-img.ghost {
+    opacity: 0.12;
+    filter: grayscale(100%) contrast(150%);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: none;
 }
 
 /* Empty Stamps: ghost stamps */
 .selo.vazio {
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px dashed rgba(255, 255, 255, 0.15);
-}
-
-.selo.vazio .selo-pinguim-ghost {
-    font-size: 1.6rem;
-    opacity: 0.15;
-    filter: grayscale(100%);
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed rgba(255, 255, 255, 0.12);
 }
 
 .selo.vazio .selo-number {
@@ -548,12 +554,6 @@
     .selos-grid {
         grid-template-columns: repeat(5, 1fr);
         gap: 0.5rem;
-    }
-    .selo.ativo .selo-pinguim {
-        font-size: 1.5rem;
-    }
-    .selo.vazio .selo-pinguim-ghost {
-        font-size: 1.2rem;
     }
     .progress-bar-track {
         margin: 2.5rem 0.2rem 1.5rem 0.2rem;

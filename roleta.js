@@ -251,7 +251,7 @@ function spinWheel() {
     
     // Apply transform and transition classes
     canvasElement.style.transform = `rotate(${rotationDegrees}deg)`;
-    logoElement.style.transform = `rotate(${rotationDegrees}deg)`;
+    logoElement.style.transform = `translate(-50%, -50%) rotate(${rotationDegrees}deg)`;
     
     // Wait for transition to complete (5 seconds)
     setTimeout(() => {

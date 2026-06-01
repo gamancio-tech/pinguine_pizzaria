@@ -48,7 +48,7 @@
                 <div class="perfil-tabs">
                     <button class="perfil-tab-btn active" onclick="switchTab('dados', event)">Dados Pessoais</button>
                     <button class="perfil-tab-btn" onclick="switchTab('pedidos', event)">Pedidos em Andamento</button>
-                    <button class="perfil-tab-btn" onclick="switchTab('fidelidade', event)">🐧 Fidelidade</button>
+                    <button class="perfil-tab-btn" onclick="switchTab('fidelidade', event)">Pinguine Fidelidade</button>
                 </div>
 
                 <!-- Profile Settings Card -->
@@ -130,7 +130,7 @@
                         </div>
 
                         <div class="stamps-grid-container">
-                            <h3>Seus Selos 🐧</h3>
+                            <h3>Seus Selos Pinguine</h3>
                             <div class="selos-grid" id="selos-grid">
                                 <!-- 25 stamps populated dynamically by JS -->
                             </div>
@@ -438,9 +438,9 @@
                 seloDiv.className = `selo ${isStamped ? 'ativo' : 'vazio'}`;
                 
                 if (isStamped) {
-                    seloDiv.innerHTML = `<span class="selo-pinguim" title="Selo ${i}">🐧</span>`;
+                    seloDiv.innerHTML = `<img src="images/logo.jpg" class="selo-logo-img" title="Selo ${i}" alt="Selo ${i}">`;
                 } else {
-                    seloDiv.innerHTML = `<span class="selo-pinguim-ghost" title="Slot ${i}">🐧</span><span class="selo-number">${i}</span>`;
+                    seloDiv.innerHTML = `<img src="images/logo.jpg" class="selo-logo-img ghost" title="Slot ${i}" alt="Slot ${i}"><span class="selo-number">${i}</span>`;
                 }
                 grid.appendChild(seloDiv);
             }
