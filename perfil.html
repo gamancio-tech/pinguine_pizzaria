@@ -48,6 +48,7 @@
                 <div class="perfil-tabs">
                     <button class="perfil-tab-btn active" onclick="switchTab('dados', event)">Dados Pessoais</button>
                     <button class="perfil-tab-btn" onclick="switchTab('pedidos', event)">Pedidos em Andamento</button>
+                    <button class="perfil-tab-btn" onclick="switchTab('fidelidade', event)">🐧 Fidelidade</button>
                 </div>
 
                 <!-- Profile Settings Card -->
@@ -100,6 +101,70 @@
                     <h2>Pedidos em Andamento</h2>
                     <div class="pedidos-lista" id="pedidos-lista">
                         <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Loyalty Card (Fidelidade) Tab Content -->
+                <div class="perfil-card tab-content" id="tab-fidelidade">
+                    <div class="loyalty-card-wrapper">
+                        <div class="loyalty-card-header">
+                            <div class="loyalty-card-title">
+                                <span class="loyalty-star">★</span> Cartão Fidelidade Pinguine <span class="loyalty-star">★</span>
+                            </div>
+                            <div class="loyalty-card-subtitle">Complete seu cartão e ganhe prêmios exclusivos!</div>
+                        </div>
+                        
+                        <div class="loyalty-stats-grid">
+                            <div class="loyalty-stat-box">
+                                <span class="loyalty-stat-value" id="fidelidade-selos-qtd">0</span>
+                                <span class="loyalty-stat-label">Selos Atuais</span>
+                            </div>
+                            <div class="loyalty-stat-box">
+                                <span class="loyalty-stat-value" id="fidelidade-total-gasto">R$ 0,00</span>
+                                <span class="loyalty-stat-label">Total Gasto</span>
+                            </div>
+                            <div class="loyalty-stat-box">
+                                <span class="loyalty-stat-value" id="fidelidade-tickets-qtd">0</span>
+                                <span class="loyalty-stat-label">Tickets de Roleta</span>
+                            </div>
+                        </div>
+
+                        <div class="stamps-grid-container">
+                            <h3>Seus Selos 🐧</h3>
+                            <div class="selos-grid" id="selos-grid">
+                                <!-- 25 stamps populated dynamically by JS -->
+                            </div>
+                        </div>
+
+                        <div class="milestones-container">
+                            <h3>Progresso do Cartão</h3>
+                            <div class="progress-bar-track">
+                                <div class="progress-bar-fill-fidelidade" id="fidelidade-progress-fill"></div>
+                                <div class="milestone-marker marker-7" data-label="7 Selos" title="Prêmio Surpresa (R$ 10 de Desconto)">
+                                    <div class="marker-dot"></div>
+                                    <span class="marker-text">7 Selos 🎁</span>
+                                </div>
+                                <div class="milestone-marker marker-15" data-label="15 Selos" title="1 Ticket da Roleta Pinguine">
+                                    <div class="marker-dot"></div>
+                                    <span class="marker-text">15 Selos 🎡</span>
+                                </div>
+                                <div class="milestone-marker marker-25" data-label="25 Selos" title="Combo Grátis (Pizza Média + Bebida)">
+                                    <div class="marker-dot"></div>
+                                    <span class="marker-text">25 Selos 🍕</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rewards-section">
+                            <h3>Recompensas Disponíveis</h3>
+                            <div class="rewards-list" id="rewards-list">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+
+                        <div class="loyalty-actions">
+                            <a href="cardapio.html" class="btn-loyalty-cardapio">🛒 Ir para o Cardápio</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,12 +316,19 @@
                     ? `Entrega em: ${mins}m ${secs}s`
                     : `Entrega em preparo: ${mins}m ${secs}s`;
 
-                // Build item summary
-                const itemsSummary = order.itens.map(i => `${i.quantidade}x ${i.titulo}`).join(', ');
+                // Build item summary with promotion sub-items if present
+                const itemsSummary = order.itens.map(i => {
+                    let desc = `${i.quantidade}x ${i.titulo}`;
+                    if (i.tipo === 'combo' && i.itens_selecionados) {
+                        const comboItens = i.itens_selecionados.map(si => si.titulo).concat(i.itens_fixos ? i.itens_fixos.map(fi => fi.titulo) : []).join(', ');
+                        desc += ` (${comboItens})`;
+                    }
+                    return desc;
+                }).join(', ');
                 const totalPedido = order.total || '—';
 
                 return `
-                    <div class="pedido-card" id="pedido-${idx}">
+                    <div class="pedido-card" id="pedido-${idx}" onclick="abrirModalPedido(${idx})" title="Clique para ver os itens deste pedido">
                         <div class="pedido-card-header">
                             <h3>🧾 Pedido #${idx + 1} &nbsp; <small style="font-weight:400; font-size:0.85rem; color:#888;">${totalPedido}</small></h3>
                             <span class="pedido-status-badge ${statusClass}">${statusLabel}</span>
@@ -271,11 +343,209 @@
             }).join('');
         }
 
+        // =====================
+        // Modal de Visualização do Pedido
+        // =====================
+        function abrirModalPedido(idx) {
+            const orders = JSON.parse(localStorage.getItem('activeOrders') || '[]');
+            const order = orders[idx];
+            if (!order) return;
+
+            const modal = document.getElementById('modal-ver-pedido');
+            const grid = document.getElementById('modal-ver-pedido-grid');
+            const titulo = document.getElementById('modal-ver-pedido-titulo');
+            const totalSpan = document.getElementById('modal-ver-pedido-total');
+
+            titulo.textContent = `Detalhes do Pedido #${idx + 1}`;
+            totalSpan.textContent = order.total || 'R$ 0,00';
+
+            grid.innerHTML = order.itens.map(item => {
+                const imagem = item.imagem || 'images/logo.jpg';
+                let subItensList = '';
+                if (item.tipo === 'combo' && item.itens_selecionados) {
+                    const allComboItens = item.itens_selecionados.map(si => si.titulo).concat(item.itens_fixos ? item.itens_fixos.map(fi => fi.titulo) : []);
+                    subItensList = `
+                        <div style="font-size: 0.8rem; text-align: left; margin-top: 0.6rem; padding: 0.45rem; background: #fdfaf4; border: 1px dashed #e6c8a0; border-radius: 0.5rem; width: 100%; box-sizing: border-box;">
+                            <strong style="color: var(--cor4); display: block; margin-bottom: 0.2rem;">Combo contém:</strong>
+                            <ul style="margin: 0; padding-left: 1.1rem; color: #555; line-height: 1.3;">
+                                ${allComboItens.map(name => `<li>${name}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+                return `
+                    <div class="modal-item modal-item-readonly" style="flex-direction: column; align-items: center; justify-content: flex-start; min-height: 180px;">
+                        <img src="${imagem}" alt="${item.titulo}" onerror="this.src='images/logo.jpg'">
+                        <div class="modal-item-info" style="width: 100%;">
+                            <h4 style="font-weight: 700; margin-bottom: 0.4rem; color: var(--cor4);">${item.titulo}</h4>
+                            <span class="modal-contador" style="background-color: var(--cor9); color: white; display: inline-block; padding: 0.15rem 0.6rem; font-size: 0.8rem;">Qtd: ${item.quantidade}</span>
+                            <div class="modal-item-preco" style="margin-top: 0.5rem; font-size: 0.9rem;">${item.preco || ''}</div>
+                            ${subItensList}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('modal-ativo');
+            }, 10);
+        }
+
+        function fecharModalPedido() {
+            const modal = document.getElementById('modal-ver-pedido');
+            modal.classList.remove('modal-ativo');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 350);
+        }
+
+        // Fecha o modal ao clicar fora da área dele
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modal-ver-pedido');
+            if (e.target === modal) {
+                fecharModalPedido();
+            }
+        });
+
+        // =====================
+        // Loyalty Card (Fidelidade) Script Logic
+        // =====================
+        function renderFidelidade() {
+            let fidelidade = JSON.parse(localStorage.getItem('fidelidadePinguine') || 'null');
+            if (!fidelidade) {
+                fidelidade = {
+                    totalGasto: 0,
+                    selos: 0,
+                    selosHistorico: [],
+                    tickets: 0,
+                    premiosDisponiveis: [],
+                    premiosResgatados: []
+                };
+            }
+
+            // Update stats
+            document.getElementById('fidelidade-selos-qtd').textContent = fidelidade.selos;
+            document.getElementById('fidelidade-total-gasto').textContent = 'R$ ' + fidelidade.totalGasto.toFixed(2).replace('.', ',');
+            document.getElementById('fidelidade-tickets-qtd').textContent = fidelidade.tickets;
+
+            // Render 5x5 Stamps Grid (25 slots)
+            const grid = document.getElementById('selos-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 25; i++) {
+                const isStamped = i <= fidelidade.selos;
+                const seloDiv = document.createElement('div');
+                seloDiv.className = `selo ${isStamped ? 'ativo' : 'vazio'}`;
+                
+                if (isStamped) {
+                    seloDiv.innerHTML = `<span class="selo-pinguim" title="Selo ${i}">🐧</span>`;
+                } else {
+                    seloDiv.innerHTML = `<span class="selo-pinguim-ghost" title="Slot ${i}">🐧</span><span class="selo-number">${i}</span>`;
+                }
+                grid.appendChild(seloDiv);
+            }
+
+            // Update Progress Bar
+            const progressPercent = Math.min(100, (fidelidade.selos / 25) * 100);
+            document.getElementById('fidelidade-progress-fill').style.width = progressPercent + '%';
+
+            // Highlight reached milestones
+            const marker7 = document.querySelector('.marker-7');
+            const marker15 = document.querySelector('.marker-15');
+            const marker25 = document.querySelector('.marker-25');
+            
+            if (fidelidade.selos >= 7) marker7.classList.add('alcançado');
+            else marker7.classList.remove('alcançado');
+            
+            if (fidelidade.selos >= 15) marker15.classList.add('alcançado');
+            else marker15.classList.remove('alcançado');
+            
+            if (fidelidade.selos >= 25) marker25.classList.add('alcançado');
+            else marker25.classList.remove('alcançado');
+
+            // Render rewards list
+            const rewardsList = document.getElementById('rewards-list');
+            if (!fidelidade.premiosDisponiveis || fidelidade.premiosDisponiveis.length === 0) {
+                rewardsList.innerHTML = '<p class="rewards-empty">🎁 Nenhuma recompensa disponível no momento. Continue comprando para acumular selos!</p>';
+            } else {
+                rewardsList.innerHTML = fidelidade.premiosDisponiveis.map(reward => {
+                    let icon = '🎁';
+                    if (reward.tipo === 'ticket_roleta') icon = '🎡';
+                    if (reward.tipo === 'combo_gratis') icon = '🍕';
+                    
+                    return `
+                        <div class="reward-item">
+                            <div class="reward-item-left">
+                                <span class="reward-icon">${icon}</span>
+                                <div class="reward-info">
+                                    <div class="reward-name">${reward.nome}</div>
+                                    <div class="reward-date">Ganhado em: ${reward.dataGanhado}</div>
+                                </div>
+                            </div>
+                            <button class="btn-usar-premio" onclick="usarPremio('${reward.id}')">Resgatar</button>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function usarPremio(rewardId) {
+            let fidelidade = JSON.parse(localStorage.getItem('fidelidadePinguine') || '{}');
+            if (!fidelidade || !fidelidade.premiosDisponiveis) return;
+
+            const rewardIdx = fidelidade.premiosDisponiveis.findIndex(r => r.id === rewardId);
+            if (rewardIdx === -1) return;
+
+            const reward = fidelidade.premiosDisponiveis[rewardIdx];
+            
+            if (reward.tipo === 'ticket_roleta') {
+                alert(`🎡 Recompensa ativada!\n\nVocê resgatou "${reward.nome}". O ticket já foi adicionado ao seu saldo de tickets da Roleta.\n\nVá para a página inicial (main.html) para girar a roleta!`);
+                
+                fidelidade.premiosDisponiveis.splice(rewardIdx, 1);
+                if (!fidelidade.premiosResgatados) fidelidade.premiosResgatados = [];
+                reward.dataResgate = new Date().toLocaleDateString('pt-BR');
+                fidelidade.premiosResgatados.push(reward);
+                
+                localStorage.setItem('fidelidadePinguine', JSON.stringify(fidelidade));
+                renderFidelidade();
+                return;
+            }
+
+            alert(`🎉 Recompensa Resgatada!\n\nVocê ativou: "${reward.nome}".\n\nCódigo de Resgate Simulado: PINGUINE-${Math.random().toString(36).substr(2, 8).toUpperCase()}\n\nEsse prêmio foi registrado como resgatado no seu perfil. Informe esse código ou sua conta ao atendente no seu próximo pedido!`);
+
+            fidelidade.premiosDisponiveis.splice(rewardIdx, 1);
+            if (!fidelidade.premiosResgatados) fidelidade.premiosResgatados = [];
+            reward.dataResgate = new Date().toLocaleDateString('pt-BR');
+            fidelidade.premiosResgatados.push(reward);
+
+            localStorage.setItem('fidelidadePinguine', JSON.stringify(fidelidade));
+            renderFidelidade();
+        }
+
         // Re-render every second
         loadProfile();
         renderPedidos();
+        renderFidelidade();
         setInterval(renderPedidos, 1000);
     </script>
-</body>
 
+    <!-- Modal de Visualização do Pedido (Mini Cardápio do Pedido) -->
+    <div id="modal-ver-pedido" class="modal-overlay modal-centered" style="display:none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-ver-pedido-titulo">Itens do Pedido</h2>
+                <button id="modal-ver-pedido-fechar" class="modal-btn-fechar" type="button" aria-label="Fechar" onclick="fecharModalPedido()">X</button>
+            </div>
+            <div id="modal-ver-pedido-grid" class="modal-grid">
+                <!-- Renderizado via JS -->
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cor4);">
+                    Total: <span id="modal-ver-pedido-total" style="color: var(--cor8);">R$ 0,00</span>
+                </div>
+                <button class="avatar-upload-btn" style="min-width: 100px; margin: 0; background-color: var(--cor9); color: white;" type="button" onclick="fecharModalPedido()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

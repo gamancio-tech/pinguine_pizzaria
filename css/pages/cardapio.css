@@ -242,6 +242,27 @@ main.bebida_menu {
     margin-bottom: 0.5rem;
 }
 
+.promocao-premium-cta {
+    align-self: flex-start;
+    background-color: var(--cor6);
+    color: #111;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.promocao-premium-cta:hover {
+    background-color: transparent;
+    color: var(--cor6);
+    border-color: var(--cor6);
+    transform: translateX(3px);
+}
+
 .promocoes-banner-introducao p {
     font-size: 1.1rem;
     color: #444;

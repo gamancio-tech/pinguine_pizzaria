@@ -151,3 +151,29 @@
     border-top: 1px solid #eee;
     flex-shrink: 0;
 }
+
+.modal-item-readonly {
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+.modal-item-readonly:hover {
+    border-color: #e8e8e8 !important;
+    box-shadow: none !important;
+}
+
+/* Modais Centralizados */
+.modal-overlay.modal-centered {
+    align-items: center;
+}
+
+.modal-overlay.modal-centered .modal-container {
+    border-radius: 1.5rem;
+    transform: scale(0.9);
+    margin: 1.5rem;
+    max-height: 90vh;
+}
+
+.modal-overlay.modal-centered.modal-ativo .modal-container {
+    transform: scale(1);
+}

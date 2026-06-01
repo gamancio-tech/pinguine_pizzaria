@@ -5,73 +5,73 @@ const cardapio = {
         titulo: "Pizza de Calabresa",
         preco: "R$ 62,00",
         descricao: "Molho de tomate especial da casa, muçarela derretida, calabresa fatiada de primeira qualidade, cebola fresca, orégano e azeitonas pretas sobre nossa massa artesanal.",
-        imagem: "images/cardapio_pizza/pizza1.jpg"
+        imagem: "images/cardapio_pizza/pizza1.png"
     },
     margherita: {
         titulo: "Pizza Margherita",
         preco: "R$ 65,00",
         descricao: "Massa leve e crocante, molho de tomate natural, muçarela derretida, fatias de tomate fresco, folhas de manjericão fresco e um fio de azeite extravirgem.",
-        imagem: "images/cardapio_pizza/pizza2.jpg"
+        imagem: "images/cardapio_pizza/pizza2.png"
     },
     frango_catupiry: {
         titulo: "Pizza de Frango c/ Catupiry",
         preco: "R$ 60,00",
         descricao: "Frango desfiado temperado com perfeição, coberto com o legítimo requeijão cremoso Catupiry e muçarela derretida sobre nossa massa especial.",
-        imagem: "images/cardapio_pizza/pizza3.jpg"
+        imagem: "images/cardapio_pizza/pizza3.png"
     },
     queijo: {
         titulo: "Pizza de Queijo",
         preco: "R$ 64,00",
         descricao: "Combinação clássica de muçarela da casa perfeitamente derretida sobre nosso molho de tomate artesanal e orégano fresco.",
-        imagem: "images/cardapio_pizza/pizza4.jpg"
+        imagem: "images/cardapio_pizza/pizza4.png"
     },
     portuguesa: {
         titulo: "Pizza Portuguesa",
         preco: "R$ 66,00",
         descricao: "Muçarela, presunto cozido fatiado, ovos cozidos, cebola fresca, ervilhas, pimentão e azeitonas pretas sobre nossa saborosa massa.",
-        imagem: "images/cardapio_pizza/pizza5.jpg"
+        imagem: "images/cardapio_pizza/pizza5.png"
     },
     quatro_queijos: {
         titulo: "Pizza 4 Queijos",
         preco: "R$ 66,00",
         descricao: "Uma deliciosa combinação dos melhores queijos selecionados da casa: muçarela, provolone, parmesão ralado e o cremoso requeijão.",
-        imagem: "images/cardapio_pizza/pizza6.jpg"
+        imagem: "images/cardapio_pizza/pizza6.png"
     },
     palmito: {
         titulo: "Pizza de Palmito",
         preco: "R$ 66,00",
         descricao: "Palmito macio em rodelas, muçarela derretida, molho de tomate fresco e orégano sob nossa massa tradicional.",
-        imagem: "images/cardapio_pizza/pizza7.jpg"
+        imagem: "images/cardapio_pizza/pizza7.png"
     },
     presunto_queijo: {
         titulo: "Pizza de Presunto e Queijo",
         preco: "R$ 66,00",
         descricao: "Delicioso presunto fatiado combinado com muçarela de alta qualidade e molho de tomate especial da casa.",
-        imagem: "images/cardapio_pizza/pizza8.jpg"
+        imagem: "images/cardapio_pizza/pizza8.png"
     },
     bacon: {
         titulo: "Pizza de Bacon",
         preco: "R$ 63,00",
         descricao: "Crocantes fatias de bacon selecionado sobre uma camada de muçarela derretida e molho de tomate artesanal.",
-        imagem: "images/cardapio_pizza/pizza9.jpg"
+        imagem: "images/cardapio_pizza/pizza9.png"
     },
     pepperoni: {
         titulo: "Pizza de Pepperoni",
         preco: "R$ 63,00",
         descricao: "Fatias generosas de pepperoni condimentado e levemente picante, muçarela derretida e orégano sobre nossa massa artesanal.",
-        imagem: "images/cardapio_pizza/pizza10.jpg"
+        imagem: "images/cardapio_pizza/pizza10.png"
     },
     moda_casa: {
         titulo: "Pizza à Moda da Casa",
         preco: "R$ 63,00",
         descricao: "Uma combinação especial dos ingredientes mais frescos da casa: muçarela, presunto, calabresa, cebola, ovos, pimentão e azeitona preta.",
-        imagem: "images/cardapio_pizza/pizza11.jpg"
+        imagem: "images/cardapio_pizza/pizza11.png"
     },
     strogonoff: {
         titulo: "Pizza de Strogonoff",
         preco: "R$ 63,00",
         descricao: "Delicioso strogonoff de frango ou carne com molho cremoso, coberto com muçarela e finalizado com batata palha crocante.",
-        imagem: "images/cardapio_pizza/pizza12.jpg"
+        imagem: "images/cardapio_pizza/pizza12.png"
     },
 
     // === PIZZAS VEGETARIANAS ===
@@ -79,37 +79,37 @@ const cardapio = {
         titulo: "Pizza Margherita Vegetariana",
         preco: "R$ 70,00",
         descricao: "Massa leve e crocante, molho de tomate natural, generosa muçarela de búfala derretida, fatias de tomate fresco, folhas de manjericão e um fio de azeite extravirgem.",
-        imagem: "images/cardapio_pizza/pizza2.jpg"
+        imagem: "images/cardapio_pizza/pizza2.png"
     },
     milho_catupiry: {
         titulo: "Pizza de Milho com Catupiry",
         preco: "R$ 70,00",
         descricao: "Milho verde selecionado coberto com o autêntico requeijão cremoso Catupiry e muçarela derretida sob nossa massa artesanal.",
-        imagem: "images/cardapio_pizza/pizza14.jpg"
+        imagem: "images/cardapio_pizza/pizza14.png"
     },
     escarola: {
         titulo: "Pizza de Escarola",
         preco: "R$ 72,00",
         descricao: "Escarola refogada no alho, coberta com muçarela derretida e finalizada com um toque especial de bacon vegetal ou alho frito.",
-        imagem: "images/cardapio_pizza/pizza15.jpg"
+        imagem: "images/cardapio_pizza/pizza15.png"
     },
     berinjela: {
         titulo: "Pizza de Berinjela",
         preco: "R$ 70,00",
         descricao: "Berinjela grelhada com azeite, alho e ervas, coberta com muçarela derretida e orégano sobre nossa deliciosa massa.",
-        imagem: "images/cardapio_pizza/pizza16.jpg"
+        imagem: "images/cardapio_pizza/pizza16.png"
     },
     funghi: {
         titulo: "Pizza de Funghi",
         preco: "R$ 72,00",
         descricao: "Cogumelos paris e shimeji salteados na manteiga e alho, sob uma camada de muçarela derretida e cebolinha fresca.",
-        imagem: "images/cardapio_pizza/pizza17.jpg"
+        imagem: "images/cardapio_pizza/pizza17.png"
     },
     vegetariana_completa: {
         titulo: "Pizza Vegetariana Completa",
         preco: "R$ 74,00",
         descricao: "Mix de vegetais selecionados: brócolis, milho, ervilha, palmito, cebola, tomate e pimentão, cobertos com muçarela derretida.",
-        imagem: "images/cardapio_pizza/pizza18.jpg"
+        imagem: "images/cardapio_pizza/pizza18.png"
     },
 
     // === PIZZAS DOCES ===
@@ -117,37 +117,37 @@ const cardapio = {
         titulo: "Pizza de Brigadeiro",
         preco: "R$ 62,00",
         descricao: "Massa doce crocante coberta com generosa camada de brigadeiro artesanal cremoso e bastante granulado de chocolate belga.",
-        imagem: "images/sobremesas/sobremesa1.jfif"
+        imagem: "images/sobremesas/sobremesa1.png"
     },
     morango_chocolate: {
         titulo: "Pizza de Morango com Chocolate",
         preco: "R$ 65,00",
         descricao: "Creme de chocolate cremoso com morangos frescos fatiados, finalizada com calda ou raspas de chocolate ao leite.",
-        imagem: "images/sobremesas/sobremesa2.jfif"
+        imagem: "images/sobremesas/sobremesa2.png"
     },
     romeu_julieta: {
         titulo: "Pizza Romeu e Julieta",
         preco: "R$ 60,00",
         descricao: "A clássica e perfeita combinação de muçarela derretida com a tradicional goiabada cremosa da casa.",
-        imagem: "images/sobremesas/sobremesa3.jfif"
+        imagem: "images/sobremesas/sobremesa3.png"
     },
     banana_canela: {
         titulo: "Pizza de Banana com Canela",
         preco: "R$ 64,00",
         descricao: "Fatias de banana fresca com açúcar e canela salpicados, gratinadas com muçarela ou leite condensado.",
-        imagem: "images/sobremesas/sobremesa4.jfif"
+        imagem: "images/sobremesas/sobremesa4.png"
     },
-    nutella_morango: {
-        titulo: "Pizza de Nutella com Morango",
+    pacoca: {
+        titulo: "Pizza de Paçoca",
         preco: "R$ 66,00",
-        descricao: "Generosa camada do autêntico creme de avelã Nutella, coberta com morangos frescos selecionados e açúcar de confeiteiro.",
-        imagem: "images/sobremesas/sobremesa5.jfif"
+        descricao: "Uma combinação irresistível de creme especial e generosas camadas de paçoca esfarelada, criando o equilíbrio perfeito entre cremosidade e o sabor marcante do amendoim. Uma sobremesa que conquista a cada fatia.",
+        imagem: "images/sobremesas/sobremesa5.png"
     },
     prestigio: {
         titulo: "Pizza de Prestígio",
         preco: "R$ 63,00",
         descricao: "Deliciosa cobertura de chocolate ao leite cremoso polvilhada com coco ralado úmido de alta qualidade.",
-        imagem: "images/sobremesas/sobremesa6.jfif"
+        imagem: "images/sobremesas/sobremesa6.png"
     },
 
     // === PARAÍSO GELADO (SORVETES / ICEBERGS) ===
@@ -249,7 +249,7 @@ const cardapio = {
         titulo: "Sprite",
         preco: "R$ 10,90",
         descricao: "Refrigerante Sprite Lata 350ml gelado e refrescante.",
-        imagem: "images/bebidas/bebida10.jpg"
+        imagem: "images/bebidas/bebida10.png"
     },
 
     // === SUCOS ===
@@ -257,7 +257,7 @@ const cardapio = {
         titulo: "Suco de Manga Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural e refrescante de manga madura selecionada, batido na hora com gelo.",
-        imagem: "images/bebidas/bebida11.jpg"
+        imagem: "images/bebidas/bebida11.png"
     },
     suco_melancia: {
         titulo: "Suco de Melancia Fresh",
@@ -269,37 +269,37 @@ const cardapio = {
         titulo: "Suco de Morango Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de morangos frescos batidos na hora.",
-        imagem: "images/bebidas/bebida13.jpg"
+        imagem: "images/bebidas/bebida13.png"
     },
     suco_abacaxi: {
         titulo: "Suco de Abacaxi Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de abacaxi fresco batido com hortelã opcional e gelo.",
-        imagem: "images/bebidas/bebida14.jpg"
+        imagem: "images/bebidas/bebida14.png"
     },
     suco_maracuja: {
         titulo: "Suco de Maracujá Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de maracujá da fruta, perfeito equilíbrio entre o cítrico e o doce.",
-        imagem: "images/bebidas/bebida15.jpg"
+        imagem: "images/bebidas/bebida15.png"
     },
     suco_uva: {
         titulo: "Suco de Uva Fresh",
         preco: "R$ 12,90",
         descricao: "Suco natural de uva roxa concentrado e saboroso.",
-        imagem: "images/bebidas/bebida16.jpg"
+        imagem: "images/bebidas/bebida16.png"
     },
     suco_limao: {
         titulo: "Suco de Limão Fresh",
         preco: "R$ 12,90",
         descricao: "Limonada suíça fresh feita com limões espremidos na hora com casca, bem gelada.",
-        imagem: "images/bebidas/bebida17.jpg"
+        imagem: "images/bebidas/bebida17.png"
     },
     suco_tutti_frutti: {
         titulo: "Suco de Tutti-Frutti Fresh",
         preco: "R$ 12,90",
         descricao: "Delicioso e colorido suco sabor tutti-frutti com um mix especial de xaropes e geléias coloridas.",
-        imagem: "images/bebidas/bebida18.jpg"
+        imagem: "images/bebidas/bebida18.png"
     }
 };
 
@@ -314,8 +314,82 @@ if (saborSelecionado && cardapio[saborSelecionado]) {
     document.getElementById('prod-titulo').innerText = produto.titulo;
     document.getElementById('prod-preco').innerText = produto.preco;
     document.getElementById('prod-descricao').innerText = produto.descricao;
-    document.getElementById('prod-img').src = produto.imagem;
-    document.getElementById('prod-img').alt = produto.titulo;
+    const imgElem = document.getElementById('prod-img');
+    imgElem.src = produto.imagem;
+    imgElem.alt = produto.titulo;
+    // Apply category‑specific styling: bebidas (drinks) use contain, pizzas/sobremesas use cover
+    if (produto.imagem.includes('/bebidas/') || produto.imagem.includes('/drinks/')) {
+        imgElem.classList.add('drink-image');
+        imgElem.classList.remove('food-image');
+    } else {
+        imgElem.classList.add('food-image');
+        imgElem.classList.remove('drink-image');
+    }
+
+    // Show pizza selection sections (tamanho & borda) only for pizza products
+    const pizzaKeys = [
+        'calabresa', 'margherita', 'frango_catupiry', 'queijo', 'portuguesa',
+        'quatro_queijos', 'palmito', 'presunto_queijo', 'bacon', 'pepperoni',
+        'moda_casa', 'strogonoff',
+        'margherita_veggie', 'milho_catupiry', 'escarola', 'berinjela',
+        'funghi', 'vegetariana_completa',
+        'brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela',
+        'pacoca', 'prestigio',
+        'oreo', 'ninho', 'glaciar_frutas', 'pinguim_imperial', 'avalanche_ovomaltine', 'alasca_tostado'
+    ];
+    const selecoesPizza = document.getElementById('selecoes-pizza');
+    if (selecoesPizza && pizzaKeys.includes(saborSelecionado)) {
+        selecoesPizza.style.display = 'block';
+
+        // Sweet pizza border options restriction
+        const sweetPizzaKeys = [
+            'brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela', 'pacoca', 'prestigio',
+            'oreo', 'ninho', 'glaciar_frutas', 'pinguim_imperial', 'avalanche_ovomaltine', 'alasca_tostado'
+        ];
+        if (sweetPizzaKeys.includes(saborSelecionado)) {
+            const catupiryCard = document.querySelector('input[name="borda"][value="catupiry"]');
+            const cheddarCard = document.querySelector('input[name="borda"][value="cheddar"]');
+            if (catupiryCard) catupiryCard.closest('.opcao-card').style.display = 'none';
+            if (cheddarCard) cheddarCard.closest('.opcao-card').style.display = 'none';
+        }
+
+        // Dynamically update the size option badges with the full pizza prices
+        const precoBaseVal = parsePreco(produto.preco);
+        const pqInput = document.querySelector('input[name="tamanho"][value="pequena"]');
+        const mdInput = document.querySelector('input[name="tamanho"][value="media"]');
+        const gdInput = document.querySelector('input[name="tamanho"][value="grande"]');
+
+        if (pqInput) {
+            const b = pqInput.parentElement.querySelector('.opcao-preco-badge');
+            if (b) {
+                b.innerText = formatPreco(precoBaseVal - 10);
+                b.className = 'opcao-preco-badge normal';
+            }
+        }
+        if (mdInput) {
+            const b = mdInput.parentElement.querySelector('.opcao-preco-badge');
+            if (b) {
+                b.innerText = formatPreco(precoBaseVal);
+                b.className = 'opcao-preco-badge normal';
+            }
+        }
+        if (gdInput) {
+            const b = gdInput.parentElement.querySelector('.opcao-preco-badge');
+            if (b) {
+                b.innerText = formatPreco(precoBaseVal + 15);
+                b.className = 'opcao-preco-badge normal';
+            }
+        }
+
+        // Add event listeners for dynamic pricing on selection change
+        const radios = document.querySelectorAll('#selecoes-pizza input[type="radio"]');
+        radios.forEach(radio => {
+            radio.addEventListener('change', atualizarPrecoExibido);
+        });
+    }
+
+    // Initial price calculation and rendering
+    atualizarPrecoExibido();
 } else {
     // Caso alguém acesse produto.html sem passar um sabor válido
     document.getElementById('prod-titulo').innerText = "Produto não encontrado";
@@ -367,13 +441,50 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
         }
 
         const produto = cardapio[saborSelecionado];
-        const observacao = observacaoInput ? observacaoInput.value.trim() : "";
+        let observacao = observacaoInput ? observacaoInput.value.trim() : "";
+
+        // Include pizza size & border selections in observation if visible
+        const selecoesPizza = document.getElementById('selecoes-pizza');
+        if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+            const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+            const bordaEl = document.querySelector('input[name="borda"]:checked');
+            const tamanhoLabel = { pequena: 'Pequena', media: 'Média', grande: 'Grande' };
+            const bordaLabel = { sem_borda: 'Sem Borda Recheada', catupiry: 'Catupiry', cheddar: 'Cheddar', chocolate: 'Chocolate' };
+
+            const parts = [];
+            if (tamanhoEl) parts.push('Tamanho: ' + (tamanhoLabel[tamanhoEl.value] || tamanhoEl.value));
+            if (bordaEl) parts.push('Borda: ' + (bordaLabel[bordaEl.value] || bordaEl.value));
+            const selecaoTexto = parts.join(' | ');
+
+            if (observacao) {
+                observacao = selecaoTexto + ' | ' + observacao;
+            } else {
+                observacao = selecaoTexto;
+            }
+        }
+
+        let precoCalculado = produto.preco;
+        if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+            let precoBase = parsePreco(produto.preco);
+            const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+            const bordaEl = document.querySelector('input[name="borda"]:checked');
+            let ajuste = 0;
+            if (tamanhoEl) {
+                if (tamanhoEl.value === 'pequena') ajuste -= 10;
+                else if (tamanhoEl.value === 'grande') ajuste += 15;
+            }
+            if (bordaEl) {
+                if (bordaEl.value === 'catupiry' || bordaEl.value === 'cheddar') ajuste += 8;
+                else if (bordaEl.value === 'chocolate') ajuste += 10;
+            }
+            precoCalculado = formatPreco(precoBase + ajuste);
+        }
 
         // Objeto do produto a ser adicionado
         const itemCarrinho = {
             sabor: saborSelecionado,
             titulo: produto.titulo,
-            preco: produto.preco,
+            preco: precoCalculado,
             imagem: produto.imagem,
             quantidade: quantidade,
             observacao: observacao
@@ -426,7 +537,7 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
             morango_chocolate: 'menu_sobremesa.html#sobremesas-doces',
             romeu_julieta: 'menu_sobremesa.html#sobremesas-doces',
             banana_canela: 'menu_sobremesa.html#sobremesas-doces',
-            nutella_morango: 'menu_sobremesa.html#sobremesas-doces',
+            pacoca: 'menu_sobremesa.html#sobremesas-doces',
             prestigio: 'menu_sobremesa.html#sobremesas-doces',
             oreo: 'menu_sobremesa.html#paraiso-gelado',
             ninho: 'menu_sobremesa.html#paraiso-gelado',
@@ -505,7 +616,7 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
                 morango_chocolate: 'cardapio.html#sobremesas-doces',
                 romeu_julieta: 'cardapio.html#sobremesas-doces',
                 banana_canela: 'cardapio.html#sobremesas-doces',
-                nutella_morango: 'cardapio.html#sobremesas-doces',
+                pacoca: 'cardapio.html#sobremesas-doces',
                 prestigio: 'cardapio.html#sobremesas-doces',
                 // Paraíso Gelado
                 oreo: 'cardapio.html#paraiso-gelado',
@@ -534,3 +645,46 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
         }, 1000);
     });
 }
+
+// ============================================
+// DYNAMIC PRICING HELPERS FOR PRODUCT PAGE
+// ============================================
+function parsePreco(preco) {
+    if (!preco) return 0;
+    return parseFloat(preco.replace('R$', '').replace('.', '').replace(',', '.').trim()) || 0;
+}
+
+function formatPreco(value) {
+    return 'R$ ' + value.toFixed(2).replace('.', ',');
+}
+
+function atualizarPrecoExibido() {
+    if (!saborSelecionado || !cardapio[saborSelecionado]) return;
+    const produto = cardapio[saborSelecionado];
+
+    let precoBase = parsePreco(produto.preco);
+    
+    // Only apply adjustments if the item is a pizza (i.e. size/border selectors are visible)
+    const selecoesPizza = document.getElementById('selecoes-pizza');
+    if (selecoesPizza && selecoesPizza.style.display !== 'none') {
+        const tamanhoEl = document.querySelector('input[name="tamanho"]:checked');
+        const bordaEl = document.querySelector('input[name="borda"]:checked');
+        
+        let ajuste = 0;
+        if (tamanhoEl) {
+            if (tamanhoEl.value === 'pequena') ajuste -= 10;
+            else if (tamanhoEl.value === 'grande') ajuste += 15;
+        }
+        if (bordaEl) {
+            if (bordaEl.value === 'catupiry' || bordaEl.value === 'cheddar') ajuste += 8;
+            else if (bordaEl.value === 'chocolate') ajuste += 10;
+        }
+        precoBase += ajuste;
+    }
+
+    const prodPrecoEl = document.getElementById('prod-preco');
+    if (prodPrecoEl) {
+        prodPrecoEl.innerText = formatPreco(precoBase);
+    }
+}
+
