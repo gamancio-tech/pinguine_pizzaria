@@ -186,3 +186,379 @@
         padding: 1.5rem 1.2rem;
     }
 }
+
+/* ========================================================
+   CARTÃO FIDELIDADE - STYLE MODULE
+   ======================================================== */
+
+#tab-fidelidade {
+    background: linear-gradient(135deg, #181818 0%, #2a1c06 100%);
+    border: 2px solid transparent;
+    border-radius: 1.5rem;
+    background-image: linear-gradient(135deg, #181818 0%, #2a1c06 100%), linear-gradient(135deg, #f3ce98, #c8900a);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(243, 206, 152, 0.15);
+    color: #f5f5f5;
+}
+
+.loyalty-card-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.loyalty-card-title {
+    font-family: 'Architects Daughter', cursive, sans-serif;
+    font-size: 1.8rem;
+    color: var(--cor6);
+    text-align: center;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.loyalty-card-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* Stats Grid */
+.loyalty-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.loyalty-stat-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(243, 206, 152, 0.2);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.loyalty-stat-box:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.loyalty-stat-value {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cor6);
+    margin-bottom: 0.25rem;
+}
+
+.loyalty-stat-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Stamps Grid */
+.stamps-grid-container {
+    margin-bottom: 2rem;
+}
+
+.stamps-grid-container h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.5rem;
+}
+
+.selos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.selo {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active Stamps: gold gradient with glow */
+.selo.ativo {
+    background: radial-gradient(circle, #ffe6b3 0%, #d49a2a 70%, #996600 100%);
+    box-shadow: 0 0 12px rgba(243, 206, 152, 0.6), inset 0 2px 4px rgba(255,255,255,0.6);
+    border: 2px solid #ffd700;
+    cursor: default;
+    animation: sealGlow 2s infinite ease-in-out;
+}
+
+.selo.ativo .selo-pinguim {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+}
+
+/* Empty Stamps: ghost stamps */
+.selo.vazio {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+}
+
+.selo.vazio .selo-pinguim-ghost {
+    font-size: 1.6rem;
+    opacity: 0.15;
+    filter: grayscale(100%);
+}
+
+.selo.vazio .selo-number {
+    position: absolute;
+    bottom: 5%;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 700;
+}
+
+/* Milestones Container */
+.milestones-container {
+    margin-bottom: 2.5rem;
+}
+
+.milestones-container h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.5rem;
+}
+
+.progress-bar-track {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    position: relative;
+    margin: 2.5rem 0.5rem 1.5rem 0.5rem;
+}
+
+.progress-bar-fill-fidelidade {
+    height: 100%;
+    background: linear-gradient(to right, #ffd700, #ff8c00);
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.8s ease-out;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.milestone-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+.milestone-marker.marker-7 { left: 28%; }  /* 7 / 25 = 28% */
+.milestone-marker.marker-15 { left: 60%; } /* 15 / 25 = 60% */
+.milestone-marker.marker-25 { left: 100%; } /* 25 / 25 = 100% */
+
+.marker-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #222;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.milestone-marker.alcançado .marker-dot {
+    background: #ff8c00;
+    border-color: #ffd700;
+    box-shadow: 0 0 8px #ffd700;
+    transform: scale(1.2);
+}
+
+.marker-text {
+    position: absolute;
+    bottom: 22px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #aaa;
+    white-space: nowrap;
+    background: rgba(0,0,0,0.7);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.milestone-marker.alcançado .marker-text {
+    color: #332200;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    box-shadow: 0 2px 8px rgba(255, 140, 0, 0.4);
+    border-color: transparent;
+}
+
+/* Rewards Section */
+.rewards-section {
+    margin-bottom: 2rem;
+}
+
+.rewards-section h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.5rem;
+}
+
+.rewards-empty {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 0.75rem;
+    border: 1px dashed rgba(255,255,255,0.05);
+}
+
+.reward-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1.2rem;
+    margin-bottom: 0.75rem;
+    animation: rewardPulse 3s infinite alternate;
+}
+
+.reward-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.reward-icon {
+    font-size: 1.8rem;
+}
+
+.reward-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+.reward-date {
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 0.15rem;
+}
+
+.btn-usar-premio {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border: none;
+    border-radius: 0.5rem;
+    color: #332200;
+    font-weight: 800;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-usar-premio:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.5);
+}
+
+/* Actions Section */
+.loyalty-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn-loyalty-cardapio {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(243, 206, 152, 0.4);
+    color: var(--cor6);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.btn-loyalty-cardapio:hover {
+    background: var(--cor6);
+    color: #332200;
+    border-color: var(--cor6);
+    box-shadow: 0 0 20px rgba(243, 206, 152, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes sealGlow {
+    0% {
+        box-shadow: 0 0 12px rgba(243, 206, 152, 0.5), inset 0 2px 4px rgba(255,255,255,0.6);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 18px rgba(243, 206, 152, 0.8), inset 0 2px 4px rgba(255,255,255,0.8);
+        transform: scale(1.04);
+    }
+    100% {
+        box-shadow: 0 0 12px rgba(243, 206, 152, 0.5), inset 0 2px 4px rgba(255,255,255,0.6);
+        transform: scale(1);
+    }
+}
+
+@keyframes rewardPulse {
+    0% {
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+    100% {
+        border-color: rgba(243, 206, 152, 0.25);
+        box-shadow: 0 0 8px rgba(243, 206, 152, 0.08);
+    }
+}
+
+@media (max-width: 600px) {
+    .loyalty-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    .selos-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+    }
+    .selo.ativo .selo-pinguim {
+        font-size: 1.5rem;
+    }
+    .selo.vazio .selo-pinguim-ghost {
+        font-size: 1.2rem;
+    }
+    .progress-bar-track {
+        margin: 2.5rem 0.2rem 1.5rem 0.2rem;
+    }
+    .marker-text {
+        font-size: 0.65rem;
+    }
+}

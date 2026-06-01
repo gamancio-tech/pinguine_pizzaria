@@ -46,8 +46,6 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 ## Problemas
 
-- Ordem invertida das pizzas de banana com canela e romeu e julieta, além disso, mudar a descrição e titulo da pizza de paçoca
-
 ## A fazer
 - Adicionar o menu
 
@@ -59,6 +57,10 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - Melhorar e padronizar os ícones - fazendo
 
-- Roleta da pizza / cartão fidelidade
+- Roleta da pizza / cartão fidelidade - fazendo
 
 - Melhorar design main
+
+- feedback 
+
+- favoritar 

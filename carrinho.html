@@ -233,12 +233,88 @@
             orders.push(novoPedido);
             localStorage.setItem('activeOrders', JSON.stringify(orders));
 
+            // =====================
+            // Fidelidade Pinguine Logic
+            // =====================
+            let fidelidade = JSON.parse(localStorage.getItem('fidelidadePinguine') || 'null');
+            if (!fidelidade) {
+                fidelidade = {
+                    totalGasto: 0,
+                    selos: 0,
+                    selosHistorico: [],
+                    tickets: 0,
+                    premiosDisponiveis: [],
+                    premiosResgatados: []
+                };
+            }
+
+            const newStampsCount = Math.floor(total / 69.90);
+            let alertMsg = '✅ Pedido realizado com sucesso! Acompanhe o status na sua página de perfil.';
+            
+            if (newStampsCount > 0) {
+                fidelidade.totalGasto += total;
+                fidelidade.selosHistorico.push({
+                    data: new Date().toLocaleDateString('pt-BR'),
+                    qtd: newStampsCount,
+                    valorPedido: total
+                });
+
+                let currentSelos = fidelidade.selos;
+                let stampsToAdd = newStampsCount;
+                let rewardsWon = [];
+
+                while (stampsToAdd > 0) {
+                    currentSelos++;
+                    stampsToAdd--;
+
+                    if (currentSelos === 7) {
+                        const rId = 'desconto_7_selos_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+                        fidelidade.premiosDisponiveis.push({
+                            id: rId,
+                            tipo: 'desconto_10',
+                            nome: 'Desconto de R$ 10,00 (7 Selos 🐧)',
+                            dataGanhado: new Date().toLocaleDateString('pt-BR')
+                        });
+                        rewardsWon.push('🎁 Desconto de R$ 10,00 (7 Selos)');
+                    }
+                    if (currentSelos === 15) {
+                        fidelidade.tickets += 1;
+                        const rId = 'ticket_15_selos_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+                        fidelidade.premiosDisponiveis.push({
+                            id: rId,
+                            tipo: 'ticket_roleta',
+                            nome: '1 Ticket da Roleta Pinguine (15 Selos 🐧)',
+                            dataGanhado: new Date().toLocaleDateString('pt-BR')
+                        });
+                        rewardsWon.push('🎡 1 Ticket da Roleta Pinguine (15 Selos)');
+                    }
+                    if (currentSelos === 25) {
+                        const rId = 'combo_25_selos_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+                        fidelidade.premiosDisponiveis.push({
+                            id: rId,
+                            tipo: 'combo_gratis',
+                            nome: 'Combo Grátis: Pizza Média + Bebida (25 Selos 🐧)',
+                            dataGanhado: new Date().toLocaleDateString('pt-BR')
+                        });
+                        rewardsWon.push('🍕 Combo Grátis: Pizza Média + Bebida (25 Selos)');
+                        currentSelos = 0; // Reset card
+                    }
+                }
+                fidelidade.selos = currentSelos;
+                localStorage.setItem('fidelidadePinguine', JSON.stringify(fidelidade));
+
+                alertMsg = `✅ Pedido realizado com sucesso!\n\n🐧 Você ganhou +${newStampsCount} Selo(s) Pinguine!\nVocê tem agora ${currentSelos}/25 selos no seu cartão fidelidade.`;
+                if (rewardsWon.length > 0) {
+                    alertMsg += `\n\n🎉 Parabéns! Você desbloqueou as seguintes recompensas:\n${rewardsWon.join('\n')}`;
+                }
+            }
+
             // Clear cart
             localStorage.setItem('carrinho', JSON.stringify([]));
             carrinho = [];
 
             // Redirect to profile
-            alert('✅ Pedido realizado com sucesso! Acompanhe o status na sua página de perfil.');
+            alert(alertMsg);
             window.location.href = 'perfil.html';
         }
 
