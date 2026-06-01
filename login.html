@@ -96,7 +96,9 @@
                 };
                 localStorage.setItem('userProfile', JSON.stringify(profile));
                 localStorage.setItem('userLoggedIn', 'true');
-                window.location.href = 'main.html';
+                const redirectUrl = sessionStorage.getItem('redirectAfterLogin') || 'main.html';
+                sessionStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectUrl;
             } else {
                 alert('Email não corresponde ao perfil salvo. Crie uma nova conta ou use o email correto.');
             }
@@ -124,7 +126,9 @@
             };
             localStorage.setItem('userProfile', JSON.stringify(profile));
             localStorage.setItem('userLoggedIn', 'true');
-            window.location.href = 'main.html';
+            const redirectUrl = sessionStorage.getItem('redirectAfterLogin') || 'main.html';
+            sessionStorage.removeItem('redirectAfterLogin');
+            window.location.href = redirectUrl;
         }
 
         // Navigation links

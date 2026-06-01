@@ -63,4 +63,4 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - feedback 
 
-- favoritar 
+- favoritar
