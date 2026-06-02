@@ -45,8 +45,7 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 
 ## Problemas
-- imagem da sprite não aparecendo nas promoções
-
+- verificar o fluxo da roleta
 ## A fazer
 - Adicionar o menu
 
@@ -56,12 +55,10 @@ Este projeto é composto por páginas estáticas que simulam um site de pizzaria
 
 - Perfil admin
 
-- Mudar imagens da pizzas para png - quase
-
 - Melhorar e padronizar os ícones - fazendo
 
-- Fazer o pesquisar funcionar - fazendo
-
-- Roleta da pizza / cartão fidelidade
+- Roleta da pizza / cartão fidelidade - fazendo
 
 - Melhorar design main
+
+- feedback 

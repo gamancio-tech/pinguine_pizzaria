@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/jpeg">
     <title>Pinguine Pizzaria</title>
@@ -11,25 +15,170 @@
     <div id="site-header"></div>
     <div id="site-nav"></div>
     <main>
-        <section>
-            <img src="images/propaganda_marca.jpg" class="grande" alt="Pinguine Pizzaria">
-            <h1><img src="icons/estrela.png" class="icon" alt=""> Mais pedidas</h1>
-            <a href="produto.html?sabor=calabresa"><article>
-                <h2>Pizza de Calabresa</h2>
-                <p>Deliciosa pizza de calabresa com queijo e molho especial.</p>
-                <img src="images/cardapio_pizza/pizza1.png" alt="Pizza de Calabresa">
-            </article></a>
-            <a href="produto.html?sabor=margherita"><article>
-                <h2>Pizza de Margherita</h2>
-                <p>Clássica pizza de margherita com tomate, mussarela e manjericão.</p>
-                <img src="images/cardapio_pizza/pizza2.png" alt="Pizza de Margherita">
-            </article></a>
-            <a href="produto.html?sabor=frango_catupiry"><article>
-                <h2>Pizza de Frango com Catupiry</h2>
-                <p>Saborosa pizza de frango com catupiry e temperos especiais.</p>
-                <img src="images/cardapio_pizza/pizza3.png" alt="Pizza de Frango com Catupiry">
-            </article></a>    
-        </section>  
+        <img src="images/propaganda_marca.png" class="grande" alt="Pinguine Pizzaria">
+        
+        <!-- Seção da Roleta Pinguine -->
+        <section id="roleta-pinguine" class="roleta-hero">
+            <div class="roleta-particles" id="roleta-particles"></div>
+            
+            <div class="roleta-section-header">
+                <h1>🎡 Roleta Pinguine</h1>
+                <p class="roleta-subtitle">Gire a roleta premiada e ganhe recompensas exclusivas instantaneamente!</p>
+                <div class="roleta-info-badge">1 Giro = 1 Ticket Pinguine 🎟️</div>
+            </div>
+
+            <div class="roleta-main-container">
+                <div class="roleta-outer-ring">
+                    <div class="roleta-wrapper">
+                        <!-- Canvas da Roleta -->
+                        <canvas id="roleta-canvas" width="450" height="450"></canvas>
+                        
+                        <!-- Logo Central que Gira junto -->
+                        <div class="roleta-logo-center-container" id="roleta-logo-container">
+                            <img src="images/logo.jpg" class="roleta-logo-center" alt="Logo Pinguine">
+                        </div>
+                        
+                        <!-- Ponteiro Dourado Estático -->
+                        <div class="roleta-pointer">
+                            <svg viewBox="0 0 50 30" width="50" height="30">
+                                <path d="M 0 15 L 40 0 L 40 30 Z" fill="#ffd700" stroke="#b8860b" stroke-width="2" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.5))"/>
+                            </svg>
+                        </div>
+
+                        <!-- Bloqueios (Overlays) -->
+                        <!-- 1. Não Logado -->
+                        <div class="roleta-overlay locked" id="overlay-unauthenticated" style="display: none;">
+                            <div class="lock-content">
+                                <span class="lock-icon">🔒</span>
+                                <h3>Área Restrita</h3>
+                                <p>Faça login para poder participar e girar a roleta premiada!</p>
+                                <button class="btn-roleta-unlock" onclick="window.location.href='login.html?redirect=main.html'">Fazer Login</button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Sem Tickets -->
+                        <div class="roleta-overlay locked" id="overlay-no-tickets" style="display: none;">
+                            <div class="lock-content">
+                                <span class="lock-icon">🎟️</span>
+                                <h3>Sem Tickets</h3>
+                                <p>Você não possui tickets da roleta. Consiga tickets através do nosso Cartão Fidelidade!</p>
+                                <button class="btn-roleta-unlock" onclick="abrirModalFidelidadeInfo()">Como Conseguir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Painel de Ação da Roleta -->
+                <div class="roleta-control-panel">
+                    <div class="ticket-counter-display">
+                        Seus Tickets: <span id="roleta-tickets-count">0</span> 🎟️
+                    </div>
+                    <button id="btn-girar-roleta" class="btn-girar-pulsando" onclick="tentarGirarRoleta()">
+                        <span>Girar Roleta! 🎡</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+      
+    
+        <!-- Seção Campeões de Venda Premium -->
+        <section class="campeoes-venda-section">
+            <div class="campeoes-header">
+                <span class="campeoes-crown"><i class="fa-solid fa-crown"></i></span>
+                <h2 class="campeoes-title">✦ CAMPEÕES <span class="dourado">DE VENDA</span> ✦</h2>
+                <p class="campeoes-subtitle">Os sabores que conquistaram nossos clientes</p>
+            </div>
+
+            <div class="campeoes-cards-container">
+                <!-- Card 1: Pinguim Imperial -->
+                <div class="campeao-card glass-card card-left">
+                    <div class="card-badge special-badge">
+                        <span class="badge-text-overlay">ESPECIAL</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="images/sobremesas/sobremesa10.png" alt="Pinguim Imperial">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pinguim Imperial</h3>
+                        <h4 class="card-sabor-subtitle">A Especialidade da Casa</h4>
+                        <p>Nossa criação mais famosa e a queridinha dos clientes. Sorvete de creme, caldas de chocolate ao leite e chocolate branco sobre nossa massa artesanal quentinha. Uma explosão de sabor!</p>
+                        <div class="card-rating-row">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="rating-tag">MAIS PEDIDA</span>
+                        </div>
+                        <a href="produto.html?sabor=pinguim_imperial" class="btn-pedir-agora">
+                            <i class="fa-solid fa-pizza-slice"></i> PEDIR AGORA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pizza à Moda da Casa -->
+                <div class="campeao-card glass-card card-right">
+                    <div class="card-badge favorite-badge badge-right">
+                        <span class="badge-text-overlay">FAVORITA</span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="images/cardapio_pizza/pizza11.png" alt="Pizza à Moda da Casa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pizza à Moda da Casa</h3>
+                        <h4 class="card-sabor-subtitle">Um Clássico que Nunca Sai de Moda</h4>
+                        <p>A combinação perfeita de muçarela, presunto, calabresa, cebola, ovos, pimentão e azeitonas pretas. Ingredientes selecionados e muito sabor em cada fatia.</p>
+                        <div class="card-rating-row">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="rating-tag">CAMPEÃ DE SABOR</span>
+                        </div>
+                        <a href="produto.html?sabor=moda_casa" class="btn-pedir-agora">
+                            <i class="fa-solid fa-pizza-slice"></i> PEDIR AGORA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Aurora Boreal -->
+                <div class="campeao-card glass-card card-left">
+                    <div id="aurora-boreal-campeoes-venda" class="card-image-wrapper">
+                        <img src="images/bebidas/bebida3.png" alt="Aurora Boreal">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aurora Boreal</h3>
+                        <h4 class="card-sabor-subtitle">Refrescância em Cada Cor</h4>
+                        <p>Um maravilhoso drink em camadas coloridas imitando a aurora boreal, com xaropes artesanais de frutas, suco cítrico e água com gás.</p>
+                        <div class="card-rating-row">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="rating-tag">DRINK EXCLUSIVO</span>
+                        </div>
+                        <a href="produto.html?sabor=aurora_boreal" class="btn-pedir-agora">
+                            <i class="fa-solid fa-pizza-slice"></i> PEDIR AGORA
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campeoes-footer">
+                <div class="footer-badge"><span class="footer-badge-icon"><i class="fa-solid fa-leaf"></i></span> INGREDIENTES SELECIONADOS</div>
+                <div class="footer-badge"><span class="footer-badge-icon"><i class="fa-solid fa-fire"></i></span> MASSA ARTESANAL</div>
+                <div class="footer-badge"><span class="footer-badge-icon"><i class="fa-solid fa-heart"></i></span> FEITO COM PAIXÃO</div>
+            </div>
+        </section> 
+        
         <section id="promocoes">
             <h1><img src="icons/etiqueta-de-desconto.png" class="icon" alt=""> Promocoes</h1>
             <a href="promo.html?id=combo_familia"><article>
@@ -53,9 +202,56 @@
                 <img src="images/Promocao_do_dia.png" alt="">
             </article></a>
         </section>
-      
     </main>
     <div id="site-footer"></div>
+
+    <!-- MODAIS DA ROLETA -->
+    
+    <!-- Modal 1: Informações do Cartão Fidelidade (Sem Ticket) -->
+    <div id="modal-roleta-fidelidade" class="modal-overlay modal-centered" style="display:none;">
+        <div class="modal-container" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2>Como Conseguir Tickets?</h2>
+                <button class="modal-btn-fechar" onclick="fecharModalRoletaFidelidade()">X</button>
+            </div>
+            <div class="modal-body" style="text-align: center; font-family: 'Outfit', sans-serif;">
+                <p style="font-size: 1.1rem; color: #555;">Os tickets para a roleta são recompensas exclusivas do nosso <strong>Cartão Fidelidade Pinguine</strong>! 🐧</p>
+                <div style="background: #fff8eb; border: 1px solid #ffd384; border-radius: 0.75rem; padding: 1.2rem; margin: 1.5rem 0; text-align: left;">
+                    <h3 style="color: var(--cor4); margin-top: 0; font-size: 1.05rem;">Regras de Acúmulo:</h3>
+                    <ul style="padding-left: 1.2rem; margin-bottom: 0; color: #555; line-height: 1.5;">
+                        <li>A cada <strong>R$ 69,90</strong> gastos em pedidos você ganha <strong>1 Selo Pinguine</strong>.</li>
+                        <li>Ao completar <strong>15 Selos</strong> no seu cartão, você ganha automaticamente <strong>1 Ticket da Roleta</strong>!</li>
+                    </ul>
+                </div>
+                <p style="font-size: 0.95rem; color: #666;">Acesse seu perfil para conferir seu saldo atual de selos.</p>
+            </div>
+            <div class="modal-footer" style="display: flex; gap: 0.75rem; justify-content: center; padding-top: 0;">
+                <button class="avatar-upload-btn" style="margin: 0; min-width: 160px; background-color: var(--cor4); color: white;" onclick="window.location.href='perfil.html'">Ir para Meu Perfil 👤</button>
+                <button class="avatar-upload-btn" style="margin: 0; min-width: 100px; background-color: var(--cor9); color: white;" onclick="fecharModalRoletaFidelidade()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Anúncio do Prêmio Ganho -->
+    <div id="modal-roleta-premio" class="modal-overlay modal-centered" style="display:none;">
+        <div class="modal-container" style="max-width: 480px; text-align: center; background: radial-gradient(circle, #2d1f00 0%, #151515 100%); border: 3px solid #ffd700; color: white;">
+            <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <h2 style="color: var(--cor6); font-family: 'Architects Daughter', cursive; margin: 0 auto; font-size: 1.8rem; text-shadow: 0 0 10px rgba(255,215,0,0.5);">🎉 PARABÉNS! 🎉</h2>
+            </div>
+            <div class="modal-body" style="padding: 2rem 1.5rem;">
+                <div class="premio-confeite" style="font-size: 4rem; animation: floatAnim 2s infinite ease-in-out;" id="premio-ganho-icon">🍕</div>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: #fff; margin: 1rem 0 0.5rem 0;" id="premio-ganho-nome">Pizza de Calabresa Grátis</h3>
+                <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6;">Você ganhou esta recompensa na Roleta Pinguine! Ela já foi salva e adicionada no seu perfil na aba de recompensas.</p>
+                <div style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(243,206,152,0.4); border-radius: 0.5rem; padding: 0.75rem; margin-top: 1.5rem; font-size: 0.85rem; color: #aaa;">
+                    Código da Sorte: <strong style="color: var(--cor6);" id="premio-ganho-codigo">PNG-XXXXX</strong>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid rgba(255,255,255,0.1); justify-content: center; padding-top: 1.5rem;">
+                <button class="btn-usar-premio" style="font-size: 1.1rem; padding: 0.75rem 2.5rem; border-radius: 2rem;" onclick="fecharModalRoletaPremio()">Garantir Prêmio! 🌟</button>
+            </div>
+        </div>
+    </div>
     <script src="components/loader.js"></script>
+    <script src="roleta.js"></script>
 </body>
 </html>

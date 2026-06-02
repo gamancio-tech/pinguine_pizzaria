@@ -137,10 +137,10 @@ const cardapio = {
         descricao: "Fatias de banana fresca com açúcar e canela salpicados, gratinadas com muçarela ou leite condensado.",
         imagem: "images/sobremesas/sobremesa4.png"
     },
-    nutella_morango: {
-        titulo: "Pizza de Nutella com Morango",
+    pacoca: {
+        titulo: "Pizza de Paçoca",
         preco: "R$ 66,00",
-        descricao: "Generosa camada do autêntico creme de avelã Nutella, coberta com morangos frescos selecionados e açúcar de confeiteiro.",
+        descricao: "Uma combinação irresistível de creme especial e generosas camadas de paçoca esfarelada, criando o equilíbrio perfeito entre cremosidade e o sabor marcante do amendoim. Uma sobremesa que conquista a cada fatia.",
         imagem: "images/sobremesas/sobremesa5.png"
     },
     prestigio: {
@@ -334,14 +334,18 @@ if (saborSelecionado && cardapio[saborSelecionado]) {
         'margherita_veggie', 'milho_catupiry', 'escarola', 'berinjela',
         'funghi', 'vegetariana_completa',
         'brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela',
-        'nutella_morango', 'prestigio'
+        'pacoca', 'prestigio',
+        'oreo', 'ninho', 'glaciar_frutas', 'pinguim_imperial', 'avalanche_ovomaltine', 'alasca_tostado'
     ];
     const selecoesPizza = document.getElementById('selecoes-pizza');
     if (selecoesPizza && pizzaKeys.includes(saborSelecionado)) {
         selecoesPizza.style.display = 'block';
 
         // Sweet pizza border options restriction
-        const sweetPizzaKeys = ['brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela', 'nutella_morango', 'prestigio'];
+        const sweetPizzaKeys = [
+            'brigadeiro', 'morango_chocolate', 'romeu_julieta', 'banana_canela', 'pacoca', 'prestigio',
+            'oreo', 'ninho', 'glaciar_frutas', 'pinguim_imperial', 'avalanche_ovomaltine', 'alasca_tostado'
+        ];
         if (sweetPizzaKeys.includes(saborSelecionado)) {
             const catupiryCard = document.querySelector('input[name="borda"][value="catupiry"]');
             const cheddarCard = document.querySelector('input[name="borda"][value="cheddar"]');
@@ -533,7 +537,7 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
             morango_chocolate: 'menu_sobremesa.html#sobremesas-doces',
             romeu_julieta: 'menu_sobremesa.html#sobremesas-doces',
             banana_canela: 'menu_sobremesa.html#sobremesas-doces',
-            nutella_morango: 'menu_sobremesa.html#sobremesas-doces',
+            pacoca: 'menu_sobremesa.html#sobremesas-doces',
             prestigio: 'menu_sobremesa.html#sobremesas-doces',
             oreo: 'menu_sobremesa.html#paraiso-gelado',
             ninho: 'menu_sobremesa.html#paraiso-gelado',
@@ -612,7 +616,7 @@ if (qntdElement && btnMenos && btnMais && btnAdicionarCarrinho) {
                 morango_chocolate: 'cardapio.html#sobremesas-doces',
                 romeu_julieta: 'cardapio.html#sobremesas-doces',
                 banana_canela: 'cardapio.html#sobremesas-doces',
-                nutella_morango: 'cardapio.html#sobremesas-doces',
+                pacoca: 'cardapio.html#sobremesas-doces',
                 prestigio: 'cardapio.html#sobremesas-doces',
                 // Paraíso Gelado
                 oreo: 'cardapio.html#paraiso-gelado',
