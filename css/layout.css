@@ -26,6 +26,18 @@ img.icon {
     height: auto;
 }
 
+.icon-promocoes {
+    width: 35px;
+    height: auto;
+    transform: translateY(40%)translateX(25%);
+} 
+
+.icon-logo {
+    width: 35px;
+    height: auto;
+    transform: translateY(40%);
+}
+
 .logo {
     margin-right: 50px; /* distância entre a logo e o login */
     width: 60px;
@@ -144,6 +156,7 @@ footer a:hover {
 .item4 {
     grid-column: 2; 
     grid-row: 4;
+    margin-left: -20px;
 }
 
 .item5 {

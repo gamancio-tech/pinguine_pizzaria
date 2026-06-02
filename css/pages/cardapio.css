@@ -147,7 +147,9 @@ main.bebida_menu {
     transform: rotate(-1.5deg);
     transition: transform 0.2s ease;
 }
-
+#paraiso-gelado .category-banner{
+    text-align: center;
+}
 .sobremesa_menu .category-banner.yellow-label:hover {
     transform: rotate(0.5deg) scale(1.03);
 }
@@ -221,6 +223,7 @@ main.bebida_menu {
 }
 
 .promocoes-banner-introducao {
+    padding: 0;
     text-align: center;
     margin-bottom: 2rem;
 }
