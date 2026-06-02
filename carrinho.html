@@ -16,13 +16,12 @@
         <!-- Header -->
 
         <div style="display:flex; align-items:center; justify-content:space-between; padding: 1.5rem 0 0.5rem 0;">
-            <a id="back-link" href="main.html"
-                style="font-size:1.5rem; font-weight:bold; color:var(--cor4); text-decoration:none; display: flex; align-items: center; gap: 0.5rem;">&larr; Voltar</a>
-            <img src="images/logo.jpg" alt="Logo Pinguine" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--cor6);">
+            <button class="btn-voltar" onclick="if(document.referrer) { window.history.back(); } else { window.location.href = 'main.html'; }"><a href="javascript:void(0)"><img class="icon" src="icons/seta-circulo-esquerda.png" alt="Voltar"></a></button>
+            <img src="images/logo.jpg" alt="Logo Pinguine" style="width: 5rem; height: auto; border-radius: 50%; object-fit: cover; border: 2px solid var(--cor6);">
         </div>
 
         <!-- Banner Hero Principal -->
-        <div class="hero-banner" style="width: 100%; min-height: 140px;">
+        <div class="hero-banner" style="width: 100%; min-height: 140px; margin: 0 auto 2rem auto; border-radius: 12px; position: relative; overflow: hidden;">
             <div class="hero-glow-overlay"></div>
             <div class="hero-text-premium">
                 <div class="hero-brand">Pinguine</div>

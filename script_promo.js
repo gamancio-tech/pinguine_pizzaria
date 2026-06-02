@@ -21,9 +21,10 @@ const cardapio = {
     funghi: { titulo: "Pizza de Funghi", preco: "R$ 72,00", imagem: "images/cardapio_pizza/pizza17.png" },
     vegetariana_completa: { titulo: "Pizza Vegetariana Completa", preco: "R$ 74,00", imagem: "images/cardapio_pizza/pizza18.png" },
     coca_cola: { titulo: "Coca-Cola", preco: "R$ 11,50", imagem: "images/bebidas/bebida7.png" },
+    bebida19: { titulo: "Coca-Cola 2L", preco: "R$ 19,90", imagem: "images/bebidas/bebida19.png" },
     guarana_antarctica: { titulo: "Guarana Antarctica", preco: "R$ 10,90", imagem: "images/bebidas/bebida8.png" },
     pepsi: { titulo: "Pepsi", preco: "R$ 10,90", imagem: "images/bebidas/bebida9.png" },
-    sprite: { titulo: "Sprite", preco: "R$ 10,90", imagem: "images/bebidas/bebida10.jpg" }
+    sprite: { titulo: "Sprite", preco: "R$ 10,90", imagem: "images/bebidas/bebida10.png" }
 };
 
 // ============================================
@@ -61,12 +62,12 @@ const promocoes = {
             }
         ],
         itens_fixos: [
-            { titulo: "Refrigerante 2L", descricao: "Gratis no combo!", imagem: "images/bebidas/bebida7.png" }
+            { titulo: "Refrigerante 2L", descricao: "Gratis no combo!", imagem: "images/bebidas/bebida19.png" }
         ]
     },
     casal_apaixonado: {
         titulo: "Pinguim Casal Apaixonado",
-        descricao: "Uma pizza media com ate dois sabores a sua escolha e dois refrigerantes lata de 350ml por um preco especial.",
+        descricao: "Uma pizza média (com até dois sabores à sua escolha) e dois refrigerantes lata de 350ml por um preço especial.",
         preco: "R$ 79,90",
         imagem: "images/promocao_casal.png",
         badge: "Mais Pedido",
@@ -106,7 +107,7 @@ const promocoes = {
             }
         ],
         itens_fixos: [
-            { titulo: "Borda Recheada de Chocolate", descricao: "Brinde especial!", imagem: "images/sobremesas/sobremesa1.png" }
+            { titulo: "Borda Recheada de Chocolate", descricao: "Brinde especial!", imagem: "images/borda_chocolate.png" }
         ]
     },
     quarta_gelada: {

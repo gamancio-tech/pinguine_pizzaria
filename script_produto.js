@@ -233,6 +233,12 @@ const cardapio = {
         descricao: "Refrigerante Coca-Cola Lata 350ml trincando de gelada.",
         imagem: "images/bebidas/bebida7.png"
     },
+    bebida19: {
+        titulo: "Coca-Cola 2L",
+        preco: "R$ 19,90",
+        descricao: "Coca-Cola 2 litros bem gelada, perfeita para acompanhar o seu combo.",
+        imagem: "images/bebidas/bebida19.png"
+    },
     guarana_antarctica: {
         titulo: "Guaraná Antarctica",
         preco: "R$ 10,90",

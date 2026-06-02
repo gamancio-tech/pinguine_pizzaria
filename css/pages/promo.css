@@ -1,7 +1,7 @@
 /* === pages/promo.css === */
 
 .promo-body {
-    background-image: url('../../images/fundo_madeira.jpeg');
+    background-image: url('../../images/fundo_madeira.png');
     background-size: cover;
     min-height: 100vh;
 }
