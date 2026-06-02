@@ -26,18 +26,36 @@ img.icon {
     height: auto;
 }
 
-.icon-promocoes {
-    width: 35px;
-    height: auto;
-    transform: translateY(40%)translateX(25%);
-} 
-
-.icon-logo {
-    width: 35px;
-    height: auto;
-    transform: translateY(40%);
+.sobremesa_menu .category-banner img.icon-promocoes {
+    width: 4rem !important;
+    height: auto !important;
 }
 
+.sobremesa_menu .category-banner img.icon-logo {
+    width: 5rem !important;
+    height: auto !important;
+}
+
+.sobremesa_menu .category-banner img.icon-logo {
+    width: 4.5rem !important;
+    height: auto !important;
+    border-radius: 0 !important;
+}
+.sobremesa_menu .category-banner img.icon-pizza {
+    width: 4rem !important;
+    height: auto !important;
+    margin-right: 1.5rem !important;
+}
+.sobremesa_menu .category-banner img.icon-chocolate {
+    width: 3.5rem !important;
+    height: auto !important;
+    margin-left: -2rem !important; 
+}
+.sobremesa_menu .category-banner img.icon-sorvete {
+    width: 3.5rem !important;
+    height: auto !important;
+    transform: translateX(3.5rem);
+}
 .logo {
     margin-right: 50px; /* distância entre a logo e o login */
     width: 60px;
